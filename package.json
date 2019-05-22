@@ -1,0 +1,17 @@
+{
+	"name": "learn",
+	"version": "1.0.0",
+	"author": "phoebus",
+	"description": "development exercise",
+	"scripts": {
+		"start": "docsify serve --open 4000",
+		"summary": "book sm"
+	},
+	"dependencies": {
+		"docsify": "^4.8.6"
+	},
+	"keywords": ["develop", "learn"],
+	"devDependencies": {
+		"gitbook-summary": "^1.2.2"
+	}
+}
