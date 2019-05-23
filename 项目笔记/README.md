@@ -1,4 +1,4 @@
-<center><h2>项目笔记<h2></center>
+<center><h2>项目笔记说明<h2></center>
 
 #### 项目说明
 
