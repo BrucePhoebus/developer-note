@@ -4,7 +4,7 @@
 	"author": "phoebus",
 	"description": "development exercise",
 	"scripts": {
-		"start": "docsify serve --open 4000",
+		"start": "docsify serve --open",
 		"summary": "book sm"
 	},
 	"dependencies": {
