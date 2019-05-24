@@ -66,39 +66,64 @@ cnpm install xxx
 
 	服务器很容易创建，客户端可以使用浏览器或终端发送 HTTP 请求，服务器接收请求后返回响应数据
 
+#### 使用nodejs
+
+1. 写个hello world程序
+
+*hello.js*
+
+```js
+function hello() {
+    console.log('Hello World!');
+}
+hello();
+```
+
+2. cmd下执行
+
+```bash
+node hello.js
+```
+
+> 淳朴的JavaScript程序，直接使用nodejs环境运行（跟chrome浏览器运行一样，都是使用V8引擎环境）
+
 #### 创建 Node.js 应用
 
-1. 步骤一、引入 required 模块
+1. 步骤一、使用`required`引入`http`模块
 
 	使用 require 指令来载入 http 模块，并将实例化的 HTTP 赋值给变量 http
-	 http = require("http");
+	http = require("http");
+
+> require函数用于在当前模块中加载和使用别的模块。同样的，也可以通过相对路径引入其他文件
 
 2. 步骤二、创建服务器（完成一个可以工作的 HTTP 服务器）
 
-	接下来我们使用 http.createServer() 方法创建服务器，并使用 listen 方法绑定 8888 端口。 函数通过 request, response 参数来接收和响应数据
+	接下来使用 http.createServer() 方法创建服务器，并使用 listen 方法绑定 8888 端口。 函数通过 request, response 参数来接收和响应数据
 	```js
 	var http = require('http');
 	http.createServer(function (request, response) {     
-	// 发送 HTTP 头部    
-	// HTTP 状态值: 200 : OK    
-	// 内容类型: text/plain     
-	response.writeHead(200, {'Content-Type': 'text/plain'});
-		
-	// 发送响应数据 "Hello World"     
-	response.end('Hello World\n');
+		// 发送 HTTP 头部    
+		// HTTP 状态值: 200 : OK    
+		// 内容类型: text/plain     
+		response.writeHead(200, {'Content-Type': 'text/plain'});
+			
+		// 发送响应数据 "Hello World"     
+		response.end('Hello World\n');
 	}).listen(8888);
+
 	// 终端打印如下信息
 	console.log('Server running at http://127.0.0.1:8888/');
 	```
+
 3. 执行
 
-	node server.js //Server running at http://127.0.0.1:8888/
+	node server.js	// Server running at http://127.0.0.1:8888/
 
 4. 浏览器访问
 
 	打开浏览器访问 http://127.0.0.1:8888/，可以看到一个写着 "Hello World"的网页
 
-5. 分析Node.js 的 HTTP 服务器
+5. 分析`nodejs`的`HTTP`服务器
 
 	第一行请求（require）Node.js 自带的 http 模块，并且把它赋值给 http 变量。
 	接下来我们调用 http 模块提供的函数： createServer 。这个函数会返回 一个对象，这个对象有一个叫做 listen 的方法，这个方法有一个数值参数， 指定这个 HTTP 服务器监听的端口号。
@@ -119,20 +144,16 @@ cnpm install xxx
 
 4. 卸载已安装到全局的 node/npm
 
-	查看已经安装在全局的模块，以便删除这些全局模块后再按照不同的 node 版本重新进行全局安装
-		npm ls -g --depth=0
-	删除全局 node_modules 目录
-		rm -rf /usr/local/lib/node_modules
-	删除 node
-		rm /usr/local/bin/node
-	删除全局 node 模块注册的软链
-		cd /usr/local/bin && ls -l | grep "../lib/node_modules/" | awk '{print $9}'| xargs rm
+	直接找到安装`nodejs`程序的位置：`nodejs\node_global\node_modules`，直接删掉该文件夹
 
 5. 查看安装信息
 
 	查看所有全局安装的模块
+
 		npm list -g
+
 	查看某个模块的版本号
+
 		npm list grunt
 
 6. 安装模块测试
@@ -146,7 +167,7 @@ cnpm install xxx
 
 8. 运行node.js文件
 
-	node *.js
+	node *.js	// *.js为项目入口启动文件
 
 9. 运行服务
 
@@ -155,8 +176,78 @@ cnpm install xxx
 10. 关闭NodeJS服务
 
 	1、直接关掉CMD
+
 	2、通过管理员运行CMD，找到对应运行端口（关掉node.exe）
+
 		netstat –ano;
 		tasklist|findstr "18552"
 		taskkill /f /t /im node.exe; 
+
+## nodejs模块知识
+
+	编写稍大一点的程序时一般都会将代码模块化。在NodeJS中，一般将代码合理拆分到不同的JS文件中，每一个文件就是一个模块，而文件路径就是模块名。
+
+#### require
+
+	require函数用于在当前模块中加载和使用别的模块，传入一个模块名，返回一个模块导出对象。模块名可使用相对路径（以./开头），或者是绝对路径（以/或C:之类的盘符开头）。另外，模块名中的.js扩展名可以省略。
+
+*参考示例*
+
+```js
+// foo1至foo4中保存的是同一个模块的导出对象。
+var foo1 = require('./foo');
+var foo2 = require('./foo.js');
+var foo3 = require('/home/user/foo');
+var foo4 = require('/home/user/foo.js');
+
+// 导入json文件
+var data = require('./data.json');
+
+// 导入外部插件
+var http = require('http');
+```
+
+#### module
+
+	exports对象是当前模块的导出对象，用于导出模块公有方法和属性。别的模块通过 require 函数使用当前模块时得到的就是当前模块的exports对象。
+
+*参考示例*
+
+```js
+// 模块默认导出对象被替换为一个函数
+exports.hello = function () {
+    console.log('Hello World!');
+};
+```
+
+> 可以通过exports将函数、对象、变量暴露出去，当该文件被使用`require`引入别的文件中时，别的文件可以直接使用该函数、对象或变量（可以暴露多个），相当于代码复用，或数据文件独立出来，或配置文件分开放置
+
+*常用示例*
+
+```js
+// 模块默认导出对象被替换为一个函数
+exercise = {
+	hello: '',
+	hello: function () {
+    	console.log('Hello World!');
+	},
+	sayHello: function() {
+    	console.log('Hello World!');
+	}
+}
+
+exports.exercise = exercise;
+```
+
+> 一般我们通过创建个变量，通过这样封装好我们想要的功能，然后将整个对象暴露出去。当然这是非常简单的实现，复杂的实现可以参考jquery等库的封装方式。
+
+###### 模块初始化
+
+	这样一个模块中的JS代码仅在模块第一次被使用时执行一次，并在执行过程中初始化模块的导出对象。之后，缓存起来的导出对象被重复利用。
+
+*主模块*
+
+	一般来说，每个项目都有一个主模块，然后有N多个子模块，一般主模块是作为程序的入口或首加载时使用，多个子模块通过`require`方式导入主模块，子模块之间又互相引用，这样实现项目启动
+
+
 
