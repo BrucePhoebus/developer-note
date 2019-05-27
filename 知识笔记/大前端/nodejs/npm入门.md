@@ -4,12 +4,11 @@
 
 ## 概述
 
-	类似Maven
-	Node.js預設的、以JavaScript編寫的軟體套件管理系統
-	NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署上的很多问题
+	`nodejs`預設的、以JavaScript編寫的軟體套件管理系統
+	`npm`是随同nodejs一起安装的包管理工具（类似Maven），能解决NodeJS代码部署上的很多问题
 	每个项目有各自的npm，都有各自面向项目的npm库
 	一般项目创建的都是面向自己的库（或叫本地库（不完全））
-	全局库类似npm，npm是jsvascript开发的库，又管理其他库，属于全局库，管理本地库
+	全局库类似npm，npm是`JavaScript`开发的库，又管理其他库，属于全局库，管理本地库
 
 ## 三个独立的部分组成
 
@@ -40,6 +39,15 @@
 2. 打开`cmd`输入：`npm install -g cnpm --registry=https://registry.npm.taobao.org`
 
 	这样就连上了淘宝镜像，之后使用淘宝镜像下载包都用`cnpm`命令
+
+```bash
+# 例如npm命令
+npm install express
+# 也可以写成
+cnpm install express
+```
+
+> 只是引用的依赖库
 
 3. 使用`cnpm`
 
@@ -85,7 +93,7 @@ cnpm install xxx
 
 	npm install npm -g
 
-4. 配置npm的全局模块的存放路径以及cache的路径
+4. 配置`npm`的全局模块的存放路径以及`cache`的路径
 
 	设置全局安装目录，用于解决全局变量存储和缓存位置问题
 
@@ -93,6 +101,8 @@ cnpm install xxx
 
 	npm config set prefix "D:\Develop\developTool\nodejs\node_global"
 	npm config set cache "D:\Develop\developTool\nodejs\node_cache"
+
+> 注：具体路径根据各自需求选择，一般都放在nodejs软件安装的路径下
 
 ## package.json
 
@@ -176,8 +186,8 @@ npm install express --save-dev
 
 > 注：上面代码表示单独安装express模块
 
-	--save参数表示将该模块写入dependencies属性
-	--save-dev表示将该模块写入devDependencies属性
+	--save参数表示将该模块写入 dependencies 属性
+	--save-dev表示将该模块写入 devDependencies 属性
 
 #### Package.json结构说明
 

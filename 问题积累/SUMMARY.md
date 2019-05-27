@@ -11,5 +11,6 @@
 
 	* [npm使用问题](问题积累/工具问题/nodejs/npm使用问题.md)
 
+* WebStorm
 
-
+	* [npm使用问题](问题积累/工具问题/WebStorm/WebStorm设置问题.md)
