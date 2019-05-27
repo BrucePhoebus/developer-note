@@ -138,7 +138,7 @@ cnpm install xxx
 ###### 也可以使用npm init命令自动生成
 
 ```bash
-$ npm init
+npm init
 ```
 
 ```json
@@ -160,16 +160,18 @@ $ npm init
 1.  有了package.json文件，直接使用npm install命令，就会在当前目录中安装所需要的模块
 
 ```bash
-$ npm install	// 生成node_modules文件
+npm install	// 生成node_modules文件
 ```
+
+> 注：这个生成node_modules文件存放项目的所有依赖包，项目所有的开发环境依赖和生产环境依赖都会下载到本地放入这个文件夹中，是根据package.json文件的配置执行的，仅存于开发本地，可以实现快速开发（开发人员把源代码拉下来，直接执行`npm install`后就可以运行项目进行开发了）
 
 2. 如果一个模块不在package.json文件之中，可以单独安装这个模块，并使用相应的参数，将其写入package.json文件之中
 
 *例如*
 
 ```bash
-$ npm install express --save
-$ npm install express --save-dev
+npm install express --save
+npm install express --save-dev
 ```
 
 > 注：上面代码表示单独安装express模块
@@ -179,7 +181,7 @@ $ npm install express --save-dev
 
 #### Package.json结构说明
 
-> 
+> 这是对项目的依赖管理文件，还有部分信息说明，包括项目简述、项目名、版本号、生成环境依赖、开发环境依赖、项目入口等等，npm可以通过这个文件方便对项目进行开发管理
 
 ###### scripts字段
 

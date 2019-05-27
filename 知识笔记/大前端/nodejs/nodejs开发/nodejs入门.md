@@ -186,6 +186,9 @@ node hello.js
 ## nodejs模块知识
 
 	编写稍大一点的程序时一般都会将代码模块化。在NodeJS中，一般将代码合理拆分到不同的JS文件中，每一个文件就是一个模块，而文件路径就是模块名。
+	`nodejs`是一个JS脚本解析器，任何操作系统下安装`nodejs`本质上做的事情都是把nodejs执行程序复制到一个目录，然后保证这个目录在系统PATH环境变量下，以便终端下可以使用node命令。
+	终端下直接输入node命令可进入命令交互模式，很适合用来测试一些JS代码片段，比如正则表达式。
+	`nodejs`使用cmd模块系统，主模块作为程序入口点，所有模块在执行过程中只初始化一次。
 
 #### require
 
@@ -247,7 +250,46 @@ exports.exercise = exercise;
 
 *主模块*
 
-	一般来说，每个项目都有一个主模块，然后有N多个子模块，一般主模块是作为程序的入口或首加载时使用，多个子模块通过`require`方式导入主模块，子模块之间又互相引用，这样实现项目启动
+	一般来说，每个项目都有一个主模块`main.js`，然后有N多个子模块，一般主模块是作为程序的入口或首加载时使用，多个子模块通过`require`方式导入主模块，子模块之间又互相引用，这样实现项目启动
 
+*运行项目*
 
+> node main.js
 
+*参考示例*
+
+1. 项目目录
+
+> - /hello/
+>    - util/
+>        - counter.js
+>    - main.js
+
+2. 代码
+
+`counter.js`
+
+```js
+var i = 0;
+
+function count() {
+	return ++i;
+}
+
+exports.count = count;
+```
+
+> 这个模块内部定义了一个私有变量`i`，并实现exports对象导出一个公有方法`count`
+
+`main.js`
+
+```js
+var counter1 = require('./util/counter');
+var counter2 = require('./util/counter');
+
+console.log(counter1.count());	// 1
+console.log(counter2.count());	// 2
+console.log(counter2.count());	// 3
+```
+
+> 这里可以看出`counter.js`并没有因为被require了两次而初始化两次
