@@ -22,26 +22,26 @@
 
 1. node
 
-	安装最新即可
+	[安装](https://nodejs.org/en/download/)最新即可，安装完就可以使用包管理命令了`npm`
+	具体参考[nodejs入门](知识笔记/大前端/nodejs/nodejs开发/nodejs入门.md)
 
 2. docsify
 
-	基于这个框架写的
+	基于这个框架写的，需要安装`docsify-cli`才能使用`docsify`命令
+
+```bash
+npm i docsify-cli -g
+```
 
 3. 安装好依赖
 
-	npm
+> `npm i`
 
 4. 项目启动
 
-	看看`启动项目`和`package.json`文件
+> 看看`启动项目`和`package.json`文件
 
 ## 启动项目
-
-```bash
-# install dependencies
-npm install 或 cnpm install
-```
 
 ```bash
 # start project
