@@ -21,3 +21,34 @@
 ![](../../images/indexjsTypeSetting.png)
 
 > 同理，如果其他类型的文件被误添加到别的文件识别中了也可以通过这样移除
+
+## 快捷操作
+
+#### 快捷操作
+
+	代码提示快捷操作
+
+###### WebStorm自定义代码模板
+
+	这里可以可以自定义代码模版，即设置代码提示快捷生成完整功能模版代码
+
+> 位置：setting --> Editor --> Live Templates
+
+1. `fori`
+
+```bash
+for($VARKIND$ $INDEX$ = 0; $INDEX$ < $LIMIT$; $INDEX$++) {
+  $END$
+}
+```
+
+2. `log`
+
+```bash
+console.log($msg$);
+$end$
+```
+
+> 注：要设置使用的文件类型，例如：JavaScript、vue，设置方式：在配置的时候下发会有个提示：define，点击选择允许使用的文件类型
+
+#### 快捷键
