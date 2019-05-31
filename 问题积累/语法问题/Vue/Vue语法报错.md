@@ -17,7 +17,7 @@ v-for="(item, index) in items"
 :key="index"
 ```
 
-#### 子组件修改父组件的值
+#### 子组件修改父组件的值警告
 
 > [官方](https://cn.vuejs.org/v2/guide/reactivity.html)建议子组件不用随意修改父组件的值
 
@@ -81,4 +81,56 @@ watch: {
 
 *解决方法1*：
 
-> 直接
+> 直接创建组件abc，然后导入父组件，通过components中挂载到父组件实例中，然后直接标签使用<a-b-c></a-b-c>，其中参数直接在这个标签中传入，子组件通过props接收父类参数，并且通过this.$emit()实现回调（官网也推荐这样使用）
+
+*参考实现*
+
+```html
+<div>
+	<a-b-c :isShow="isShowABC" @emitFunc="emitFunc"></a-b-c>
+</div>
+```
+
+```js
+import abc from ''./abc;
+
+components: {
+	abc
+},
+data() {
+	return {
+		// 传递给子类的参数
+		isShowABC: true,
+	}
+},
+methods: {
+	// 这样实现回调
+	emitFunc('子类传过来的参数') {
+		// todo 这里实现回调内容
+	}
+}
+```
+
+*子类接收*
+
+```js
+props: {
+	// 子类传过来的参数在props属性中接收，并且是双向绑定的
+	isShow: {
+		type: Boolean,
+		default: false
+	}
+},
+data() {
+	return: {
+		isShowABC: false	// 通过子类自定义自己变量中转父类传过来的变量
+	}
+},
+watch: {
+	// 这样实现可以避免双向绑定修改到父类的变量
+	isShow(newVal) {
+		this.isShowABC = newVal;
+	}
+}
+```
+
