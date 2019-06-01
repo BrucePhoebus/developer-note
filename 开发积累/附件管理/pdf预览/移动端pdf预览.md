@@ -6,6 +6,14 @@
 
 > 通过$mount()创建实例挂载到引用组件中实现组件封装
 
+**插件安装**
+
+	因为使用的是pdfjs-dist插件，所以使用之前需要安装
+
+```bash
+cnpm install -S pdfjs-dist
+```
+
 **index.js**
 
 ```js
