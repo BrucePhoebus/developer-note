@@ -89,7 +89,7 @@ docsify serve
 
 	直接写文件就可以了，然后通过在现在目录的文件中添加文件引用
 
-> [markdown语法](/项目笔记/markdown/markdown语法说明.md)
+> [markdown语法](/知识笔记/工具/markdown/markdown语法说明.md)
 
 *目录参考写法*
 

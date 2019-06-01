@@ -18,10 +18,6 @@
 	- [mysql部署](开发积累/docker/mysql部署.md)
 	- [部署JavaWeb项目](开发积累/docker/部署JavaWeb项目.md)
 
-* markdown
-
-	- [markdown语法说明](开发积累/markdown/markdown语法说明.md)
-
 * 正则表达式
 
 	- [正则匹配项目积累](开发积累/正则表达式/正则匹配项目积累.md)
@@ -29,6 +25,6 @@
 
 * 其他功能
 
-	- [base64转二维码](开发积累/其他功能/二维码处理/base64转二维码.md)
+	- [url转二维码](开发积累/其他功能/二维码处理/url转二维码.md)
 
 
