@@ -38,3 +38,46 @@ docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
 |-e|配置账号密码|
 |-d|创建一个实例|
 |mysql: tag|使用实例以及版本号|
+
+## mysql操作
+
+1. 运行容器：并设置mysql账号密码
+
+	docker run --name mysql80 -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql
+	docker run --name mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql
+
+2. 进入容器
+
+	docker exec -it f3a14e928610 /bin/bash
+
+3. 登陆mysql
+
+	mysql -u root -p root
+
+4. 修改mysql登陆密码
+
+	ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
+
+5. 进入mysql容器
+
+	docker exec -it mysql bash
+
+6. 登陆mysql
+
+	mysql -u root -p
+	password: root
+
+7. 修改账户密码加密规则并更新用户密码
+
+	ALTER USER 'root'@'%' IDENTIFIED BY 'root' PASSWORD EXPIRE NEVER;
+	ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
+	FLUSH PRIVILEGES;   #刷新权限
+
+8. 远程登陆mysql
+	
+	mysql -h 118.24.70.239 -u root -p
+	password: root
+
+9. 检查数据库
+	
+	show databases;
