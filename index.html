@@ -7,14 +7,14 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" href="public/themes/vue.css">
 </head>
 <body>
   <div id="app">Please wait...</div>
   <script>
     window.$docsify = {
       auto2top: true, // 当路线改变时，滚动到屏幕的顶部。
-    //   coverpage: true, // 激活封面功能。如果为true，则会从中加载_coverpage.md。
+      coverpage: true, // 激活封面功能。如果为true，则会从中加载_coverpage.md。
       executeScript: true, // 执行页面上的脚本。只解析第一个脚本标记（演示）。如果存在Vue，则默认开启。
       loadSidebar: 'SUMMARY.md', // loadSidebar如果为true，则默认从_sidebar.md文件加载边栏，否则从指定的路径加载。
       loadNavbar: true,// loadNavbar如果为true，则从_navbar.md文件加载navbar ，否则从指定的路径加载。
@@ -22,7 +22,7 @@
       maxLevel: 4,//最大的内容表级别。
       subMaxLevel: 3,//在自定义边栏中添加目录（TOC）。
       ga: 'UA-106147152-1',
-      name: 'Phoebus的笔记',
+    //   name: 'Phoebus的笔记',
 	  subMaxLevel: 3,
 	  homepage: 'README.md',
       search: {
@@ -38,9 +38,9 @@
       ]
     }
   </script>
-  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
-  <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
-  <script src="//unpkg.com/docsify/lib/plugins/ga.min.js"></script>
+  <script src="public/docsify.min.js"></script>
+  <script src="public/plugins/search.min.js"></script>
+  <script src="public/plugins/ga.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-markdown.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-nginx.min.js"></script>
