@@ -1,18 +1,21 @@
 {
-	"name": "learn",
-	"version": "1.0.0",
-	"author": "phoebus",
-	"description": "development exercise",
-	"scripts": {
-		"start": "docsify serve --open",
-		"summary": "book sm"
-	},
-	"dependencies": {
-		"docsify": "^4.8.6",
-		"docsify-cli": "^4.3.0"
-	},
-	"keywords": ["develop", "learn"],
-	"devDependencies": {
-		"gitbook-summary": "^1.2.2"
-	}
+  "name": "learn",
+  "version": "1.0.0",
+  "author": "phoebus",
+  "description": "development exercise",
+  "scripts": {
+    "start": "docsify serve --open",
+    "summary": "book sm"
+  },
+  "dependencies": {
+    "docsify": "^4.8.6",
+    "docsify-cli": "^4.3.0"
+  },
+  "keywords": [
+    "develop",
+    "learn"
+  ],
+  "devDependencies": {
+    "gitbook-summary": "^1.2.2"
+  }
 }
