@@ -272,4 +272,9 @@ var domNodes = Array.prototype.slice.call(document.getElementsByTagName("*"));
 ## JavaScript高级
 
 
+## JavaScript规范
+
+#### ES6
+
+
 
