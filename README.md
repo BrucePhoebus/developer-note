@@ -6,6 +6,8 @@
 
 #### 关于作者
 
+> [GitHub](https://github.com/BrucePhoebus)
+
 #### 写当前项目的原因
 
 1. 系统性的积累自己的知识
