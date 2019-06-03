@@ -13,4 +13,4 @@
 
 * IDE
 
-	* [npm使用问题](问题积累/工具问题/IDE/WebStorm设置问题.md)
+	* [IntelliJ问题](问题积累/工具问题/IDE/IntelliJ问题.md)
