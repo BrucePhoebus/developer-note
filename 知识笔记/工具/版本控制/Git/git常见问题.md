@@ -11,9 +11,9 @@
 **例如**
 
 ```java
-public class Demo{
-	public static void main(String[] args){
-		System.out.println("hello");
+public class demo{
+	public static void main(string[] args){
+		system.out.println("hello");
 	}
 }
 ```
@@ -21,9 +21,9 @@ public class Demo{
 *同学a*
 
 ```java
-public class Demo{
-	public static void main(String[] args){
-		System.out.println("hi");
+public class demo{
+	public static void main(string[] args){
+		system.out.println("hi");
 	}
 }
 ```
@@ -31,9 +31,9 @@ public class Demo{
 *同学b*
 
 ```java
-public class Demo{
-	public static void main(String[] args){
-		System.out.println("你好");
+public class demo{
+	public static void main(string[] args){
+		system.out.println("你好");
 	}
 }
 ```
@@ -76,9 +76,6 @@ public class Demo{
 
 > 所有合并冲突出现的问题很多，各种各样，一不小心就挂了，如果是很容易恢复或只是自己的代码出现问题还好，但是多人项目开发经常会出现多个人改一处地方的问题，也就会影响到别人，这样我们就需要慎言慎行了，严格遵守良好的合并冲突习惯。
 	
-
-
-
 ## 环境问题
 
 #### git转义字符错误解决
