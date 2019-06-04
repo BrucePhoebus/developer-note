@@ -128,3 +128,42 @@ public class demo{
 	6、git push origin the_branch //用回滚后的本地分支重新建立远程分支
 	
 	7、git push origin :the_branch_backup //如果前面都成功了，删除这个备份分支
+
+#### 提交大文件出错
+
+	有时候我们会想提交一些学习文件到github上去分享(其实这并不合适，感觉如果想要可以保存云端连接或创建分支)，这个时候如果上传的文件太大，本地提交会卡住push不了或被拒绝，这个时候我们已经commit过了，想要删除文件不上传还是比较麻烦，因为已经跟我们其他文件内容修改一起了，当然官网有给解决方案
+
+> [官网解决办法](https://help.github.com/enterprise/11.10.340/user/articles/working-with-large-files)
+
+* 需要从Git中完全删除大文件
+
+	如果文件是随最近的提交一起添加的，则可以删除该文件并修改提交。
+
+```git
+git rm --cached giant_file
+＃ 将我们的巨型文件暂存，然后将其留在磁盘上
+
+git commit --amend -CHEAD 
+＃ 用我们的更改修改先前的提交
+＃ 简单地进行新提交将无法正常工作，因为我们需要从已删除的历史记录中删除该文件
+
+git push 
+＃ 推送我们重写的小型提交
+```
+
+* 从存储库历史记录中远程删除大文件
+
+	最快的方法是使用BFG（更快，更简单的替代方案git-filter-branch）
+
+```git
+bfg --strip-blobs-大于50M #Git 
+# 历史记录将被清除 - 我们最近提交的文件将不会被触及
+```
+
+* 常规文件提交
+
+	我们从本地提交文件到github，一旦文件大一些，很容易因为网络问题或上传中断或文件过大等问题出现一系列的问题，而且这问题还比较难解决，所以建议直接在github上直接进行文件上传或创建个分支进行操作
+
+> 建议直接在github上直接上传文件
+
+![github上传文件位置](../../../images/版本控制/git_commit_file.png)
