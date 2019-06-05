@@ -2,9 +2,6 @@
 ### Example user template template
 ### Example user template
 
-*
-!.gitignore
-
 # IntelliJ project files
 .idea
 .idea/
