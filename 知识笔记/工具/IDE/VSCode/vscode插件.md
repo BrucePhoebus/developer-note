@@ -14,15 +14,15 @@
 
 1. 找到对应位置，一般第一次创建一个token
 
-![](../../../images/IDE/github_token.png)
+![](../../../images/IDE/IntelliJ/github_token.png)
 
 2. 然后输入当前token名(我是用作vscode配置同步的，所以就叫vscode)和权限(gist)，然后点击确认创建
 
-![](../../../images/IDE/github_create_token.png)
+![](../../../images/IDE/IntelliJ/github_create_token.png)
 
 3. 然后复制创建的有gist权限的token
 
-![](../../../images/IDE/copy_github_token.png)
+![](../../../images/IDE/IntelliJ/copy_github_token.png)
 
 
 ###### 安装配置Settings Sync
@@ -50,7 +50,7 @@
 
 1. 删除vscode的GitHub gist
 
-![](../../../images/IDE/vscode_gist.png)
+![](../../../images/IDE/IntelliJ/vscode_gist.png)
 
 2. 找到C:\Users\16343\AppData\Roaming\Code\User\syncLocalSettings.json的token值，删了
 
