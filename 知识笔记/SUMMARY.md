@@ -52,3 +52,7 @@
 	* 操作系统
 
 		- [CMD操作](知识笔记/工具/操作系统/CMD操作.md)
+		
+	* IDE
+
+		- [vscode插件](知识笔记/工具/IDE/VSCode/vscode插件.md)
