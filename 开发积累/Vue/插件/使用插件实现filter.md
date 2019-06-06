@@ -49,7 +49,6 @@ export default {
 }
 ```
 
-
 **main.js**
 
 	在 main.js 中引入我们的 filters 方法表示全局注册
