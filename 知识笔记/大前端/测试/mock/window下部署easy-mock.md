@@ -12,12 +12,37 @@
 
 #### 安装配置mongodb
 
-> [参考](https://blog.csdn.net/heshushun/article/details/77776706)
+> [参考步骤](https://blog.csdn.net/heshushun/article/details/77776706)
 
+**验证运行成功**
+
+```js
+访问地址：http://localhost:27017
+```
 
 #### 安装Redis
 
 > [参考](http://www.runoob.com/redis/redis-install.html)
+
+> [Redis-x64-3.2.100.zip](https://github.com/microsoftarchive/redis/releases/download/win-3.2.100/Redis-x64-3.2.100.zip)
+
+	加压缩找个位置放在即可
+
+**根目录下执行运行命令**
+
+```bash
+redis-server.exe redis.windows.conf
+```
+
+**验证安装**
+
+```bash
+redis-cli.exe -h 127.0.0.1 -p 6379
+
+set myKey abc
+
+get myKey
+```
 
 ## 安装easy-mock
 
@@ -51,3 +76,8 @@ npm run build
 cross-env NODE_ENV=production pm2 start app.js
 ```
 
+**访问地址**
+
+http://localhost:7300/
+
+> 具体路径等配置要改可以修改config/default.json文件
