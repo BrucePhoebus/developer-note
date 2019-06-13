@@ -81,3 +81,5 @@ cross-env NODE_ENV=production pm2 start app.js
 http://localhost:7300/
 
 > 具体路径等配置要改可以修改config/default.json文件
+
+!> 注：运行easy-mock项目要保证mongodb数据库和redis服务可用且配置与easy-mock项目配置对应(一般不用改)
