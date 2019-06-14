@@ -76,6 +76,14 @@ npm run build
 cross-env NODE_ENV=production pm2 start app.js
 ```
 
+> 注：PM2可能存在运行失败问题
+
+	operation not permitted, open 'C:\Users\16343\.pm2\pm2.log'
+
+**解决**
+
+	授权，可以选择管理员打开cmd运行
+
 **访问地址**
 
 http://localhost:7300/
