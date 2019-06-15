@@ -8,6 +8,8 @@
 
 			- [CSS3新特性](知识笔记/大前端/基础/HTML+CSS/CSS3新特性.md)
 			- [CSS常用效果](知识笔记/大前端/基础/HTML+CSS/CSS常用效果.md)
+
+			- [HTML5新特性](知识笔记/大前端/基础/HTML+CSS/HTML5新特性.md)
 			- [HTML常用效果](知识笔记/大前端/基础/HTML+CSS/HTML常用效果.md)
 
 		* 正则表达式

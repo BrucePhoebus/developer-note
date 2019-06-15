@@ -132,7 +132,7 @@ background-image:-webkit-gradient(linear,0% 0%,100% 0%,from(#2A8BBE),to(#FE280E)
 
 8. CSS3制作特效
 
-1. Transition 对象变换时的过渡效果
+* Transition 对象变换时的过渡效果
 
 |属性|说明|
 |:---:|:---:|
@@ -141,6 +141,99 @@ background-image:-webkit-gradient(linear,0% 0%,100% 0%,from(#2A8BBE),to(#FE280E)
 |transition-timing-function|过渡的类型|
 |transition-delay|延迟过渡的时间|
 
+**缩写**
 
+```css
+transition:border-color .5s ease-in .1s, background-color .5s ease-in .1s, color .5s ease-in .1s;
+```
 
+**相当于**
+
+```css
+transition-property:border-color, background-color, color;
+transition-duration:.5s, .5s, .5s;
+transition-timing-function:ease-in, ease-in, ease-in;
+transition-delay:.1s, .1s, .1s;
+```
+
+**demo**
+
+```html
+<style type="text/css">
+    .main{
+        position: relative;
+        margin: 0 auto;
+        height:45px;
+        width: 300px;
+        background-color:lightgray;
+        transition:background-color .6s ease-in 0s;
+    }
+    .main:hover{
+        background-color: dimgray;
+    }
+</style>
+<div class="main"></div>
+```
+
+* Transforms 2D转换效果
+
+	主要包括 translate（水平移动）、rotate（旋转）、scale（伸缩）、skew（倾斜）
+
+```html
+<style type="text/css">
+    .main{
+        position: relative;
+        top:200px;
+        margin: 0 auto;
+        height:45px;
+        width: 300px;
+        background-color:dimgray;
+        transition:transform .6s ease 0s;
+        transform: rotate(0deg);
+    }
+    .main:hover{
+        transform: rotate(180deg);
+    }
+</style>
+ <div class="main"></div>
+```
+
+* Animation动画特效
+
+	就是动画效果
+
+```html
+<style type="text/css">
+    .main{
+        position: absolute;
+        left: 10px;
+        top:200px;
+        height:45px;
+        width: 300px;
+        background-color:cadetblue;
+    }
+    .main:hover{
+        animation: animations 2s ease 0s;
+    }
+    @keyframes animations {
+        0%{
+            left: 10px;
+            opacity: 1;
+        }
+        50%,70%{
+            left: 50%;
+            opacity: .7;
+            margin-left:-150px;
+        }
+        100%{
+            left: 100%;
+            opacity: 0;
+            margin-left:-300px;
+        }
+    }
+</style>
+ <div class="main"></div>
+```
+
+> CSS3的这些新特性无疑让网页的视觉效果拥有了更好更方便的展示，当然问题也是存在的，一些浏览器可能存在不兼容的问题
 
