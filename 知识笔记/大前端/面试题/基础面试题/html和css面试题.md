@@ -23,17 +23,7 @@
 
 > [参考各大公司样式初始化代码](http://www.cnblogs.com/duke-cui/articles/4779442.html)
 
-#### CSS3新特性
-
-1. CSS3的选择器
-
-* E:last-child 匹配父元素的最后一个子元素E。
-* E:nth-child(n)匹配父元素的第n个子元素E。 
-* E:nth-last-child(n) CSS3 匹配父元素的倒数第n个子元素E。
-
-2. @Font-face 特性
-
-> [参考](https://blog.csdn.net/lxcao/article/details/52797914)
+#### 
 
 ## HTML常见面试题
 
