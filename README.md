@@ -6,7 +6,7 @@
 
 #### 关于作者
 
-> [GitHub](https://github.com/BrucePhoebus)
+> [GitHub](https://github.com/BrucePhoebus) | [作者简历](项目笔记/关于作者/我的简历.md)
 
 #### 写当前项目的原因
 
