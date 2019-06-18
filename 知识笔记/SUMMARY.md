@@ -4,6 +4,11 @@
 
 	* 基础
 
+		* JavaScript
+
+			- [JavaScript基础](知识笔记/大前端/基础/JavaScript/JavaScript基础.md)
+			- [JavaScript对象属性底层原理](知识笔记/大前端/基础/JavaScript/JavaScript对象属性底层原理.md)
+
 		* HTML+CSS
 
 			- [CSS3新特性](知识笔记/大前端/基础/HTML+CSS/CSS3新特性.md)
