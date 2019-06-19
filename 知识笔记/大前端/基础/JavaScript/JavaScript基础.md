@@ -31,3 +31,5 @@
 	* Data
 
 7. Symbol (ECMAScript 6 新定义，实例是唯一且不可改变的)
+
+####

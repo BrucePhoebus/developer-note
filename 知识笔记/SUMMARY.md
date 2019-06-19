@@ -7,6 +7,7 @@
 		* JavaScript
 
 			- [JavaScript基础](知识笔记/大前端/基础/JavaScript/JavaScript基础.md)
+			- [JavaScript细节知识](知识笔记/大前端/基础/JavaScript/JavaScript细节知识.md)
 			
 			- [js之装箱拆箱](知识笔记/大前端/基础/JavaScript/js之装箱拆箱.md)
 			- [JavaScript判断数据类型](知识笔记/大前端/基础/JavaScript/JavaScript判断数据类型.md)
