@@ -84,6 +84,8 @@
 
 		- [git基础和使用](知识笔记/工具/版本控制/Git/git基础和使用.md)
 		- [git-flow项目管理规范](知识笔记/工具/版本控制/Git/git-flow项目管理规范.md)
+		
+		- [git-github项目重命名](知识笔记/工具/版本控制/github项目重命名.md)
 
 	* docker
 

@@ -86,7 +86,7 @@ docker ps -l
 
 	载入镜像
 	
-	![载入镜像命令](../../../images/docker/docker_run.png)
+	![载入镜像命令](../../../images/工具/docker/docker_run.png)
 
 6. docker start 
 
@@ -116,13 +116,13 @@ docker ps -l
 
 例如：
 
-![port指定运行](../../../images/docker/docker_post.png)
+![port指定运行](../../../images/工具/docker/docker_post.png)
 
 12. docker top
 
 	查看容器内部运行的进程
 
-	![查看容器进程](../../../images/docker/docker_top.png)
+	![查看容器进程](../../../images/工具/docker/docker_top.png)
 
 13. docker inspect 
 
@@ -134,7 +134,7 @@ docker ps -l
 
 	列出本地主机上的镜像
 
-	![查看所有镜像](../../../images/docker/docker_images.png)
+	![查看所有镜像](../../../images/工具/docker/docker_images.png)
 
 *参数说明*
 
@@ -158,7 +158,7 @@ docker search httpd
 
 *寻找适合的httpd的镜像*
 
-![查看所有镜像](../../../images/docker/docker_images.png)
+![查看所有镜像](../../../images/工具/docker/docker_images.png)
 
 *参数说明*
 

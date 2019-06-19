@@ -2,7 +2,7 @@
 
 	公司项目开发使用git-flow项目管理规范
 
-![GIT-FLOW](../../../images/IDE/版本控制/GIT-FLOW.jpg)
+![GIT-FLOW](../../../images/工具/IDE/版本控制/GIT-FLOW.jpg)
 
 ## 注意事项
 
@@ -51,18 +51,18 @@ git checkout -b  flatUI-test-fix/3030
 
 #### 使用tortoiseGit检出分支
 
-![tortoiseGit检出分支](../../../images/IDE/版本控制/tortoisegit检出.png)
-![tortoiseGit检出分支](../../../images/IDE/版本控制/tortoisegit检出2.png)
-![tortoiseGit检出分支](../../../images/IDE/版本控制/tortoisegit检出3.png)
+![tortoiseGit检出分支](../../../images/工具/IDE/版本控制/tortoisegit检出.png)
+![tortoiseGit检出分支](../../../images/工具/IDE/版本控制/tortoisegit检出2.png)
+![tortoiseGit检出分支](../../../images/工具/IDE/版本控制/tortoisegit检出3.png)
 
 #### 使用git bash检出分支
 
-![git检出分支](../../../images/IDE/版本控制/git检出分支.png)
+![git检出分支](../../../images/工具/IDE/版本控制/git检出分支.png)
 
 ###### 基于intellij idea检出分支
 
-![intellij idea检出分支](../../../images/IDE/版本控制/intellij-checkout.png)
-![intellij idea检出分支](../../../images/IDE/版本控制/intellij-checkout2.png)
+![intellij idea检出分支](../../../images/工具/IDE/版本控制/intellij-checkout.png)
+![intellij idea检出分支](../../../images/工具/IDE/版本控制/intellij-checkout2.png)
 
 
 ## 合并分支
@@ -78,14 +78,14 @@ git merge dev
 
 #### 使用intellij合并
 
-![intellij merge](../../../images/IDE/版本控制/intellij-merge.png)
+![intellij merge](../../../images/工具/IDE/版本控制/intellij-merge.png)
 
 #### 使用tortoise git合并
 
 **将dev分支合并到当前分支**
 
-![tortoiseGit合并](../../../images/IDE/版本控制/tortoiseGit-merge.png)
-![tortoiseGit合并2](../../../images/IDE/版本控制/tortoiseGit-merge2.png)
+![tortoiseGit合并](../../../images/工具/IDE/版本控制/tortoiseGit-merge.png)
+![tortoiseGit合并2](../../../images/工具/IDE/版本控制/tortoiseGit-merge2.png)
 
 ## 删除分支
 
