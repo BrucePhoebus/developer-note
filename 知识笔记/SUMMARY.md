@@ -10,6 +10,7 @@
 			
 			- [js之装箱拆箱](知识笔记/大前端/基础/JavaScript/js之装箱拆箱.md)
 			- [JavaScript判断数据类型](知识笔记/大前端/基础/JavaScript/JavaScript判断数据类型.md)
+			- [JavaScript变量存储](知识笔记/大前端/基础/JavaScript/JavaScript变量存储.md)
 
 			- [JavaScript对象属性底层原理](知识笔记/大前端/基础/JavaScript/JavaScript对象属性底层原理.md)
 
