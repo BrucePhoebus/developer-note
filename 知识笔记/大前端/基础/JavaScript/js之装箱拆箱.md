@@ -52,3 +52,6 @@ console.log( typeof objStr.valueOf() ); //string
 console.log( typeof objNum.toString() ); // string 
 console.log( typeof objStr.toString() ); // string
 ```
+
+## 隐式类型转换的场景以及转换原则
+

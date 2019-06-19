@@ -6,6 +6,13 @@
 
 **示例**
 
+```js
+typeof "John"                // 返回 string 
+typeof 3.14                  // 返回 number
+typeof false                 // 返回 boolean
+typeof [1,2,3,4]             // 返回 object
+typeof {name:'John', age:34} // 返回 object
+```
 
 ## instanceof操作符
 
