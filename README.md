@@ -37,6 +37,8 @@
 npm i docsify-cli -g
 ```
 
+> [docsify安装及基本使用](开发积累/docsify/docsify安装及基本使用.md)
+
 3. 安装好依赖
 
 > `npm i`
