@@ -10,6 +10,7 @@
 			- [JavaScript细节知识](知识笔记/大前端/基础/JavaScript/JavaScript细节知识.md)
 			- [JavaScript数值类型](知识笔记/大前端/基础/JavaScript/JavaScript数值类型.md)
 			
+			- [js对象之拷贝](知识笔记/大前端/基础/JavaScript/js对象之拷贝.md)
 			- [js之装箱拆箱](知识笔记/大前端/基础/JavaScript/js之装箱拆箱.md)
 			- [JavaScript判断数据类型](知识笔记/大前端/基础/JavaScript/JavaScript判断数据类型.md)
 			- [JavaScript变量存储](知识笔记/大前端/基础/JavaScript/JavaScript变量存储.md)
