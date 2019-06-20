@@ -15,6 +15,9 @@
 			- [JavaScript判断数据类型](知识笔记/大前端/基础/JavaScript/JavaScript判断数据类型.md)
 			- [JavaScript变量存储](知识笔记/大前端/基础/JavaScript/JavaScript变量存储.md)
 
+			- [认识原型、继承与原型链](知识笔记/大前端/基础/JavaScript/js原型与原型链/认识原型、继承与原型链.md)
+			- [js之继承](知识笔记/大前端/基础/JavaScript/js原型与原型链/js之继承.md)
+
 			- [JavaScript对象属性底层原理](知识笔记/大前端/基础/JavaScript/JavaScript对象属性底层原理.md)
 
 		* HTML+CSS
