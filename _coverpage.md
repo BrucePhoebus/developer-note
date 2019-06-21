@@ -4,7 +4,7 @@
 
 > A magical documentation site generator.
 
-[GitHub](https://github.com/BrucePhoebus/development-learning)
+[GitHub](https://github.com/BrucePhoebus/developer-note)
 
 <!-- 背景图片 -->
 

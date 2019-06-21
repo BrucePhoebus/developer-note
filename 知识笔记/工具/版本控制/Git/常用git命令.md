@@ -19,7 +19,7 @@ git log --oneline --decorate --all --graph
 *参考效果*
 
 ```bash
-*   a23bfff (HEAD -> master, origin/master) Merge branch 'master' of github.com:BrucePhoebus/development-learning
+*   a23bfff (HEAD -> master, origin/master) Merge branch 'master' of github.com:BrucePhoebus/developer-note
 |\
 | * 5d47da0 调整JavaScript
 | * ceea5cc 重命名数组文件
@@ -40,7 +40,7 @@ git log --oneline --decorate --all --graph
 * bc45375 完善项目基本说明和docsify-cli安装说明
 * 3eb9c84 完善项目介绍
 * c2f7082 去除更新记录文件
-*   3ae8e80 Merge branch 'master' of github.com:BrucePhoebus/development-learning
+*   3ae8e80 Merge branch 'master' of github.com:BrucePhoebus/developer-note
 |\
 | * ece4f65 完善nodejs，提交一个问题文件
 : //这里回车显示更多

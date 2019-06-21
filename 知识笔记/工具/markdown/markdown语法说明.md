@@ -133,7 +133,7 @@
 
 > 注：Markdown本身语法不支持链接在新页面中打开，如果想要在新页面中打开的话可以用html语言的a标签代替。
 
-<a href="https://brucephoebus.github.io/development-learning/#/" target="_blank">Phoebus的笔记</a>
+<a href="https://brucephoebus.github.io/developer-note/#/" target="_blank">Phoebus的笔记</a>
 
 7. 列表
 
