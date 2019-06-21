@@ -2,7 +2,7 @@
 
 > [参考掘金](https://juejin.im/post/5cef46226fb9a07eaf2b7516)
 
-1. 判断对象的数据类型
+## 判断对象的数据类型
 
 > [参考](知识笔记/大前端/基础/JavaScript/JavaScript判断数据类型.md)
 
@@ -21,7 +21,7 @@ console.log(isObject({})); // true
 
 !> 不推荐将这个函数用来检测可能会产生包装类型的基本数据类型上， 因为 call 会将第一个参数进行装箱操作
 
-2. 循环实现数组 map 方法
+## 循环实现数组 map 方法
 
 ```js
 const selfMap = function(fn, context) {
@@ -40,7 +40,7 @@ const selfMap = function(fn, context) {
 
 > 注： map 的第二个参数为第一个参数回调中的 this 指向， 如果第一个参数为箭头函数， 那设置第二个 this 会因为箭头函数的词法绑定而失效
 
-3. 使用 reduce 实现数组 map 方法
+## 使用 reduce 实现数组 map 方法
 
 ```js
 const selfMap2 = function(fn, context) {
@@ -51,7 +51,7 @@ const selfMap2 = function(fn, context) {
 }
 ```
 
-4. 循环实现数组 filter 方法
+ 循环实现数组 filter 方法
 
 ```js
 const selfFilter = function(fn, context) {
@@ -67,7 +67,7 @@ const selfFilter = function(fn, context) {
 }
 ```
 
-5. 使用 reduce 实现数组 filter 方法
+## 使用 reduce 实现数组 filter 方法
 
 ```js
 const selfFiler2 = function(fn, context) {
@@ -77,7 +77,7 @@ const selfFiler2 = function(fn, context) {
 }
 ```
 
-6. 循环实现数组的 some 方法
+## 循环实现数组的 some 方法
 
 	执行 some 方法的数组如果是一个空数组， 最终始终会返回 false， 而另一个数组的 every 方法中的数组如果是一个空数组， 会始终返回 true
 
@@ -102,7 +102,7 @@ const selfSome = function(fn, context) {
 }
 ```
 
-7. 循环实现数组的 reduce 方法
+## 循环实现数组的 reduce 方法
 
 ```js
 Array.prototype.selfReduce = function(fn, initialValue) {
@@ -135,7 +135,7 @@ Array.prototype.selfReduce = function(fn, initialValue) {
 
 > 因为可能存在稀疏数组的关系， 所以 reduce 需要保证跳过稀疏元素， 遍历正确的元素和下标
 
-8. 使用 reduce 实现数组的 flat 方法
+## 使用 reduce 实现数组的 flat 方法
 
 	通过 reduce 遍历数组， 遇到数组的某个元素仍是数组时， 通过 ES6 的扩展运算符对其进行降维（ ES5 可以使用 concat 方法）， 而这个数组元素可能内部还嵌套数组， 所以需要递归调用 selfFlat
 
@@ -194,7 +194,7 @@ let arr = [1, 2[3, 4],
 
 !> 原理是每递归一次将 depth 参数减 1， 如果 depth 参数为 0 时， 直接返回原数组
 
-9. 实现 ES6 的 class 语法
+## 实现 ES6 的 class 语法
 
 	ES6 的 class 内部是基于寄生组合式继承， 它是目前最理想的继承方式， 通过 Object.create 方法创造一个空对象， 并将这个空对象继承 Object.create 方法的参数， 再让子类（ subType） 的原型对象等于这个空对象， 就可以实现子类实例的原型等于这个空对象， 这个空对象的原型就等于父类原型对象（ superType.prototype） 的继承关系
 
@@ -217,7 +217,7 @@ function inherit(subType, superType) {
 
 * ES6 的 class 允许子类继承父类的静态方法和静态属性， 而普通的寄生组合式继承只能做到实例与实例之间的继承， 对于类与类之间的继承需要额外定义方法， 这里使用 Object.setPrototypeOf 将 superType 设置为 subType 的原型， 从而能够从父类中继承静态方法和静态属性
 
-10. 函数柯里化
+## 函数柯里化
 
 	柯里化是函数式编程的一个重要技巧， 将使用多个参数的一个函数转换成一系列使用一个参数的函数的技术
 
@@ -262,7 +262,7 @@ const curriedDisplay2 = curry2(display);
 console.log("curriedDisplay2", curriedDisplay2(1)(2)(3)(4)(5)(6)(7)(8)); // 结果一样
 ```
 
-11. 函数柯里化（支持占位符版本）
+## 函数柯里化（支持占位符版本）
 
 	通过占位符能让柯里化更加灵活， 实现思路是， 每一轮传入的参数先去填充上一轮的占位符， 如果当前轮参数含有占位符， 则放到内部保存的数组末尾， 当前轮的元素不会去填充当前轮参数的占位符， 只会填充之前传入的占位符
 
@@ -327,7 +327,7 @@ const composeFunc = compose(
 console.log("compose + curry", composeFunc('helloworld')); // compose + curry h11e11l11l11o11w11o11r11l11d1
 ```
 
-12. 偏函数
+## 偏函数
 
 	创建已经设置好一个或多个参数的函数, 并且添加了占位符功能
 
@@ -366,7 +366,7 @@ partialAdd(1, 3, 4);
 add(1, 2, 3, 4); // 10
 ```
 
-13. 斐波那契数列及其优化
+## 斐波那契数列及其优化
 
 	利用函数记忆， 将之前运算过的结果保存下来， 对于频繁依赖之前结果的计算能够节省大量的时间， 例如斐波那契数列， 缺点就是闭包中的 obj 对象会额外占用内存
 
@@ -406,7 +406,7 @@ speed(fibonacci, 35);
  */
 ```
 
-14. 实现函数 bind 方法
+## 实现函数 bind 方法
 
 	函数的 bind 方法核心是利用 call， 同时考虑了一些其他情况
 
@@ -486,7 +486,7 @@ let x = new boundFunc();
 console.log(x); // {}
 ```
 
-15. 实现函数 call 方法
+## 实现函数 call 方法
 
 	将函数作为传入的上下文参数（ context） 的属性执行， 这里为了防止属性冲突使用了 ES6 的 Symbol 类型
 
@@ -517,11 +517,11 @@ func.selfCall(example2);
 console.log(example2); // {a: 1, name: "zyk"}
 ```
 
-16. 简易的 CO 模块
+## 简易的 CO 模块
 
 	run 函数接受一个生成器函数， 每当 run 函数包裹的生成器函数遇到 yield 关键字就会停止， 当 yield 后面的 promise 被解析成功后会自动调用 next 方法执行到下个 yield 关键字处， 最终就会形成每当一个 promise 被解析成功就会解析下个 promise， 当全部解析成功后打印所有解析的结果， 衍变为现在用的最多的 async /await 语法
 
-17. 函数防抖
+## 函数防抖
 
 	leading 为是否在进入时立即执行一次， 原理是利用定时器， 如果在规定时间内再次触发事件会将上次的定时器清除， 即不会执行函数并重新设置一个新的定时器， 直到超过规定时间自动触发定时器中的函数
 
@@ -558,7 +558,7 @@ const debounce = (func, time = 17, options = {
 };
 ```
 
-18. 函数节流
+## 函数节流
 
 	和函数防抖类似， 区别在于内部额外使用了时间戳作为判断， 在一段时间内没有触发事件才允许下次事件触发， 同时新增了 trailing 选项， 表示是否在最后额外触发一次
 
@@ -634,7 +634,7 @@ function proxy(func, time, options = {
 }
 ```
 
-19. 图片懒加载
+## 图片懒加载
 
 	getBoundClientRect 的实现方式， 监听 scroll 事件（ 建议给监听事件添加节流）， 图片加载完会从 img 标签组成的 DOM 列表中删除， 最后所有的图片加载完毕后需要解绑监听事件
 
@@ -701,7 +701,7 @@ let lazyLoad2 = function() {
 lazyLoad2()
 ```
 
-20. new 关键字
+## new 关键字
 
 ```js
 const isComplexDataType = obj => (typeof obj === 'object' || typeof obj === 'function') && obj !== null;
@@ -725,7 +725,7 @@ console.log(newPerson);	// Person {name: "zyk", sex: "male"}
 console.log(selfNewPerson);	// Person {name: "zyk", sex: "male"}
 ```
 
-21. 实现 Object.assign
+## 实现 Object.assign
 
 	这个ES6新增的Object静态方法允许我们进行多个对象的合并
 
@@ -780,7 +780,7 @@ console.log(Object.selfAssign(target, obj1, obj2));	// {a: 3, b: 3, c: undefined
 console.log(Object.selfAssign("abd", null, undefined));	// String {"abd"}
 ```
 
-22. instanceof
+## instanceof
 
 	递归遍历 right 参数的原型链，每次和 left 参数作比较，遍历到原型链终点时则返回 false，找到则返回 true
 
@@ -799,7 +799,7 @@ const selfInstanceof = function (left, right) {
 console.log(selfInstanceof({}, Array));	// false
 ```
 
-23. 私有变量的实现
+## 私有变量的实现
 
 **Proxy实现**
 
@@ -929,7 +929,7 @@ console.log(person2.name);	// zyk
 console.log(person2.getName());	// undefined
 ```
 
-24. 洗牌算法
+## 洗牌算法
 
 	通过洗牌算法可以达到真正的乱序，洗牌算法分为原地和非原地，图一是原地的洗牌算法，不需要声明额外的数组从而更加节约内存占用率，原理是依次遍历数组的元素，将当前元素和之后的所有元素中随机选取一个，进行交换
 
@@ -984,7 +984,7 @@ statistics(shuffle, [1, 2, 3]);	// shuffle {[2,3,1]: "16.76%", [1,2,3]: "16.749%
 statistics(shuffle2, [1, 2, 3]);	// shuffle2 {[3,2,1]: "16.884%", [1,3,2]: "16.744%", [1,2,3]: "16.724%", [2,1,3]: "16.427%", [3,1,2]: "16.744%", …}
 ```
 
-25. 单例模式
+## 单例模式
 
 	通过 ES6 的 Proxy 拦截构造函数的执行方法来实现的单例模式
 
@@ -1018,7 +1018,7 @@ let person2 = new SingletonPerson('cyw', 22);
 console.log(person1 === person2); // true
 ```
 
-26. promisify
+## promisify
 
 	promisify 函数是将回调函数变为 promise 的辅助函数，适合 error-first 风格（nodejs）的回调函数，原理是给 error-first 风格的回调无论成功或者失败，在执行完毕后都会执行最后一个回调函数，我们需要做的就是让这个回调函数控制 promise 的状态即可
 
@@ -1065,7 +1065,7 @@ generateCommit();
 
 > 这里还用了 Proxy 代理了整个 fs 模块，拦截 get 方法，使得不需要手动给 fs 模块所有的方法都包裹一层 promisify 函数，更加的灵活
 
-27. 优雅的处理 async/await
+## 优雅的处理 async/await
 
 	无需每次使用 async/await 都包裹一层 try/catch ，更加的优雅
 	
@@ -1100,7 +1100,7 @@ async function func() {
 func();
 ```
 
-28. 发布订阅 EventEmitter
+## 发布订阅 EventEmitter
 
 	通过 on 方法注册事件，trigger 方法触发事件，来达到事件之间的松散解耦，并且额外添加了 once 和 off 辅助函数用于注册只触发一次的事件以及注销事件
 
@@ -1167,7 +1167,7 @@ dep.trigger('mouseover');
 console.groupEnd();
 ```
 
-29. 实现 JSON.stringify
+## 实现 JSON.stringify
 
 **分析**
 
