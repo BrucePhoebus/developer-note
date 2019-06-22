@@ -19,6 +19,7 @@
 			- [js之继承](知识笔记/大前端/基础/JavaScript/js原型与原型链/js之继承.md)
 
 			- [JavaScript常用技巧](知识笔记/大前端/基础/JavaScript/JavaScript常用技巧.md)
+			- [js之原型设计模式](知识笔记/大前端/基础/JavaScript/设计模式/原型设计模式.md)
 			- [JavaScript对象属性底层原理](知识笔记/大前端/基础/JavaScript/JavaScript对象属性底层原理.md)
 
 		* HTML+CSS
