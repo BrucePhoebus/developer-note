@@ -6,21 +6,22 @@
 
 		* JavaScript
 
-			- [JavaScript基础](知识笔记/大前端/基础/JavaScript/JavaScript基础.md)
-			- [JavaScript细节知识](知识笔记/大前端/基础/JavaScript/JavaScript细节知识.md)
-			- [JavaScript数值类型](知识笔记/大前端/基础/JavaScript/JavaScript数值类型.md)
+			- [JavaScript基础](知识笔记/大前端/基础/JavaScript/JavaScript基础/JavaScript基础.md)
+			- [JavaScript细节知识](知识笔记/大前端/基础/JavaScript/JavaScript基础/JavaScript细节知识.md)
+			- [JavaScript数值类型](知识笔记/大前端/基础/JavaScript/JavaScript基础/JavaScript数值类型.md)
+			- [JavaScript变量存储](知识笔记/大前端/基础/JavaScript/JavaScript基础/JavaScript变量存储.md)
+			- [JavaScript判断数据类型](知识笔记/大前端/基础/JavaScript/JavaScript基础/JavaScript判断数据类型.md)
+			- [js之时间处理](知识笔记/大前端/基础/JavaScript/JavaScript基础/js之时间处理.md)
 			
-			- [js对象之拷贝](知识笔记/大前端/基础/JavaScript/js对象之拷贝.md)
-			- [js之装箱拆箱](知识笔记/大前端/基础/JavaScript/js之装箱拆箱.md)
-			- [JavaScript判断数据类型](知识笔记/大前端/基础/JavaScript/JavaScript判断数据类型.md)
-			- [JavaScript变量存储](知识笔记/大前端/基础/JavaScript/JavaScript变量存储.md)
+			- [js对象之拷贝](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/js对象之拷贝.md)
+			- [js之装箱拆箱](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/js之装箱拆箱.md)
+			- [JavaScript常用技巧](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/JavaScript常用技巧.md)
+			- [JavaScript对象属性底层原理](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/JavaScript对象属性底层原理.md)
 
 			- [认识原型、继承与原型链](知识笔记/大前端/基础/JavaScript/js原型与原型链/认识原型、继承与原型链.md)
 			- [js之继承](知识笔记/大前端/基础/JavaScript/js原型与原型链/js之继承.md)
 
-			- [JavaScript常用技巧](知识笔记/大前端/基础/JavaScript/JavaScript常用技巧.md)
 			- [js之原型设计模式](知识笔记/大前端/基础/JavaScript/设计模式/原型设计模式.md)
-			- [JavaScript对象属性底层原理](知识笔记/大前端/基础/JavaScript/JavaScript对象属性底层原理.md)
 
 		* HTML+CSS
 
