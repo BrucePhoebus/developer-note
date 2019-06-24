@@ -2,6 +2,21 @@
 
 ## 时间戳处理
 
+#### 字符串转时间戳
+
+```js
+let date = new Date();
+
+let currentTime = date.getTime();	// 当前时间转时间戳
+console.log(currentTime);	// 1561368117282
+
+date = new Date('2018-08-08');
+stringToTimestamp = date.getTime();	// 当前时间转时间戳
+console.log(stringToTimestamp);	// 1533686400000
+```
+
+> 直接通过new Date()将某个时间格式的字符串转化为Date格式时间，然后就能调用Date对象getTime()方法输入转换后的时间戳
+
 #### 时间戳转字符串
 
 ```js
@@ -23,6 +38,11 @@ timestampToTimeString(timestamp, state) {
 		s = 59;
 	}
 	return y + '-' + this.add0(m) + '-' + this.add0(d) + ' ' + this.add0(h) + ':' + this.add0(mm) + ':' + this.add0(s);
+},
+
+// 补零
+add0(timeValue) {
+	return timeValue < 10 ? '0' + timeValue : timeValue;
 }
 ```
 
@@ -35,15 +55,19 @@ const date = new Date();
 
 // 获取当前年份
 let year = date.getFullYear();
+console.log(year);
 
 // 获取当前月份，注：获取月份数要+1
 let month = date.getMonth() + 1;
+console.log(month);
 
 // 获取当前日
 let day = date.getDate();
+console.log(day);
 
 // 计算当前是周几，注：以星期一为一周第一天
 let weekDay = date.getDay();
+console.log(weekDay);
 ```
 
 ## 获取周起始时间
@@ -100,9 +124,37 @@ getThisWeekStartTime(isWeekEnd) {
 }
 ```
 
-> timestampToTimeString()为获取时间戳转字符串，参数1为时间戳，参数2为判断是否零点或指定日的23点59分59秒，默认当前时间，具体看：<a href="#知识笔记/大前端/基础/JavaScript/JavaScript基础/js之时间处理?id=时间戳转字符串">时间戳转字符串</a>
+> `timestampToTimeString()`为获取时间戳转字符串，参数1为时间戳，参数2为判断是否零点或指定日的23点59分59秒，默认当前时间，具体看：<a href="#知识笔记/大前端/基础/JavaScript/JavaScript基础/js之时间处理?id=时间戳转字符串">时间戳转字符串</a>
+
+> `getDaysInMonth()`为获取指定月份的天数，<a href="#知识笔记/大前端/基础/JavaScript/JavaScript基础/js之时间处理?id=js判断指定月有多少天">js判断指定月有多少天</a>
+
 
 ## 获取月起始时间
+
+```js
+// 获取本月起始时间，注：结束时间以本月最后一天23:59:59
+getThisMonthTime(isMonthEnd) {
+	let date = new Date();
+
+	let year = date.getFullYear();
+	let month = date.getMonth() + 1;
+	let dayTime = '01 00:00:00';
+
+	// 解决跨年问题
+	if(month === 1) {
+		year = year - 1;
+		month = 12;
+	}
+
+	if (isMonthEnd) {
+		dayTime = this.getDaysInMonth(year, month) + ' 23:59:59';
+	}
+
+	return year + '-' + this.add0(month) + '-' + dayTime;
+}
+```
+
+> `getDaysInMonth()`为获取指定月份的天数，<a href="#知识笔记/大前端/基础/JavaScript/JavaScript基础/js之时间处理?id=js判断指定月有多少天">js判断指定月有多少天</a>
 
 ## 其他
 
