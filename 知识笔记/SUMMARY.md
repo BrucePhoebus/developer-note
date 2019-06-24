@@ -26,6 +26,7 @@
 
 			- [CSS3新特性](知识笔记/大前端/基础/HTML+CSS/CSS/CSS3新特性.md)
 			- [CSS常用效果](知识笔记/大前端/基础/HTML+CSS/CSS/CSS常用效果.md)
+			- [CSS实现元素居中](知识笔记/大前端/基础/HTML+CSS/CSS/CSS实现元素居中.md)
 
 			- [HTML基础](知识笔记/大前端/基础/HTML+CSS/HTML/HTML基础.md)
 			- [HTML5新特性](知识笔记/大前端/基础/HTML+CSS/HTML/HTML5新特性.md)
