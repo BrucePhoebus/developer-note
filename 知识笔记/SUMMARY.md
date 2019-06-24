@@ -114,6 +114,7 @@
 	* markdown
 
 		- [markdown语法说明](知识笔记/工具/markdown/markdown语法说明.md)
+		- [markdown使用技巧](知识笔记/工具/markdown/markdown使用技巧.md)
 		
 	* 操作系统
 

@@ -6,9 +6,9 @@
 
 ```js
 timestampToTimeString(timestamp, state) {
-	var time = new Date(timestamp);
-	var y = time.getFullYear();
-	var m = time.getMonth() + 1;
+	var time = new Date(timestamp);	// 转时间戳为Date格式
+	var y = time.getFullYear();	// 获取Date格式中年份
+	var m = time.getMonth() + 1;	// 月份要 +1
 	var d = time.getDate();
 	var h = time.getHours();
 	var mm = time.getMinutes();
@@ -100,7 +100,7 @@ getThisWeekStartTime(isWeekEnd) {
 }
 ```
 
-> timestampToTimeString()为获取时间戳转字符串，参数1为时间戳，参数2为判断是否零点或指定日的23点59分59秒，默认当前时间，具体看：<a href="#时间戳转字符串">时间戳转字符串</a>
+> timestampToTimeString()为获取时间戳转字符串，参数1为时间戳，参数2为判断是否零点或指定日的23点59分59秒，默认当前时间，具体看：<a href="#知识笔记/大前端/基础/JavaScript/JavaScript基础/js之时间处理?id=时间戳转字符串">时间戳转字符串</a>
 
 ## 获取月起始时间
 
