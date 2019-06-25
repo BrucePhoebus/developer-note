@@ -2,6 +2,37 @@
 
 ## 时间戳处理
 
+#### 格式化时间
+
+```js
+function formatTime(date, state) {
+	date = new Date(date);
+	var year = date.getFullYear();
+	var m = date.getMonth() + 1;	// 月份要 +1
+	var d = date.getDate();
+	var h = date.getHours();
+	var mm = date.getMinutes();
+	var s = date.getSeconds();
+	if (state === 0) {
+		h = 0;
+		mm = 0;
+		s = 0;
+	} else if (state === 1) {
+		h = 23;
+		mm = 59;
+		s = 59;
+	}
+	return y + '-' + add0(m) + '-' + add0(d) + ' ' + add0(h) + ':' + add0(mm) + ':' + add0(s);
+}
+
+// 补零
+function add0(timeValue) {
+	return timeValue < 10 ? '0' + timeValue : timeValue;
+}
+```
+
+> 将传入的date转为Date对象，这样就可以实现传入各种格式的时间数据进行统一格式化
+
 #### 字符串转时间戳
 
 ```js
@@ -155,6 +186,21 @@ getThisMonthTime(isMonthEnd) {
 ```
 
 > `getDaysInMonth()`为获取指定月份的天数，<a href="#知识笔记/大前端/基础/JavaScript/JavaScript基础/js之时间处理?id=js判断指定月有多少天">js判断指定月有多少天</a>
+
+## 时间运算
+
+#### 加减天数
+
+```js
+changeCurrentDay(currentTime, changeDay) {
+	let date = new Date(currentTime);
+	date.setDate(date.getDate() + changeDay);
+	return date;
+}
+```
+
+> 根据传入的时间和要修改的天数进行计算，返回Date类型，也可以通过formatTime()方法得到指定格式的时间数据
+
 
 ## 其他
 
