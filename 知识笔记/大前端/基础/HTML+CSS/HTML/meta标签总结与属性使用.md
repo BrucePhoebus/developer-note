@@ -60,14 +60,26 @@
 ```
 
 3. viewport(移动端的窗口)
-
-	这个概念较为复杂，具体的会在下篇博文中讲述。
 	
-	这个属性常用于设计移动端网页。在用bootstrap、AmazeUI等框架时候都有用过viewport。
+	控制页面是否可以缩放，主要用于移动端。在用bootstrap、AmazeUI等框架时候都有用过viewport。
+
+**说明**
+
+	在移动端的布局中，css中的1px并不等于物理上的1px，现在手机屏幕的分辨率已经越来越高，高像素但是屏幕尺寸却没有发生太大变化，这就说明一个物理像素点实际上塞入了好几个像素。
+	
+	所以在做移动端开发时，为了使移动端的页面在不同的手机上同样的大小来显示，我们可以将页面的宽度固定，然后获取设备的宽度，可以得到我们之前设定的宽度与设备宽度的比例，再使用HTML5新增的viewport来对页面进行缩放，并固定不允许用户再重新缩放。
 
 ```html
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0" />
 ```
+
+|参数|说明|
+|:---:|:---:|
+|width|设置layout viewport 的宽度，为一个正整数，使用字符串`width-device`表示设备宽度|
+|initial-scale|设置页面的初始缩放值，为一个数字，可以带小数|
+|minimum-scale|允许用户的最小缩放值，为一个数字，可以带小数|
+|maximum-scale|允许用户的最大缩放值，为一个数字，可以带小数|
+|user-scalable|是否允许用户进行缩放，值为”no”或”yes”, no 代表不允许，yes代表允许|
 
 4. robots(定义搜索引擎爬虫的索引方式)
 
