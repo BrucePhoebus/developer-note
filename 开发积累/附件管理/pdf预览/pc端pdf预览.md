@@ -35,6 +35,10 @@ base64ToBlob: function (base64Data, type) {
 window.open('/pubWeb/static/web/viewer.html?file=' + encodeURIComponent(window.URL.createObjectURL(blob)));
 ```
 
+> [插件地址](https://github.com/BrucePhoebus/developer-note/tree/master/%E5%BC%80%E5%8F%91%E7%A7%AF%E7%B4%AF/%E6%8F%92%E4%BB%B6/PDF%E9%A2%84%E8%A7%88/web)
+
+	这里使用的是pdf.js插件，使用方式就是将URL通过file参数传入viewer.html页面
+
 *IE兼容处理*
 
 > 因为IE无法直接使用blob路径的文件，所以只能使用微软提供的方法window.navigator.msSaveOrOpenBlob()做转换处理，但是这个方法貌似只能下载到本地查看
