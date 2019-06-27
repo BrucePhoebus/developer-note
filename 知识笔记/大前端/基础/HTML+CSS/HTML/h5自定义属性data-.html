@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		div[data-name=zyk] {
+			background-color: #ccc;
+			color: red;
+		}
+
+		.ls[data-name=ls] {
+			height: 200px;
+			border: 1px solid #ccc;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<div>
+		<div id="zyk" data-name='zyk' data-info='{age:33, gender:"女"}'>phoebus的内容</div>
+		<div class='ls' data-name='ls'>ls的内容</div>
+	</div>
+	<script>
+		/* js获取自定义属性中的内容 */
+		let divDataSet = document.getElementById('zyk').dataset;
+		console.log(divDataSet);
+	</script>
+</body>
+
+</html>
