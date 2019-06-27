@@ -23,11 +23,15 @@
 
 			- [js之原型设计模式](知识笔记/大前端/基础/JavaScript/设计模式/原型设计模式.md)
 
-		* HTML+CSS
+		* CSS
 
 			- [CSS3新特性](知识笔记/大前端/基础/HTML+CSS/CSS/CSS3新特性.md)
 			- [CSS常用效果](知识笔记/大前端/基础/HTML+CSS/CSS/CSS常用效果.md)
-			- [CSS实现元素居中](知识笔记/大前端/基础/HTML+CSS/CSS/CSS实现元素居中.md)
+
+			- [CSS实现元素居中](知识笔记/大前端/基础/HTML+CSS/CSS/布局/居中效果/CSS实现元素居中.md)
+			- [水平垂直居中效果](知识笔记/大前端/基础/HTML+CSS/CSS/布局/居中效果/水平垂直居中效果.md)
+
+		* HTML
 
 			- [HTML基础](知识笔记/大前端/基础/HTML+CSS/HTML/HTML基础.md)
 			- [HTML5新特性](知识笔记/大前端/基础/HTML+CSS/HTML/HTML5新特性.md)
