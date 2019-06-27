@@ -45,6 +45,8 @@
 
 		- [Vue数据驱动](知识笔记/大前端/Vue/Vue数据驱动.md)
 		- [Vue插件制作](知识笔记/大前端/Vue/Vue插件制作.md)
+		- [Vue之mixin混入](知识笔记/大前端/Vue/mixin混入.md)
+		- [Vue父子节点传值](知识笔记/大前端/Vue/Vue父子节点传值.md)
 
 	* 浏览器
 
