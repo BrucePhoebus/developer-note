@@ -44,7 +44,7 @@ export default {
 
 **pdf.vue**
 
-```Vue
+```js
 <template>
 	<div class="container">
 		<canvas :class="newClass" id="canvas"></canvas>
@@ -227,7 +227,7 @@ _this.$showPDF({ data: 'data:application/pdf;base64,' + atob(response.cqxx) });
 			<div v-if="pageNum > 1" style="display: inline-block;">
 				<van-button class='pdf-btn' size="small" @click="onPrevPage">上一页</van-button>
 			</div>
-			<!--<van-button class='pdf-btn' size="small" @click="blobDownload">下载</van-button>-->
+			<van-button class='pdf-btn' size="small" @click="pdfDownload">下载</van-button>
 			<!--<van-button class='pdf-btn' size="small" @click="scalePlus">放大</van-button>-->
 			<div v-if="pageNum < pdfObj.numPages" style="display: inline-block;">
 				<van-button class='pdf-btn' size="small" @click="onNextPage">下一页</van-button>
@@ -290,13 +290,13 @@ _this.$showPDF({ data: 'data:application/pdf;base64,' + atob(response.cqxx) });
 					_this.renderPage(1);
 				});
 			},
-			blobDownload() {
+			pdfDownload() {
 				let fileName = this.$store.getters.getPersonCardInfo.cardName || '';
 				fileName = fileName + new Date().getTime() + '.pdf';
 
 				if (!/base64/.test(this.obj)) {
 					// 如果是url，直接下载
-					this.createASignDownload(this.obj, fileName);
+					window.location.href = this.obj;
 					return;
 				}
 
@@ -315,7 +315,6 @@ _this.$showPDF({ data: 'data:application/pdf;base64,' + atob(response.cqxx) });
 					}
 					this.createASignDownload(objectUrl, fileName);
 				}
-				Toast('下载成功！');
 			},
 			createASignDownload(objectUrl, fileName) {
 				// 创建a标签用于跳转至下载链接
@@ -332,6 +331,8 @@ _this.$showPDF({ data: 'data:application/pdf;base64,' + atob(response.cqxx) });
 					a.download = fileName;
 					// 将a标签插入body中
 					document.body.appendChild(a);
+
+					console.log(a);
 
 					var event = document.createEvent("MouseEvents");
 					event.initEvent("click", false, false);
@@ -442,12 +443,12 @@ _this.$showPDF({ data: 'data:application/pdf;base64,' + atob(response.cqxx) });
 
 	.pdf-content {
 		width: 100%;
-		height: calc(100% - 100px);
+		height: calc(100% - 85px);
 	}
 
 	.new-pdf-content {
 		width: 100%;
-		height: 100%;
+		height: calc(100% - 85px);
 	}
 
 	.pdf-btn {

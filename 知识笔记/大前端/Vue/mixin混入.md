@@ -24,21 +24,22 @@
 
 ## mixin常用场景和实现
 
-用法1
-普通实例
+#### 用法1：方法复用
+
+**普通实例**
 
 ![mixin简单实现](../../images/Vue/mixin_demo.png)
 
-使用Mixin
+**使用Mixin**
 
 ![mixin使用](../../images/Vue/mixin_demo_use.png)
 
+#### 用法2：混入Vue
 
-用法2
-创建个js（/ts）文件存放为使用Mixin我们需要输出的对象
+	创建个js（/ts）文件存放为使用Mixin我们需要输出的对象
 
 ![mixin toggle示例](../../images/Vue/mixin_toggle.png)
 
-然后在vue文件中这样引用
+**然后在vue文件中这样引用**
 
 ![toggle混入vue](../../images/Vue/mixin_toggle混入.png)
