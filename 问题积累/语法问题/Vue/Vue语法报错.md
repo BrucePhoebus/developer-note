@@ -134,3 +134,14 @@ watch: {
 }
 ```
 
+#### 渲染问题
+
+###### [Vue warn]: You may have an infinite update loop in a component render function.
+
+	因为v-for或某个原因倒是无限渲染
+
+**示例**
+
+	在element-ui表格v-for的过程过使用:formatter = "。。。"，正常这是没问题的，但是我又在formatter方法中进行了数组push操作，然后就GG了
+
+	可惜暂时不知道怎么解决，只能不在formatter方法中进行这种操作。。。
