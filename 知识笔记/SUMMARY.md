@@ -44,8 +44,10 @@
 	* Vue
 
 		- [Vue数据驱动](知识笔记/大前端/Vue/Vue数据驱动.md)
-		- [Vue插件制作](知识笔记/大前端/Vue/Vue插件制作.md)
-		- [Vue之mixin混入](知识笔记/大前端/Vue/mixin混入.md)
+
+		- [Vue插件制作](知识笔记/大前端/Vue/Vue高级应用/Vue插件制作.md)
+		- [Vue之mixin混入](知识笔记/大前端/Vue/Vue高级应用/mixin混入.md)
+		- [slot使用场景和实现](知识笔记/大前端/Vue/Vue高级应用/slot使用.md)
 
 		- [Vue父子节点传值](知识笔记/大前端/Vue/Vue基础/Vue父子节点传值.md)
 
