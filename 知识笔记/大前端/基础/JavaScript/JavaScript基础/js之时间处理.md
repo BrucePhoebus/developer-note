@@ -162,6 +162,8 @@ getThisWeekStartTime(isWeekEnd) {
 
 ## 获取月起始时间
 
+#### 获取当前月起始时间
+
 ```js
 // 获取本月起始时间，注：结束时间以本月最后一天23:59:59
 getThisMonthTime(isMonthEnd) {
@@ -183,7 +185,41 @@ getThisMonthTime(isMonthEnd) {
 
 	return year + '-' + this.add0(month) + '-' + dayTime;
 }
+
+// 调用
+let dateStart = this.getThisMonthTime();
+let dateEnd = this.getThisMonthTime(true);
 ```
+
+#### 获取指定月起始时间
+
+```js
+// 获取制定月起始时间，注：结束时间以本月最后一天23:59:59
+getThisMonthTime(currentMonth, isMonthEnd) {
+	let date = new Date(currentMonth);
+
+	let year = date.getFullYear();
+	let month = date.getMonth() + 1;
+	let dayTime = '01 00:00:00';
+
+	// 解决跨年问题
+	if(month === 1) {
+		year = year - 1;
+		month = 12;
+	}
+
+	if (isMonthEnd) {
+		dayTime = this.getDaysInMonth(year, month) + ' 23:59:59';
+	}
+
+	return year + '-' + this.add0(month) + '-' + dayTime;
+}
+
+// 调用
+let dateStart = this.getThisMonthTime(nowTime);
+let dateEnd = this.getThisMonthTime(nowTime, true);
+```
+
 
 > `getDaysInMonth()`为获取指定月份的天数，<a href="#知识笔记/大前端/基础/JavaScript/JavaScript基础/js之时间处理?id=js判断指定月有多少天">js判断指定月有多少天</a>
 
@@ -201,7 +237,6 @@ changeCurrentDay(currentTime, changeDay) {
 
 > 根据传入的时间和要修改的天数进行计算，返回Date类型，也可以通过formatTime()方法得到指定格式的时间数据
 
-
 ## 其他
 
 #### js判断指定月有多少天
@@ -216,7 +251,6 @@ function getDaysInMonth(year, month) {
 	const date = new Date();
     return new Date(date.getFullYear(), date.getMonth()+1, 0).getDate();
 }
-
 ```
 
 
