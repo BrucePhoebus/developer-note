@@ -102,5 +102,126 @@
 
 !> 在完成了上面的初始化之后，weex已经做好了准备，只等着下载 JS bundle 就可开始渲染页面了 😄
 
+**第三步：创建 weex 实例**
+
+	实际上当WEEX SDK获取到JS Bundle后，第一时间并不是立马渲染页面，而是先创建WEEX的实例
+
+> 每一个JS bundle对应一个实例，同时每一个实例都有一个instance id
+
+上文中说过，由于所有的js bundle都是放入到同一个JS执行引擎中执行，那么当js执行引擎通过WXBridge将相关渲染指令传出的时候，需要通过`instance id`才能知道该指定要传递给哪个weex实例
+
+* 在创建实例完成后，接下来才是真正将js bundle交给js执行引擎执行
+
+![week实例连接JSBundle和JS执行环境图](../../../images/移动端/week实例连接JSBundle和JS执行环境图.png)
+
+**第四步：执行 JS bundle**
+
+	在实例创建完成后，接下来就是执行JS bundle 了。
+	JS bundle 的结果是生成`Virtual DOM` ，然后去patch 新旧 VNode 树，根据`diff 算法`找出最佳的DOM操作，唯一和浏览器不同的是，调用的是 `Native app api` ，而不是浏览器里面对DOM节点增删改查的操作
+
+![执行JSBundle生成DOM树图](../../../images/移动端/执行JSBundle生成DOM树图.png)
+
+*其中*
+
+* VNode
+
+	bundle.js会执行new Vue（）创建一个vue组件，并通过其render函数创建VNode节点，即virtual dom节点
+
+例如：
+
+```js
+{
+  tag: 'div',
+  data: {
+    staticStyle: { justifyContent: 'center' }
+  },
+  children: [{
+    tag: 'text',
+    data: {
+      staticClass: 'freestyle'
+    },
+    context: {
+      $options: {
+        style: {
+          freestyle: {
+            textAlign: 'center',
+            fontSize: 200
+          }
+        }
+      }
+    },
+    children: [{
+      tag: '',
+      text: 'Hello World!'
+    }]
+  }]
+}
+```
+
+* patch
+
+	生成了VNode之后，接下来需要将VNode同步到真实的Dom之上，该过程在Vue.js中被称为patch，patch会比较新旧VNode之间的差异，最小化操作集。最后再将Virtual Dom整体更新到真实Dom之上
+
+!> 在执行 patch 之前的过程都是 Web 和 Weex 通用的，后面的流程就不一样了，因为客户端没有对 DOM 增删改查的API，所以这些更新的操作，需要经过`weex-vue-framework`的处理，统统映射为客户端的`Native DOM API`
+
+![virtual_dom对不同平台的不同解析图](../../../images/移动端/virtual_dom对不同平台的不同解析.png)
+
+**第五步：发送渲染指令**
+
+	weex终端的执行引擎在执行到Native DOM API后，WXBridge将Native DOM API转化为Platform API
+
+> `Platform API` 是 `Weex SDK` 中原生模块提供的,不是 js 中方法，也不是浏览器中的接口，是 Weex 封装的一系列方法
+
+![Weex发送渲染指令](../../../images/移动端/Weex发送渲染指令.png)
+
+> 注意：<a href="#知识笔记/大前端/移动端/Weex/深入浅出Weex核心原理?id=客户端和前端h5是不同的">客户端和前端h5是不同的</a>
+
+**第六步 渲染引擎**
+
+	原生渲染器接收上层传来的渲染指令，并且逐步将其渲染成原生组件，这样，我们在js中的<div>, <p> 标签，就一一对应到了客户端的原生标签
+
+> 这个过程不是分阶段一个一个执行的，而是可以实现“流式”渲染的，有可能第一个<div>的原生组件还没渲染好，<text>的渲染指令又发过来了。当一个页面特别大时，能看到一块一块的内容逐渐渲染出来的过
+
+## 客户端和前端h5是不同的
+
+![客户端与前端实现区别图](../../../images/移动端/客户端与前端实现区别图.png)
+
+* 对于前端实现来说，写一个类似上面的框内带文字的效果非常简单
+
+	只需要 html + css 就可以实现
+
+```html
+<div class="text">哈哈哈哈</div>
+```
+
+```css
+.text {
+    // css 样式
+}
+```
+
+* 然而对于客户端的同学，则需要写非常多的代码来实现
+
+	* 用逻辑代码写一个框（样式，大小，位置……）
+	* 用逻辑代码写一行文字（样式，大小，位置……）
+	* 用逻辑代码把两个合起来
+
+!> 所以，weex 会把上面一些系列复杂的代码封装好一个个现成的方法
+
+## 总结
+
+* 简单来说，WEEX放弃了传统的Webview，而是搭建了一个native化的浏览器，因为用native的方式实现了一个浏览器的大部分核心组成成分
+
+    * JS 执行引擎
+    * 渲染引擎
+    * DOM树管理
+    * 网络请求，持久层存储
+    * ...
+
+* 另外为了保证整个SDK的运行效率，SDK维护了三个线程
+
+	* bridge线程：完成js到native之间的通信
+	* dom线程：完成dom结构的构建
+	* 渲染线程：完成UI渲染，也就是UI线
 
 > 参考：[深入浅出 Weex 核心原理](https://juejin.im/post/5d14619bf265da1b6c5f8747?utm_source=gold_browser_extension&tdsourcetag=s_pctim_aiomsg) | [认识移动端跨平台开发](知识笔记/大前端/移动端/认识移动端跨平台开发.md)
