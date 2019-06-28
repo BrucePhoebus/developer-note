@@ -4,8 +4,6 @@
 
 #### 快捷键
 
-:blush::blush::blush:
-
 |Key|Command|
 |:---:|:---:|
 |Ctrl + B|Toggle bold  切换粗体|
@@ -43,3 +41,30 @@
 
 ## 特殊技巧
 
+#### emoji
+
+###### 直接copy
+
+**常用**
+
+1. 微信：😄
+
+> [去这里直接copy](http://emojihomepage.com/) | [去这里搜：emojipedia](https://emojipedia.org/)
+
+###### 利用Unicode编码
+
+**常用**
+
+* 哭笑不得：&#x1F602
+
+	<p>&#x1F602</p>
+
+> [找编码](http://unicode.org/emoji/charts/full-emoji-list.html)
+
+###### 也可以利用图片格式
+
+	如果需要大图可以使用 <img> 标签
+
+> [看这里](https://blog.csdn.net/u014636245/article/details/82945997)
+
+> [查看效果网站](https://www.webfx.com/tools/emoji-cheat-sheet/) | [这个图比较大](http://emojihomepage.com/)
