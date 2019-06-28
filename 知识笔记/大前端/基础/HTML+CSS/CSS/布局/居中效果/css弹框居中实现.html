@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>弹窗居中</title>
+	<style type="text/css">
+		.outbox:before {
+			content: "";
+			width: 0;
+			height: 100%;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.outbox {
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			text-align: center;
+		}
+
+		.content {
+			width: 200px;
+			height: 200px;
+			background-color: #ccc;
+			display: inline-block;
+			vertical-align: middle;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="outbox">
+		<div class="content">
+
+		</div>
+	</div>
+
+	<body>
+
+</html>
