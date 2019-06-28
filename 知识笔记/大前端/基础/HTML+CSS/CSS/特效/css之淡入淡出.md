@@ -1,9 +1,3 @@
-<!--
- * @Description: CSS特效实现
- * @Date: 2019-06-28 09:43:11
- * @LastEditors: phoebus
- * @LastEditTime: 2019-06-28 11:59:01
- -->
 # css之淡入淡出
 
 	通过在开始帧与结束帧中改变页面的opacity属性的属性值来实现页面的淡入淡出效果。
