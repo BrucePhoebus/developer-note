@@ -25,9 +25,11 @@
 
 		* CSS
 
-			- [CSS3新特性](知识笔记/大前端/基础/HTML+CSS/CSS/CSS3新特性.md)
+			- [CSS3新特性](知识笔记/大前端/基础/HTML+CSS/CSS/CSS3/CSS3新特性.md)
 			- [CSS常用效果](知识笔记/大前端/基础/HTML+CSS/CSS/CSS常用效果.md)
 
+			- [css之淡入淡出](知识笔记/大前端/基础/HTML+CSS/CSS/特效/css之淡入淡出.md)
+			- 
 			- [CSS实现元素居中](知识笔记/大前端/基础/HTML+CSS/CSS/布局/居中效果/CSS实现元素居中.md)
 			- [水平垂直居中效果](知识笔记/大前端/基础/HTML+CSS/CSS/布局/居中效果/水平垂直居中效果.md)
 
@@ -59,7 +61,7 @@
 
 	* 浏览器
 
-		- [IE兼容说明](知识笔记/大前端/浏览器/IE兼容说明.md)
+		- [IE兼容说明](知识笔记/大前端/浏览器/IE兼容.md)
 		- [浏览器基础知识](知识笔记/大前端/浏览器/浏览器基础知识.md)
 		- [浏览器相关问题驱动](知识笔记/大前端/浏览器/问题驱动.md)
 
@@ -67,11 +69,11 @@
 
 	* nodejs
 
-		* [nodejs入门](知识笔记/大前端/nodejs/nodejs开发/nodejs入门.md)
-		* [深入认识nodejs](知识笔记/大前端/nodejs/nodejs开发/深入认识nodejs.md)
-		* [nodejs文件操作](知识笔记/大前端/nodejs/nodejs开发/nodejs文件操作.md)
+		* [nodejs入门](知识笔记/后端/nodejs/nodejs开发/nodejs入门.md)
+		* [深入认识nodejs](知识笔记/后端/nodejs/nodejs开发/深入认识nodejs.md)
+		* [nodejs文件操作](知识笔记/后端/nodejs/nodejs开发/nodejs文件操作.md)
 		
-		* [npm入门](知识笔记/大前端/nodejs/npm入门.md)
+		* [npm入门](知识笔记/后端/nodejs/npm入门.md)
 
 	* 面试经验之道
 
@@ -88,7 +90,7 @@
 
 			- [JavaScript面试题](知识笔记/大前端/面试/基础面试题/JavaScript面试题.md)
 			- [html和css面试题](知识笔记/大前端/面试/基础面试题/html和css面试题.md)
-			- [浏览器相关面试题](知识笔记/大前端/面试题/基础面试题/浏览器相关面试题.md)
+			- [浏览器相关面试题](知识笔记/大前端/面试/基础面试题/浏览器相关面试题.md)
 
 			- [前端杂学](知识笔记/大前端/面试/基础面试题/前端杂学.md)
 			- [前端面试题收集](知识笔记/大前端/面试/网上真实面试题/前端面试题收集.md)
@@ -129,7 +131,7 @@
 
 	* docsify
 
-		- [docsify安装及基本使用](开发积累/docsify/docsify安装及基本使用.md)
+		- [docsify安装及基本使用](知识笔记/工具/docsify/docsify安装及基本使用.md)
 		
 	* markdown
 
