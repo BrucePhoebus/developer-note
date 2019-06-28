@@ -2,6 +2,19 @@
 
 ## 常用技巧
 
+#### 快捷键
+
+:blush::blush::blush:
+
+|Key|Command|
+|:---:|:---:|
+|Ctrl + B|Toggle bold  切换粗体|
+|Ctrl + I|Toggle italic  切换斜体|
+|Alt + S|Toggle strikethrough  切换删除线|
+|Ctrl + Shift + ]|Toggle heading (uplevel)   标题（上升）|
+|Ctrl + Shift + [|Toggle heading (downlevel)   标题（下降）|
+|Alt + C|Check/Uncheck task list item   选表单切换|
+
 #### 指定目录跳转
 
 	这个可以跳转到指定页面指定目录，器原理是通过id传递对应标题名，实现页内调整

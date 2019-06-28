@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+</head>
+
+<style type="text/css">
+	div {
+		background: red;
+		width: 100px;
+		height: 100px;
+		display: none;
+		/*transform-origin:0 0;以某点为中心进行变形，默认center center*/
+	}
+
+	@keyframes action_skew {
+		0% {
+			transform: skew(-40deg);
+			opacity: 0;
+		}
+
+		50% {
+			transform: skew(40deg);
+			opacity: 0.2;
+		}
+
+		100% {
+			transform: skew(0deg);
+			opacity: 1;
+		}
+	}
+
+	@keyframes action_rotateY {
+		0% {
+			transform: rotateY(0deg);
+			opacity: 0;
+		}
+
+		50% {
+			transform: rotateY(180deg);
+			opacity: 0.2;
+		}
+
+		100% {
+			transform: rotateY(360deg);
+			opacity: 1;
+		}
+	}
+
+	@keyframes action_translateY {
+		0% {
+			transform: translateY(50px);
+			opacity: 0;
+		}
+
+		100% {
+			transform: translateY(0px);
+			opacity: 1;
+		}
+	}
+
+	@keyframes action_scale {
+		0% {
+			transform: scale(0.2);
+			opacity: 0;
+		}
+
+		100% {
+			transform: scale(1);
+			opacity: 1;
+		}
+	}
+
+	/*---淡出----*/
+
+	@keyframes action_skewOut {
+		0% {
+			transform: skew(40deg);
+			opacity: 1;
+		}
+
+		50% {
+			transform: skew(-40deg);
+			opacity: 0.2;
+		}
+
+		100% {
+			transform: skew(0deg);
+			opacity: 0;
+		}
+	}
+
+	@keyframes action_rotateYOut {
+		0% {
+			transform: rotateY(360deg);
+			opacity: 1;
+		}
+
+		50% {
+			transform: rotateY(180deg);
+			opacity: 0.2;
+		}
+
+		100% {
+			transform: rotateY(0deg);
+			opacity: 0;
+		}
+	}
+
+	@keyframes action_translateYOut {
+		0% {
+			transform: translateY(0px);
+			opacity: 1;
+		}
+
+		100% {
+			transform: translateY(50px);
+			opacity: 0;
+		}
+	}
+
+	@keyframes action_scaleOut {
+		0% {
+			transform: scale(1);
+			opacity: 1;
+		}
+
+		100% {
+			transform: scale(0.2);
+			opacity: 0;
+		}
+	}
+
+</style>
+
+<body>
+	<div id="box_action_skew">扭曲淡入</div>
+	<button id="action_skew">扭曲淡入</button>
+
+
+	<div id="box_action_rotateY">Y旋转淡入</div>
+	<button id="action_rotateY">Y旋转淡入</button>
+
+	<div id="box_action_translateY">Y平移淡入</div>
+	<button id="action_translateY">Y平移淡入</button>
+
+	<div id="box_action_scale">缩放淡入</div>
+	<button id="action_scale">缩放淡入</button>
+	<!---淡出---->
+	<div id="box_action_skewOut" style="display: block;background: yellow;">扭曲淡出</div>
+	<button id="action_skewOut">扭曲淡出</button>
+
+	<div id="box_action_rotateYOut" style="display: block;background: yellow;">Y旋转淡出</div>
+	<button id="action_rotateYOut">Y旋转淡出</button>
+
+	<div id="box_action_translateYOut" style="display: block;background: yellow;">Y平移淡出</div>
+	<button id="action_translateYOut">Y平移淡出</button>
+
+	<div id="box_action_scaleOut" style="display: block;background: yellow;">缩放淡出</div>
+	<button id="action_scaleOut">缩放淡出</button>
+</body>
+
+<script src="http://leaverou.github.com/prefixfree/prefixfree.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+	var boo = 0;
+	var canUse = document.getElementsByTagName("body")[0].style;
+	if (typeof canUse.animation != "undefined" || typeof canUse.WebkitAnimation != "undefined") {
+		boo = 1; /*支持动画*/
+	} else {
+		boo = 0; /*不支持动画*/
+	}
+
+
+	$('#action_skew').click(function () {
+		actionIn("#box_action_skew", 'action_skew', 1, "linear");
+	})
+
+	$('#action_rotateY').click(function () {
+		actionIn("#box_action_rotateY", 'action_rotateY', 1, "linear");
+	})
+
+	$('#action_translateY').click(function () {
+		actionIn("#box_action_translateY", 'action_translateY', 1, "");
+	})
+
+	$('#action_scale').click(function () {
+		actionIn("#box_action_scale", 'action_scale', 1, "");
+	})
+
+	/*obj,actionName,speed都是 string,time(秒)是int类型*/
+	function actionIn(obj, actionName, time, speed) {
+		$(obj).show();
+		if (boo == 1) $(obj).css({
+			"animation": actionName + " " + time + "s" + " " + speed,
+			"animation-fill-mode": "forwards"
+		});
+	}
+	/*---淡出----*/
+
+	$('#action_skewOut').click(function () {
+		actionOut("#box_action_skewOut", 'action_skewOut', 1, "linear");
+	})
+
+	$('#action_rotateYOut').click(function () {
+		actionOut("#box_action_rotateYOut", 'action_rotateYOut', 1, "linear");
+	})
+
+
+	$('#action_translateYOut').click(function () {
+		actionOut("#box_action_translateYOut", 'action_translateYOut', 1, "");
+	})
+
+	$('#action_scaleOut').click(function () {
+		actionOut("#box_action_scaleOut", 'action_scaleOut', 1, "");
+	})
+
+	/*obj,actionName,speed都是 string,time(秒)是int类型*/
+	function actionOut(obj, actionName, time, speed) {
+		if (boo == 1) {
+			$(obj).css({
+				"animation": actionName + " " + time + "s" + " " + speed
+			});
+			var setInt_obj = setInterval(function () {
+				$(obj).hide();
+				clearInterval(setInt_obj);
+			}, time * 1000);
+		} else $(obj).hide();
+	}
+
+</script>
+
+</html>
