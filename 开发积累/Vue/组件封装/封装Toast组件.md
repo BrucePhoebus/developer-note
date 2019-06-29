@@ -180,3 +180,5 @@ Vue.use(Toast);
 
 this.$Toast('Toast弹框成功！');
 ```
+
+> 参考：[在vue中封装可复用的组件](https://blog.csdn.net/qq_38563845/article/details/77524934)
