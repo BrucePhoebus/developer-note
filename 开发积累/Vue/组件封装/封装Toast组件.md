@@ -17,9 +17,9 @@
 export default{
 	data(){
 		return {
-			text:'内容',
-			isShow:true,
-			duration:1500
+			text: '内容',
+			isShow: true,
+			duration: 1500
 		}
 	}
 }
@@ -58,14 +58,17 @@ export default{
 	data(){
 		return {
 			text: '内容',
-			isShow: false,
+			isShow: true,
 			duration: 1500
 		}
 	},
 	methods: {
-		showToast(text) {
+		showToast(text, duration) {
 			this.text = text;
-			this.isShow = true;
+			duration = duration ? duration : this.duration;
+			setTimeout(()=>{
+				this.isShow = false;  
+			}, duration);
 		}
 	}
 }
@@ -97,17 +100,26 @@ export default{
 ```js
 import Vue from 'vue'; 
 import Toast from '@/components/Toast';     //引入组件
-
-let ToastConstructor  = Vue.extend(Toast) // 返回一个 扩展实例构造器
+let ToastConstructor  = Vue.extend(Toast) // 返回一个“扩展实例构造器”
  
-let myToast = () => {
-	let ToastDom = new ToastConstructor({
-		el: document.createElement('div')    // 将Toast组件挂载到新创建的div上
+let myToast = (text,duration)=>{
+	let toastDom = new ToastConstructor({
+		el:document.createElement('div')    //将toast组件挂载到新创建的div上
 	})
-	document.body.appendChild( ToastDom.$el )   // 把Toast组件的dom添加到body里
+	document.body.appendChild( toastDom.$el )   //把toast组件的dom添加到body里
+	
+    toastDom.text = text;
+    toastDom.duration = duration;
+ 
+    // 在指定 duration 之后让 toast消失
+    setTimeout(()=>{
+        toastDom.isShow = false;  
+    }, toastDom.duration);
 }
 export default myToast;
 ```
+
+> 这里给他设置两个传入参数，一个是显示的内容，一个是显示的时间
 
 **或直接就挂载到原型中比较好**
 
@@ -122,8 +134,8 @@ export default {
       $vm = new ToastPlugin().$mount();	// 手动地挂载一个未挂载的实例
       document.body.appendChild($vm.$el);	// 挂载到body对象上
     }
-    Vue.prototype.$Toast = function (text) {
-      $vm.showToast(text);
+    Vue.prototype.$Toast = function (text, duration) {
+      $vm.showToast(text, duration);
     }
   }
 }
