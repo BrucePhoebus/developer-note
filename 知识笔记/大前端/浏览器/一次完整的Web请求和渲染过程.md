@@ -41,21 +41,6 @@
   * reflow是由于DOM或者布局的变动而触发，如修改了DOM位置，或是宽高，margin, padding等。
   * repaint是样式风格修改，不影响布局时触发，如改了颜色之类的
 
-* 提高网页渲染速度，主要可以减少DOM, CSSOM处理， 合并render tree，以及减少reflow的次数
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* 提高网页渲染速度，主要可以减少DOM, CSSOM处理， 合并render tree，以及[减少reflow的次数](知识笔记/大前端/性能优化/前端页面优化.md)
 
 > 参考：[一次完整的 Web 请求和渲染过程](https://juejin.im/post/5d0f3a726fb9a07ea4208766)
