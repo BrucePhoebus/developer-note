@@ -1,5 +1,7 @@
 # CSS3实现旋转动画
 
+## 普通实现
+
 ```html
 <!DOCTYPE html>
 <!--
@@ -74,4 +76,28 @@
 <div class="rotate rotate45 box">旋转45°</div>
 </body>
 </html>
+```
+
+## 动态语法改造
+
+#### SCSS改造
+
+```css
+/* 执行动画以及执行时间设定 */
+@mixin dz($time:0.25s){
+    -webkit-transition: all $time ease-in-out;
+    -moz-transition: all $time ease-in-out;
+    -o-transition: all $time ease-in-out;
+    -ms-transition: all $time ease-in-out;
+    transition: all $time ease-in-out;
+}
+
+/* 旋转动画调用 */
+@mixin xz($deg:360){
+    transform:rotate($deg+deg);
+    -webkit-transform:rotate($deg+deg);
+    -moz-transform:rotate($deg+deg);
+    -o-transform:rotate($deg+deg);
+    -ms-transform:rotate($deg+deg);
+}
 ```

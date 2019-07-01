@@ -1,5 +1,7 @@
 # scale放大动画效果
 
+## 普通实现
+
 ```html
 <!DOCTYPE html>
 <!--
@@ -76,4 +78,28 @@
 
 </body>
 </html>
+```
+
+## 动态语法改造
+
+#### SCSS改造
+
+```css
+/* 执行动画以及执行时间设定 */
+@mixin dz($time:0.25s){
+    -webkit-transition: all $time ease-in-out;
+    -moz-transition: all $time ease-in-out;
+    -o-transition: all $time ease-in-out;
+    -ms-transition: all $time ease-in-out;
+    transition: all $time ease-in-out;
+}
+
+/* 放大动画 */
+@mixin fd($s1:1.2){
+    transform:scale($s1);
+    -webkit-transform:scale($s1);
+    -moz-transform:scale($s1);
+    -o-transform:scale($s1);
+    -ms-transform:scale($s1);
+}
 ```

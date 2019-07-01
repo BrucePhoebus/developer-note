@@ -1,5 +1,7 @@
 # CSS3实现translate上下移动动画
 
+## 普通实现
+
 ```html
 <!DOCTYPE html>
 <!--
@@ -83,4 +85,28 @@
 <div class="translate translate-top10 box">上移10px</div>
 </body>
 </html>
+```
+
+## 动态语法改造
+
+#### SCSS改造
+
+```css
+/* 执行动画以及执行时间设定 */
+@mixin dz($time:0.25s){
+    -webkit-transition: all $time ease-in-out;
+    -moz-transition: all $time ease-in-out;
+    -o-transition: all $time ease-in-out;
+    -ms-transition: all $time ease-in-out;
+    transition: all $time ease-in-out;
+}
+
+/* 移动动画 */
+@mixin yd($s1:0,$s2:0){
+    transform:translate($s1,$s2);
+    -webkit-transform:translate($s1,$s2);
+    -moz-transform:translate($s1,$s2);
+    -o-transform:translate($s1,$s2);
+    -ms-transform:translate($s1,$s2);
+}
 ```
