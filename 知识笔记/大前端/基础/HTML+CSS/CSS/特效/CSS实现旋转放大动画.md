@@ -104,9 +104,11 @@
 
 **使用方式**
 
+```css
 #rotateAndScaleDiv {
     @include dz();
     &:hover {
         @include rotateAndScale(360, 2);
     }
 }
+```

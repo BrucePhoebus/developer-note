@@ -113,9 +113,11 @@
 
 **使用方式**
 
+```css
 #moveDiv {
     @include dz();
     &:hover {
         @include moveDiv(10px, -10px);
     }
 }
+```
