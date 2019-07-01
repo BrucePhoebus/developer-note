@@ -59,11 +59,13 @@
 			- [CSS3新特性](知识笔记/大前端/基础/HTML+CSS/CSS/CSS3/CSS3新特性.md)
 			- [CSS常用效果](知识笔记/大前端/基础/HTML+CSS/CSS/CSS常用效果.md)
 			- [CSS初始化](知识笔记/大前端/基础/HTML+CSS/CSS/CSS初始化.md)
+			- [CSS最佳实践](知识笔记/大前端/基础/HTML+CSS/CSS/CSS最佳实践.md)
 
 			- [css之淡入淡出](知识笔记/大前端/基础/HTML+CSS/CSS/特效/css之淡入淡出.md)
 
 			- [Normalize统一默认样式](知识笔记/大前端/基础/HTML+CSS/CSS/CSS兼容/Normalize.CSS.md)
-			- 
+			- [HTML5向下兼容低版本IE](知识笔记/大前端/基础/HTML+CSS/CSS/CSS兼容/html5shiv和respond.md)
+			
 			- [CSS实现元素居中](知识笔记/大前端/基础/HTML+CSS/CSS/布局/居中效果/CSS实现元素居中.md)
 			- [CSS弹框居中实现](知识笔记/大前端/基础/HTML+CSS/CSS/布局/居中效果/CSS弹框居中实现.md)
 			- [水平垂直居中效果](知识笔记/大前端/基础/HTML+CSS/CSS/布局/居中效果/水平垂直居中效果.md)
