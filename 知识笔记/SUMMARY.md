@@ -58,6 +58,7 @@
 
 			- [CSS3新特性](知识笔记/大前端/基础/HTML+CSS/CSS/CSS3/CSS3新特性.md)
 			- [CSS常用效果](知识笔记/大前端/基础/HTML+CSS/CSS/CSS常用效果.md)
+			- [CSS初始化](知识笔记/大前端/基础/HTML+CSS/CSS/CSS初始化.md)
 
 			- [css之淡入淡出](知识笔记/大前端/基础/HTML+CSS/CSS/特效/css之淡入淡出.md)
 			- 
