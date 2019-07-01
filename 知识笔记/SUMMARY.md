@@ -62,6 +62,7 @@
 			- [CSS最佳实践](知识笔记/大前端/基础/HTML+CSS/CSS/CSS最佳实践.md)
 
 			- [css之淡入淡出](知识笔记/大前端/基础/HTML+CSS/CSS/特效/css之淡入淡出.md)
+			- [CSS3动画效果合集](知识笔记/大前端/基础/HTML+CSS/CSS/特效/CSS3动画效果合集.md)
 
 			- [Normalize统一默认样式](知识笔记/大前端/基础/HTML+CSS/CSS/CSS兼容/Normalize.CSS.md)
 			- [HTML5向下兼容低版本IE](知识笔记/大前端/基础/HTML+CSS/CSS/CSS兼容/html5shiv和respond.md)
