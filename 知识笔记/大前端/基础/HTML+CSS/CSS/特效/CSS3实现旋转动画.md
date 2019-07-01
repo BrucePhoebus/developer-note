@@ -101,3 +101,14 @@
     -ms-transform:rotate($deg+deg);
 }
 ```
+
+**使用方式**
+
+```css
+#rotateDiv {
+    @include dz();
+    &:hover {
+        @include xz(90);
+    }
+}
+```

@@ -93,7 +93,7 @@
 }
 
 /* 旋转放大动画 */
-@mixin xzfd($deg:360,$s1:1.2){
+@mixin rotateAndScale($deg:360,$s1:1.2){
     transform:rotate($deg+deg) scale($s1);
     -webkit-transform:rotate($deg+deg) scale($s1);
     -moz-transform:rotate($deg+deg) scale($s1);
@@ -101,3 +101,12 @@
     -ms-transform:rotate($deg+deg) scale($s1);
 }
 ```
+
+**使用方式**
+
+#rotateAndScaleDiv {
+    @include dz();
+    &:hover {
+        @include rotateAndScale(360, 2);
+    }
+}

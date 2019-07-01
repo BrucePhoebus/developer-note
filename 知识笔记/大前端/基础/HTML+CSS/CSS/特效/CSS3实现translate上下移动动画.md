@@ -102,7 +102,7 @@
 }
 
 /* 移动动画 */
-@mixin yd($s1:0,$s2:0){
+@mixin moveDiv($s1:0,$s2:0){
     transform:translate($s1,$s2);
     -webkit-transform:translate($s1,$s2);
     -moz-transform:translate($s1,$s2);
@@ -110,3 +110,12 @@
     -ms-transform:translate($s1,$s2);
 }
 ```
+
+**使用方式**
+
+#moveDiv {
+    @include dz();
+    &:hover {
+        @include moveDiv(10px, -10px);
+    }
+}

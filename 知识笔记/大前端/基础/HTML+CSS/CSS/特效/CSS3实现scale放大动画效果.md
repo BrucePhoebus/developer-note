@@ -95,11 +95,22 @@
 }
 
 /* 放大动画 */
-@mixin fd($s1:1.2){
+@mixin scaleDiv($s1:1.2){
     transform:scale($s1);
     -webkit-transform:scale($s1);
     -moz-transform:scale($s1);
     -o-transform:scale($s1);
     -ms-transform:scale($s1);
+}
+```
+
+**使用方式**
+
+```css
+#scaleDiv {
+    @include dz();
+    &:hover {
+        @include scaleDiv(90);
+    }
 }
 ```
