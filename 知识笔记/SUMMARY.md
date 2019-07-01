@@ -61,6 +61,8 @@
 			- [CSS初始化](知识笔记/大前端/基础/HTML+CSS/CSS/CSS初始化.md)
 
 			- [css之淡入淡出](知识笔记/大前端/基础/HTML+CSS/CSS/特效/css之淡入淡出.md)
+
+			- [Normalize统一默认样式](知识笔记/大前端/基础/HTML+CSS/CSS/CSS兼容/Normalize.CSS.md)
 			- 
 			- [CSS实现元素居中](知识笔记/大前端/基础/HTML+CSS/CSS/布局/居中效果/CSS实现元素居中.md)
 			- [CSS弹框居中实现](知识笔记/大前端/基础/HTML+CSS/CSS/布局/居中效果/CSS弹框居中实现.md)
