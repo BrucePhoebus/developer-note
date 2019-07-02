@@ -17,6 +17,8 @@
 		- [Vue之mixin混入](知识笔记/大前端/Vue/Vue高级应用/mixin混入.md)
 		- [slot使用场景和实现](知识笔记/大前端/Vue/Vue高级应用/slot使用.md)
 
+		- [公共组件开发基础](知识笔记/大前端/Vue/公共组件开发/公共组件开发基础.md)
+
 		- [Vue父子节点传值](知识笔记/大前端/Vue/Vue基础/Vue父子节点传值.md)
 
 		- [渲染函数render](知识笔记/大前端/Vue/Vue散点知识/渲染函数render.md)
