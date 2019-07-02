@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!--
+	波浪线效果：普通波浪线、交叉波浪线、加粗波浪线、圆球波浪、水杯晃动、水球晃动
+-->
+<html>
+
+<head>
+	<meta charset="UTF-8">
+</head>
+<style>
+	.wavy-line::before {
+		content: '';
+		position: absolute;
+		top: 30px;
+		width: 100%;
+		height: 0.25em;
+
+		background:
+			linear-gradient(135deg, transparent, transparent 45%, #008000, transparent 55%, transparent 100%),
+			linear-gradient(45deg, transparent, transparent 45%, #008000, transparent 55%, transparent 100%);
+		background-size: 0.5em 0.5em;
+		background-repeat: repeat-x, repeat-x;
+	}
+
+	.wavy-line-bold::before {
+		content: '';
+		position: absolute;
+		top: 30px;
+		width: 100%;
+		height: 0.5em;
+
+		background:
+			linear-gradient(135deg, transparent, transparent 45%, #008000, transparent 55%, transparent 100%),
+			linear-gradient(45deg, transparent, transparent 45%, #008000, transparent 55%, transparent 100%);
+		background-size: 1em 1em;
+		background-repeat: repeat-x, repeat-x;
+	}
+
+	.wavy-line-change::before {
+		content: '';
+		position: absolute;
+		top: 30px;
+		width: 100%;
+		height: 0.5em;
+
+		background:
+			linear-gradient(135deg, transparent, transparent 45%, #008000, transparent 55%, transparent 100%),
+			linear-gradient(45deg, transparent, transparent 45%, #008000, transparent 55%, transparent 100%);
+		background-size: 0.5em 0.5em;
+		background-repeat: repeat-x, repeat-x;
+	}
+
+	.wavy-line-circle {
+		width: 200px;
+		height: 200px;
+
+		background: #009A61;
+		border-radius: 45%;
+		color: white;
+		text-align: center;
+		line-height: 200px;
+
+		animation: rotateOne 2s linear infinite;
+	}
+
+	@keyframes rotateOne {
+		from {
+			transform: rotate(0);
+		}
+
+		to {
+			transform: rotate(180deg);
+		}
+	}
+
+	.wavy-line-water {
+		height: 100vh;
+		align-items: center;
+		position: relative;
+		border: 1px solid red;
+		background-color: rgb(118, 218, 255);
+		overflow: hidden;
+	}
+
+	.wavy-line-water::before,
+	.wavy-line-water::after {
+		content: "";
+		position: absolute;
+		left: 50%;
+		min-width: 300vw;
+		min-height: 300vw;
+		background: #fff;
+		animation: rotateOne 10s linear infinite;
+	}
+
+	.wavy-line-water::before {
+		bottom: 15vh;
+		border-radius: 45%;
+	}
+
+	.wavy-line-water::after {
+		bottom: 12vh;
+		opacity: 0.5;
+		border-radius: 47%;
+	}
+
+	@keyframes rotateOne {
+		0% {
+			transform: translate(-50%, 0) rotateZ(0deg);
+		}
+
+		50% {
+			transform: translate(-50%, -2%) rotateZ(180deg);
+		}
+
+		100% {
+			transform: translate(-50%, 0%) rotateZ(360deg);
+		}
+	}
+
+	.container {
+		position: absolute;
+		width: 200px;
+		height: 200px;
+		padding: 5px;
+		border: 5px solid rgb(118, 218, 255);
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		border-radius: 50%;
+		overflow: hidden;
+	}
+
+	.circle-water {
+		width: 200px;
+		height: 200px;
+		position: relative;
+
+		background-color: rgb(118, 218, 255);
+		border-radius: 50%;
+		overflow: hidden;
+	}
+
+	.circle-water::before,
+	.circle-water::after {
+		content: "";
+		position: absolute;
+		left: 50%;
+		min-width: 400px;
+		min-height: 400px;
+		background: #fff;
+		animation: rotateOne 10s linear infinite;
+	}
+
+	.circle-water::before {
+		bottom: 50px;
+		border-radius: 45%;
+	}
+
+	.circle-water::after {
+		bottom: 40px;
+		opacity: 0.5;
+		border-radius: 47%;
+	}
+
+	@keyframes rotateOne {
+		0% {
+			transform: translate(-50%, 0) rotateZ(0deg);
+		}
+
+		50% {
+			transform: translate(-50%, -2%) rotateZ(180deg);
+		}
+
+		100% {
+			transform: translate(-50%, 0%) rotateZ(360deg);
+		}
+	}
+</style>
+
+<body>
+	<div class="wavy-line">波浪线效果</div>
+	<div class="wavy-line-change">波浪线变形效果</div>
+	<div class="wavy-line-bold">波浪线加粗效果</div>
+	<div class="wavy-line-circle"></div>
+	<div class="wavy-line-circle">不规则圆，旋转实现波浪效果</div>
+	<div class="wavy-line-water">水杯中水的波动</div>
+	<div class="container">
+		<div class="circle-water">圆水球晃动效果</div>
+	</div>
+</body>
+
+</html>
