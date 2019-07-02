@@ -43,14 +43,15 @@
 			- [JavaScript变量存储](知识笔记/大前端/基础/JavaScript/JavaScript基础/JavaScript变量存储.md)
 			- [JavaScript判断数据类型](知识笔记/大前端/基础/JavaScript/JavaScript基础/JavaScript判断数据类型.md)
 			- [js之时间处理](知识笔记/大前端/基础/JavaScript/JavaScript基础/js之时间处理.md)
+
+			- [各种小功能实现](知识笔记/大前端/基础/JavaScript/小功能/各种小功能实现.md)
 			
 			- [js对象之拷贝](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/js对象之拷贝.md)
 			- [js之装箱拆箱](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/js之装箱拆箱.md)
 			- [JavaScript常用技巧](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/JavaScript常用技巧.md)
 			- [JavaScript对象属性底层原理](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/JavaScript对象属性底层原理.md)
-
-			- [认识原型、继承与原型链](知识笔记/大前端/基础/JavaScript/js原型与原型链/认识原型、继承与原型链.md)
-			- [js之继承](知识笔记/大前端/基础/JavaScript/js原型与原型链/js之继承.md)
+			
+			- [原型与原型链](知识笔记/大前端/基础/JavaScript/js原型与原型链/原型与原型链.md)
 
 			- [js之原型设计模式](知识笔记/大前端/基础/JavaScript/设计模式/原型设计模式.md)
 
