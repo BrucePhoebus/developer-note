@@ -37,12 +37,7 @@
 
 		* JavaScript
 
-			- [JavaScript基础](知识笔记/大前端/基础/JavaScript/JavaScript基础/JavaScript基础.md)
-			- [JavaScript细节知识](知识笔记/大前端/基础/JavaScript/JavaScript基础/JavaScript细节知识.md)
-			- [JavaScript数值类型](知识笔记/大前端/基础/JavaScript/JavaScript基础/JavaScript数值类型.md)
-			- [JavaScript变量存储](知识笔记/大前端/基础/JavaScript/JavaScript基础/JavaScript变量存储.md)
-			- [JavaScript判断数据类型](知识笔记/大前端/基础/JavaScript/JavaScript基础/JavaScript判断数据类型.md)
-			- [js之时间处理](知识笔记/大前端/基础/JavaScript/JavaScript基础/js之时间处理.md)
+			- [JavaScript基础汇总](知识笔记/大前端/基础/JavaScript/JavaScript基础/JavaScript基础汇总.md)
 
 			- [各种小功能实现](知识笔记/大前端/基础/JavaScript/小功能/各种小功能实现.md)
 			
@@ -65,12 +60,7 @@
 
 			- [scss、sass和less的区别](知识笔记/大前端/基础/HTML+CSS/CSS/CSS预处理语言/scss、sass和less的区别.md)
 
-			- [css之淡入淡出](知识笔记/大前端/基础/HTML+CSS/CSS/特效/css之淡入淡出.md)
-			- [CSS3动画效果合集](知识笔记/大前端/基础/HTML+CSS/CSS/特效/CSS3动画效果合集.md)
-			- [CSS3实现旋转动画](知识笔记/大前端/基础/HTML+CSS/CSS/特效/CSS3实现旋转动画.md)
-			- [CSS3实现scale放大动画效果](知识笔记/大前端/基础/HTML+CSS/CSS/特效/CSS3实现scale放大动画效果.md)
-			- [CSS实现旋转放大动画](知识笔记/大前端/基础/HTML+CSS/CSS/特效/CSS实现旋转放大动画.md)
-			- [CSS3实现translate上下移动动画](知识笔记/大前端/基础/HTML+CSS/CSS/特效/CSS3实现translate上下移动动画.md)
+			- [CSS特效汇总](知识笔记/大前端/基础/HTML+CSS/CSS/特效/CSS特效汇总.md)
 
 			- [Normalize统一默认样式](知识笔记/大前端/基础/HTML+CSS/CSS/CSS兼容/Normalize.CSS.md)
 			- [HTML5向下兼容低版本IE](知识笔记/大前端/基础/HTML+CSS/CSS/CSS兼容/html5shiv和respond.md)
