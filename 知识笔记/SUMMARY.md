@@ -52,22 +52,11 @@
 
 		* CSS
 
-			- [CSS各种场景效果实现](知识笔记/大前端/基础/HTML+CSS/CSS/CSS各种场景效果实现.md)
-			- [CSS3新特性](知识笔记/大前端/基础/HTML+CSS/CSS/CSS3/CSS3新特性.md)
-			- [CSS常用效果](知识笔记/大前端/基础/HTML+CSS/CSS/CSS常用效果.md)
-			- [CSS初始化](知识笔记/大前端/基础/HTML+CSS/CSS/CSS初始化.md)
-			- [CSS最佳实践](知识笔记/大前端/基础/HTML+CSS/CSS/CSS最佳实践.md)
-
-			- [scss、sass和less的区别](知识笔记/大前端/基础/HTML+CSS/CSS/CSS预处理语言/scss、sass和less的区别.md)
-
+			- [CSS基础汇总](知识笔记/大前端/基础/HTML+CSS/CSS/CSS基础汇总.md)
+			- [CSS常用实现方案](知识笔记/大前端/基础/HTML+CSS/CSS/CSS常用实现方案.md)
+			- [各种兼容实现汇总](知识笔记/大前端/基础/HTML+CSS/CSS/各种兼容实现汇总.md)
 			- [CSS特效汇总](知识笔记/大前端/基础/HTML+CSS/CSS/特效/CSS特效汇总.md)
-
-			- [Normalize统一默认样式](知识笔记/大前端/基础/HTML+CSS/CSS/CSS兼容/Normalize.CSS.md)
-			- [HTML5向下兼容低版本IE](知识笔记/大前端/基础/HTML+CSS/CSS/CSS兼容/html5shiv和respond.md)
-			
-			- [CSS实现元素居中](知识笔记/大前端/基础/HTML+CSS/CSS/布局/居中效果/CSS实现元素居中.md)
-			- [CSS弹框居中实现](知识笔记/大前端/基础/HTML+CSS/CSS/布局/居中效果/CSS弹框居中实现.md)
-			- [水平垂直居中效果](知识笔记/大前端/基础/HTML+CSS/CSS/布局/居中效果/水平垂直居中效果.md)
+			- [CSS预处理知识汇总](知识笔记/大前端/基础/HTML+CSS/CSS/CSS预处理语言/CSS预处理知识汇总.md)
 
 		* HTML
 
