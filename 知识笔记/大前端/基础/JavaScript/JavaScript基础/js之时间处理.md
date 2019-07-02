@@ -1,5 +1,34 @@
 # js之时间处理
 
+## 最佳时间计算
+
+	使用时间戳加减
+
+#### 计算上个周日到这周六一周时间
+
+```js
+// array['startTime', 'endTime']
+function checkoutWeekDay(array) {
+	let start = null,
+		end = null;
+	// 纠正大小位置
+	if (array[0] < array[0]) {
+		start = array[1];
+		end = array[0];
+	} else {
+		start = array[0];
+		end = array[1];
+	}
+	start.setTime(start.getTime() - start.getDay() * 24 * 1000 * 3600);
+	end.setTime(start.getTime() + 3600 * 1000 * 24 * 6);
+
+	array[0] = start;
+	array[1] = end;
+}
+```
+
+> 这种时间戳计算万无一失，某不用管跨不跨月、年的问题，so easy
+
 ## 时间戳处理
 
 #### 格式化时间
