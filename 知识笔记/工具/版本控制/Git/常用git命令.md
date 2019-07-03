@@ -74,6 +74,25 @@ git remote add origin [url]
 
 > 这是很无奈的办法，一般都不建议用这么低效的办法
 
+#### git分支重命名
+
+1. 本地分支重命名
+
+	git branch -m old new
+
+2. 远程分支重命名
+
+	* 删除远程分支
+
+		git push origin : 远程分支名(你要删除的远程分支名)
+		
+		或
+
+		 git push --delete origin 分支名（不含remotes/origin）
+
+	* 将本地分支推送到远程分支上，如果远程分支不存在，则创建此远程分支
+
+		git push origin 本地分支名: 远程分支名
 
 ## 基础命令
 
