@@ -186,4 +186,26 @@
 
 5. 对呈现的操纵
 
+## AJAX基础应用
+
+#### 常用AJAX实现
+
+```js
+$.ajax({
+	url: 'http://jsonplaceholder.typicode.com/users',
+	type: 'get',
+	dataType: 'json',
+	data: {
+		//'a': 1,
+		//'b': 2,
+	},
+	success: function (response) {
+		console.log(response)；
+	}
+})
+```
+
+> 这个个人开发中最常见于JSP页面，也就是WEB开发
+
+
 > 参考：[AJAX工作原理及其优缺点](https://www.cnblogs.com/SanMaoSpace/archive/2013/06/15/3137180.html)
