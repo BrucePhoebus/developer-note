@@ -67,6 +67,7 @@
 	* HTTP
 
 		- [HTTP1.x和HTTP2](知识笔记/大前端/HTTP/HTTP1.x和HTTP2.md)
+		- [HTTP请求知识](知识笔记/大前端/HTTP/请求/HTTP请求知识.md)
 
 	* nodejs
 
