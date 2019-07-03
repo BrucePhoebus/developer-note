@@ -28,10 +28,7 @@
 
 			- [各种小功能实现](知识笔记/大前端/基础/JavaScript/小功能/各种小功能实现.md)
 			
-			- [js对象之拷贝](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/js对象之拷贝.md)
-			- [js之装箱拆箱](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/js之装箱拆箱.md)
-			- [JavaScript常用技巧](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/JavaScript常用技巧.md)
-			- [JavaScript对象属性底层原理](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/JavaScript对象属性底层原理.md)
+			- [JavaScript深入学习汇总](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/JavaScript深入学习汇总.md)
 			
 			- [原型与原型链](知识笔记/大前端/基础/JavaScript/js原型与原型链/原型与原型链.md)
 
@@ -128,7 +125,7 @@
 		- [git入门](知识笔记/工具/版本控制/Git/git基础和使用.md)
 		- [git项目常用操作](知识笔记/工具/版本控制/Git/git项目常用操作.md)
 		- [git-flow项目管理规范](知识笔记/工具/版本控制/Git/git-flow项目管理规范.md)
-		
+
 		- [git-github项目重命名](知识笔记/工具/版本控制/github项目重命名.md)
 
 	* docker
