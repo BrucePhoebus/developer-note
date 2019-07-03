@@ -1,4 +1,3 @@
-
 * 思想
 
 	* 设计模式汇总
@@ -11,16 +10,11 @@
 
 	* Vue
 
+		- [Vue基础汇总](知识笔记/大前端/Vue/Vue基础/Vue基础汇总.md)
+
 		- [Vue数据驱动](知识笔记/大前端/Vue/Vue数据驱动.md)
 
-		- [Vue插件制作](知识笔记/大前端/Vue/Vue高级应用/Vue插件制作.md)
-		- [Vue之mixin混入](知识笔记/大前端/Vue/Vue高级应用/mixin混入.md)
-		- [slot使用场景和实现](知识笔记/大前端/Vue/Vue高级应用/slot使用.md)
-
-		- [Vue父子节点传值](知识笔记/大前端/Vue/Vue基础/Vue父子节点传值.md)
-
-		- [渲染函数render](知识笔记/大前端/Vue/Vue散点知识/渲染函数render.md)
-		- [Vue三点扩展运算符](知识笔记/大前端/Vue/Vue散点知识/Vue三点扩展运算符.md)
+		- [Vue高级应用汇总](知识笔记/大前端/Vue/Vue高级应用/Vue高级应用汇总.md)
 
 	* 移动端
 
