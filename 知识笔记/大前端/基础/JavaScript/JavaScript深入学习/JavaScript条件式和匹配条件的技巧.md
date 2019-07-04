@@ -9,7 +9,7 @@
 ```js
 const checkCarModel = (model) => {
     if(model === 'renault' || model === 'peugeot') { 
-    console.log('model valid');
+    	console.log('model valid');
     }
 }
 
@@ -25,7 +25,7 @@ const checkCarModel = (model) => {
     const models = ['peugeot', 'renault']; // 这是作为常量的存在，而在项目中我们常会把常量抽离到一个地方做统一处理
 
     if(models.includes(model)) { 
-    console.log('model valid');
+    	console.log('model valid');
     }
 }
 
