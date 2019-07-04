@@ -18,7 +18,7 @@
    
 8.  浏览器渲染页面(布局)
 
-![一个Web请求的全流程图](../../images/browser/一个Web请求的全流程图.png)
+![一个Web请求的全流程图](../../../images/browser/一个Web请求的全流程图.png)
 
 > [HTTP1.x和HTTP2](知识笔记/大前端/HTTP/HTTP1.x和HTTP2.md)
 
@@ -28,9 +28,9 @@
 
 * HTML标记与CSS标记都会经历上述过程，HTML变为DOM，CSS变为CSSOM
 
-![浏览器构建对象模型](../../images/browser/浏览器构建对象模型.png)
+![浏览器构建对象模型](../../../images/browser/浏览器构建对象模型.png)
 
-> 参考：[浏览器渲染机制](知识笔记/大前端/浏览器/浏览器渲染机制.md)
+> 参考：[浏览器渲染机制](知识笔记/大前端/浏览器/浏览器渲染机制/浏览器渲染机制.md)
 
 ## render tree构建，布局以及绘制
 

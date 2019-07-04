@@ -14,11 +14,11 @@
 
 1. 执行命令
 
-	ssh-keygen -t rsa -C "your_email@youremail.com"
+	ssh-keygen -t rsa -C "your_email@yourEmail.com"
 
 > 注意ssh-keygen命令中间没有空格，如果在ssh后面加上空格，会得到Bad escape character ‘ygen’.的错误
 
-2. 后面的your_email@youremail.com改为你的邮箱，之后会要求确认路径和输入密码，我们这使用默认的一路回车就行
+2. 后面的your_email@yourEmail.com改为你的邮箱，之后会要求确认路径和输入密码，我们这使用默认的一路回车就行
 
 3. 成功的话会在~/下生成.ssh文件夹，进去，打开id_rsa.pub，复制里面的key（全部）
 
@@ -36,9 +36,9 @@
 6. =设置本地全局git用户名密码
 
 	git config --global user.name "username"
-	git config --global user.email "your_email@youremail.com"
+	git config --global user.email "your_email@yourEmail.com"
 
-7. 右键tortoisegit克隆上github个人页面找Repositories中的项目，负责git路径，粘贴，指定克隆路径，点击克隆
+7. 右键TortoiseGit克隆上github个人页面找Repositories中的项目，负责git路径，粘贴，指定克隆路径，点击克隆
 	
 	git config user.name
 	git config user.email
@@ -89,11 +89,11 @@
 
 #### 克隆github的项目
 
-	这个是最常用的，我们经常要讲远程仓库clone到本地进行本地开发，当然，这个github的说法并不准确，应该说远程仓库，因为还有gitlab等多种远程仓库可用，但是我们个人用得最多的还是github
+	这个是最常用的，我们经常要讲远程仓库clone到本地进行本地开发，当然，这个github的说法并不准确，应该说远程仓库，因为还有gitLab等多种远程仓库可用，但是我们个人用得最多的还是github
 
 1. 拉取远程项目到本地
 
-	git clone git@github.com:han1202012/NDKHelloworld.git 
+	git clone git@github.com:han1202012/NDKHelloWorld.git 
 	
 > 注意克隆的时候直接在仓库根目录即可, 不用再创建项目根目录
 
