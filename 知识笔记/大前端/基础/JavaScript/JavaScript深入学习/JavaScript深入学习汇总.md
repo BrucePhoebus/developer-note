@@ -4,6 +4,8 @@
 
 > [js之装箱拆箱](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/js之装箱拆箱.md)
 
+> [JavaScript条件式和匹配条件的技巧](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/JavaScript条件式和匹配条件的技巧.md)
+
 > [JavaScript常用技巧](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/JavaScript常用技巧.md)
 
 > [js常用工具函数](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/js常用工具函数.md)
