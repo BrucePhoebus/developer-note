@@ -25,14 +25,11 @@
 
 		* JavaScript
 
+			- [JS模块化](知识笔记/大前端/基础/JavaScript/Javascript模块化编程/JS模块化.md)
 			- [JavaScript基础汇总](知识笔记/大前端/基础/JavaScript/JavaScript基础/JavaScript基础汇总.md)
-
 			- [各种小功能实现](知识笔记/大前端/基础/JavaScript/小功能/各种小功能实现.md)
-			
 			- [JavaScript深入学习汇总](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/JavaScript深入学习汇总.md)
-			
 			- [原型与原型链](知识笔记/大前端/基础/JavaScript/js原型与原型链/原型与原型链.md)
-
 			- [各种问题场景](知识笔记/大前端/基础/JavaScript/问题驱动/各种问题场景.md)
 
 		* CSS
