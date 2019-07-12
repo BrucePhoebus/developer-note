@@ -163,6 +163,58 @@ require.resolve('/js/b');
 
 > 直接使用 script 标签同步引入sea.js文件后，就可以使用seajs.use(id, callback?)在页面中加载模块了。当然，一般不会直接这么用
 
+**SeaJS提供了三种载入的方式**
+
+	seajs.use，require和require.async
+
+* seajs.use
+
+	seajs.use主要用于载入入口模块。入口模块相当于JAVA程序的main函数，同时也是整个模块依赖树的根
+
+``` js
+//单一模式
+seajs.use('./a');
+ 
+//回调模式
+seajs.use('./a', function(a) {
+  a.run();
+});
+ 
+//多模块模式
+seajs.use(['./a', './b'], function(a, b) {
+  a.run();
+  b.run();
+});
+```
+
+> 一般seajs.use只用在页面载入入口模块，SeaJS会顺着入口模块解析所有依赖模块并将它们加载。如果入口模块只有一个，也可以通过给引入sea.js的script标签加入"data-main"属性来省略seajs.use。
+
+*demo*
+
+``` html
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>使用data-main属性来省略seajs.use</title>
+</head>
+<body>
+    <p class="content"></p>
+    <script src="./sea.js" data-main="./init"></script>
+</body>
+</html>
+```
+
+* require
+
+	require是SeaJS主要的模块加载方法，当在一个模块中需要用到其它模块时一般用require加载：
+	 	
+		var a = require('a'); // 引入a模块
+	
+* require.async
+
+	require方式是一次把所有依赖的JS文件都加载进来，如果想什么时候用到什么时候加载的话就会用require.async方式，这种方式效率比require高一些。
+
 **最佳实践**
 
 * seajs.use 理论上只用于加载启动，不应该出现在 define 中的模块代码里。
@@ -186,5 +238,18 @@ require.resolve('/js/b');
 2. 从缓存或创建并加载来获取到模块后，等待模块（包括模块依赖的模块）加载完成会调用回调函数。
 
 3. 在图片虚线部分中，加载factory及分析出模块的依赖，按依赖关系递归执行 document.createElement('script') 。
+
+#### 特点
+
+1. SeaJS对模块的态度是懒执行（ As lazy as possible）
+
+**好处**
+
+	1、防止对象被提前创建（内存优化，如加载plist文件等耗内存的操作）
+	2、防止对象重复创建（永远只加载一次）
+	3、防止对象使用时，还没被创建
+	4、可以在懒加载方法里面，进行初始化操作
+
+> SeaJS只会在真正需要使用(依赖)模块时才执行该模块，SeaJS是异步加载模块的没错, 但执行模块的顺序也是严格按照模块在代码中出现(require)的顺序, 这样也许更符合逻辑。
 
 > 参考：[SeaJS从入门到原理](https://blog.csdn.net/sinat_17775997/article/details/52522767)
