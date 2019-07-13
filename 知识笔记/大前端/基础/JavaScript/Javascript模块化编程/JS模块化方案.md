@@ -16,7 +16,6 @@ var {add} = require('./add.js');
 console.log('1 + 2 = ' + add(1,2);
 ```
 
-
 ## AMD / CMD
 
 	AMD模块化方案是：define + require
@@ -39,7 +38,6 @@ require(['add'], function (add) {
 });
 ```
 
-
 ## ES6
 
 	ES6模块化方案是：export + import
@@ -57,6 +55,5 @@ export function add (a, b) { return a + b; }
 import {add} from 'add.js';
 console.log('1 + 2 = ' + add(1,2);
 ```
-
 
 > 参考：[什么才是JS模块化？](https://www.zhihu.com/question/39825164/answer/163458275)
