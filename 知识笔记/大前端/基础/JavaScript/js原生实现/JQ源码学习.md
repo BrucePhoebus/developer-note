@@ -2,7 +2,7 @@
 
 ## 概述
 
-> [jquery3.2.1.js](public/plugins/jquery3.2.1.js)
+> [jquery3.2.1.js](public/plugins/jquery3.2.1.js) | [jquery3.4.1-CDN](http://code.jquery.com/jquery-3.4.1.js)
 
 #### 前言
 

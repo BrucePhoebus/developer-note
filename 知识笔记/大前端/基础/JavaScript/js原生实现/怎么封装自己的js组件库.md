@@ -74,25 +74,65 @@
 
 	先写几个简单的实现， 开门大吉
 
-###### 
+###### 最简单的组件封装
 
-``` js
+	点击div框实现颜色改变和隐藏
+
+``` html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style type="text/css">
+.test1{
+   background-color: #c39729;
+   width: 100px;
+   height: 100px;
+}
+.test2{
+   background-color: #2315c3;
+   color: red;
+   width: 100px;
+   height: 100px;
+}
+.test3{
+   background-color: #c30505;
+   color: red;
+   width: 100px;
+   height: 100px;
+}
+
+</style>
+
+<script>
 (function(window, undefined) {
 
-    // 将组件的方法封装在一个类中
-    function myComponent() {}
-    myComponent.prototype = {
-        // 这里可以添加组件方法
-        changeColor: function(that, color) {
-            that.style.background = color;
+   // 将组件的方法封装在一个类中
+   function myComponent() {
+   }
+   myComponent.prototype = {
+   		// 这里可以添加组件方法
+		changeColor: function(that, color){
+       		that.style.background = color;
         },
-        hide: function(that) {
-            that.style.display = 'none';
-        }
-    };
-    // 将组件绑定到window对象上
-    window.myComponent = window.myComponent || new myComponent();
+       	hide:function(that){
+       		that.style.display = 'none';
+       	}
+   };
+   // 将组件绑定到window对象上
+   window.myComponent = window.myComponent || new myComponent();
 
-})(typeof window !== "undefined" ? window : this);
+})(window);
+
+</script>
+</head>
+<body>
+	<p>测试Js封装组件</p>
+	<div class="test1" onclick="myComponent.changeColor(this,'#41c30d');">测试块1</div>
+	<div class="test2" onclick="myComponent.changeColor(this,'#c30505');">测试块2</div>
+	<div class="test3" onclick="myComponent.hide(this);">点击隐藏</div>
+</body>
+
+</html>
 ```
 
