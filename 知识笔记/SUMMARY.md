@@ -49,6 +49,7 @@
 		* HTML
 
 			- [HTML基础](知识笔记/大前端/基础/HTML+CSS/HTML/HTML基础.md)
+			- [HTML基础汇总](知识笔记/大前端/基础/HTML+CSS/HTML/HTML5/HTML基础汇总.md)
 			- [HTML5新特性](知识笔记/大前端/基础/HTML+CSS/HTML/HTML5新特性.md)
 			- [HTML常用效果](知识笔记/大前端/基础/HTML+CSS/HTML/HTML常用效果.md)
 			- [HTML标签嵌套规则](知识笔记/大前端/基础/HTML+CSS/HTML/HTML标签嵌套规则.md)

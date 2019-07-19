@@ -8,6 +8,8 @@
 
 > [AJAX工作原理及其优缺点](知识笔记/大前端/HTTP/请求/AJAX工作原理及其优缺点.md)
 
+> [深入理解AJAX](知识笔记/大前端/HTTP/请求/深入理解AJAX.md)
+
 ## 常用的AXIOS
 
 > [axios入门](知识笔记/大前端/HTTP/请求/axios入门.md)
