@@ -38,23 +38,23 @@
 
 		* CSS
 
-			- [CSS基础汇总](知识笔记/大前端/基础/HTML+CSS/CSS/CSS基础/CSS基础汇总.md)
-			- [CSS3知识和应用汇总](知识笔记/大前端/基础/HTML+CSS/CSS/CSS3/CSS3知识和应用汇总.md)
-			- [CSS常用效果](知识笔记/大前端/基础/HTML+CSS/CSS/效果/CSS常用效果.md)
-			- [各种兼容实现汇总](知识笔记/大前端/基础/HTML+CSS/CSS/CSS兼容/各种兼容实现汇总.md)
-			- [布局效果知识汇总](知识笔记/大前端/基础/HTML+CSS/CSS/布局/布局效果知识汇总.md)
-			- [CSS特效汇总](知识笔记/大前端/基础/HTML+CSS/CSS/特效/CSS特效汇总.md)
-			- [CSS预处理知识汇总](知识笔记/大前端/基础/HTML+CSS/CSS/CSS预处理语言/CSS预处理知识汇总.md)
+			- [CSS基础汇总](知识笔记/大前端/基础/CSS/CSS基础/CSS基础汇总.md)
+			- [CSS3知识和应用汇总](知识笔记/大前端/基础/CSS/CSS3/CSS3知识和应用汇总.md)
+			- [CSS常用效果](知识笔记/大前端/基础/CSS/效果/CSS常用效果.md)
+			- [各种兼容实现汇总](知识笔记/大前端/基础/CSS/CSS兼容/各种兼容实现汇总.md)
+			- [布局效果知识汇总](知识笔记/大前端/基础/CSS/布局/布局效果知识汇总.md)
+			- [CSS特效汇总](知识笔记/大前端/基础/CSS/特效/CSS特效汇总.md)
+			- [CSS预处理知识汇总](知识笔记/大前端/基础/CSS/CSS预处理语言/CSS预处理知识汇总.md)
 
 		* HTML
 
-			- [HTML基础](知识笔记/大前端/基础/HTML+CSS/HTML/HTML基础.md)
-			- [HTML基础汇总](知识笔记/大前端/基础/HTML+CSS/HTML/HTML5/HTML基础汇总.md)
-			- [HTML5新特性](知识笔记/大前端/基础/HTML+CSS/HTML/HTML5新特性.md)
-			- [HTML常用效果](知识笔记/大前端/基础/HTML+CSS/HTML/HTML常用效果.md)
-			- [HTML标签嵌套规则](知识笔记/大前端/基础/HTML+CSS/HTML/HTML标签嵌套规则.md)
+			- [HTML基础](知识笔记/大前端/基础/HTML/HTML基础.md)
+			- [HTML基础汇总](知识笔记/大前端/基础/HTML/HTML5/HTML基础汇总.md)
+			- [HTML5新特性](知识笔记/大前端/基础/HTML/HTML5新特性.md)
+			- [HTML常用效果](知识笔记/大前端/基础/HTML/HTML常用效果.md)
+			- [HTML标签嵌套规则](知识笔记/大前端/基础/HTML/HTML标签嵌套规则.md)
 
-			- [meta标签总结与属性使用](知识笔记/大前端/基础/HTML+CSS/HTML/meta标签总结与属性使用.md)
+			- [meta标签总结与属性使用](知识笔记/大前端/基础/HTML/meta标签总结与属性使用.md)
 
 	* 浏览器
 

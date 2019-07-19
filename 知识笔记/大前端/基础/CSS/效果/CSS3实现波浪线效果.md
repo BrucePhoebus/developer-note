@@ -2,9 +2,9 @@
 
 ## 常见波浪线效果
 
-> [普通波浪线实现](https://github.com/BrucePhoebus/developer-note/tree/master/知识笔记/大前端/基础/HTML+CSS/CSS/效果/普通波浪线实现.html) | [普通波浪线效果](知识笔记/大前端/基础/HTML+CSS/CSS/效果/常用波浪线.html)
+> [普通波浪线实现](https://github.com/BrucePhoebus/developer-note/tree/master/知识笔记/大前端/基础/CSS/效果/普通波浪线实现.html) | [普通波浪线效果](知识笔记/大前端/基础/CSS/效果/常用波浪线.html)
 
-> [各种变形波浪线](https://github.com/BrucePhoebus/developer-note/tree/master/知识笔记/大前端/基础/HTML+CSS/CSS/效果/各种变形波浪线.html) | [各种变形波效果](知识笔记/大前端/基础/HTML+CSS/CSS/效果/各种变形波浪线.html)
+> [各种变形波浪线](https://github.com/BrucePhoebus/developer-note/tree/master/知识笔记/大前端/基础/CSS/效果/各种变形波浪线.html) | [各种变形波效果](知识笔记/大前端/基础/CSS/效果/各种变形波浪线.html)
 
 ```css
 /* CSS3实现 */
