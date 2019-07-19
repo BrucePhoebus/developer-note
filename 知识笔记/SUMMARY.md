@@ -29,6 +29,7 @@
 
 			- [JS模块化](知识笔记/大前端/基础/JavaScript/Javascript模块化编程/JS模块化.md)
 			- [JavaScript基础汇总](知识笔记/大前端/基础/JavaScript/JavaScript基础/JavaScript基础汇总.md)
+			- [[jQuery知识汇总](知识笔记/大前端/基础/JavaScript/jQuery/jQuery知识汇总.md)](知识笔记/大前端/基础/JavaScript/Javascript模块化编程/[jQuery知识汇总](知识笔记/大前端/基础/JavaScript/jQuery/jQuery知识汇总.md).md)
 			- [各种小功能实现](知识笔记/大前端/基础/JavaScript/小功能/各种小功能实现.md)
 			- [各种插件js原生实现](知识笔记/大前端/基础/JavaScript/js原生实现/各种插件js原生实现.md)
 			- [JavaScript深入学习汇总](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/JavaScript深入学习汇总.md)
