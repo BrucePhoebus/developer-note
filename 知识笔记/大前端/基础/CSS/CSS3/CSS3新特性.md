@@ -200,8 +200,6 @@ transition-delay:.1s, .1s, .1s;
 
 * Animation动画特效
 
-	就是动画效果
-
 ```html
 <style type="text/css">
     .main{
@@ -236,4 +234,3 @@ transition-delay:.1s, .1s, .1s;
 ```
 
 > CSS3的这些新特性无疑让网页的视觉效果拥有了更好更方便的展示，当然问题也是存在的，一些浏览器可能存在不兼容的问题
-

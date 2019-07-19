@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>关键帧动画：方块变化</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		div {
+			width: 150px;
+			height: 150px;
+			background-color: #a2a;
+			position: absolute;
+			/*设置绝对定位*/
+			left: 200px;
+			top: 200px;
+
+			/*绑定关键帧动画*/
+			-webkit-animation-name: name;
+			/*基于webkit内核*/
+			-moz-animation-name: name;
+			/*基于gecko内核*/
+			animation-name: name;
+
+
+			/*设置为播放一次*/
+			-webkit-animation-iteration-count: 1;
+			-moz-animation-iteration-count: 1;
+			animation-iteration-count: 1;
+
+
+			/*设置为线性变化*/
+			-webkit-animation-timing-function: linear;
+			-moz-animation-timing-function: linear;
+			animation-timing-function: linear;
+
+
+			/*设置关键帧的播放时间*/
+			-webkit-animation-duration: 4s;
+			-moz-animation-duration: 4s;
+			animation-duration: 4s;
+		}
+
+		/*创建两个关键帧动画*/
+		@-webkit-keyframes name {
+			50% {
+				left: 600px;
+				top: 200px;
+				background-color: #b12
+			}
+		}
+
+		@-moz-keyframes name {
+			50% {
+				left: 600px;
+				top: 200px;
+				background-color: #b12
+			}
+		}
+
+		@-webkit-keyframes name {
+			100% {
+				-webkit-transform: scale(0.51);
+				left: 900px;
+				top: 200px;
+				background-color: #f12
+			}
+		}
+
+		@-moz-keyframes name {
+			100% {
+				-moz-transform: scale(0.51);
+				left: 900px;
+				top: 200px;
+				background-color: #f12
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div></div>
+</body>
+
+</html>

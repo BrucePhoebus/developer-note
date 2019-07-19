@@ -2,5 +2,10 @@
 	"cSpell.words": [
 		"emojipedia",
 		"keyframes"
+	],
+	"cSpell.ignoreWords": [
+		"keyframes",
+		"moz",
+		"webkit"
 	]
 }

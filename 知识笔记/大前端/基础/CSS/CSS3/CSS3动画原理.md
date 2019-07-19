@@ -58,24 +58,61 @@ div {
 }
 
 @keyframes moveAnim {
-	0% {top:0px;}
-	25% {top:200px;}
-	75% {top:50px}
-	100% {top:100px;}
+	0% {
+		top: 0px;
+	}
+
+	25% {
+		top: 200px;
+	}
+
+	75% {
+		top: 50px
+	}
+
+	100% {
+		top: 100px;
+	}
 }
 
-@-moz-keyframes moveAnim {	/* Firefox */
-	0% {top:0px;}
-	25% {top:200px;}
-	75% {top:50px}
-	100% {top:100px;}
+@-moz-keyframes moveAnim {
+
+	/* Firefox */
+	0% {
+		top: 0px;
+	}
+
+	25% {
+		top: 200px;
+	}
+
+	75% {
+		top: 50px
+	}
+
+	100% {
+		top: 100px;
+	}
 }
 
-@-webkit-keyframes moveAnim {	/* Safari and Chrome */
-	0% {top:0px;}
-	25% {top:200px;}
-	75% {top:50px}
-	100% {top:100px;}
+@-webkit-keyframes moveAnim {
+
+	/* Safari and Chrome */
+	0% {
+		top: 0px;
+	}
+
+	25% {
+		top: 200px;
+	}
+
+	75% {
+		top: 50px
+	}
+
+	100% {
+		top: 100px;
+	}
 }
 ```
 

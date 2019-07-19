@@ -4,6 +4,8 @@
 
 > [CSS3新特性](知识笔记/大前端/基础/CSS/CSS3/CSS3新特性.md)
 
+> [CSS3基础语法详解](知识笔记/大前端/基础/CSS/CSS3/CSS3基础语法详解.md)
+
 > [认识animation动画](知识笔记/大前端/基础/CSS/CSS3/认识animation动画.md)
 
 > [CSS3阴影相关知识](知识笔记/大前端/基础/CSS/CSS3/CSS3阴影相关知识.md)
