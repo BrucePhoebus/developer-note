@@ -6,6 +6,9 @@
 	"cSpell.ignoreWords": [
 		"keyframes",
 		"moz",
+		"onbeforeunload",
+		"onupgradeneeded",
+		"onupgradeneededd",
 		"processdata",
 		"webkit"
 	]
