@@ -1,0 +1,247 @@
+# 解决js跨域问题
+
+> [浏览器跨域机制](知识笔记/大前端/浏览器/浏览器跨域机制/浏览器跨域机制.md)
+
+## 概述
+
+#### 为啥有js跨域问题？
+
+	在一个域下的页面中通过js访问另一个不同域下的数据对象，出于安全性考虑，几乎所有浏览器都不允许这种跨域访问，这就导致在一些ajax应用中，使用跨域的web service会成为一个问题
+
+## 解决方案
+
+#### 设置document.domain
+
+	采用这种方法的前提是：
+	
+		1. 跨域请求涉及的两个页面必须属于一个基础域(例如都是xxx.com，或是xxx.com.cn)
+		2. 使用同一协议（例如都是 http）和同一端口（例如都是80）
+
+**例如**
+
+	aaa.xxx.com里面的一个页面需要调用bbb.xxx.com里的一个对象，则将两个页面的 document.domain都设置为xxx.com，就可以实现跨域调用了
+
+!> 但这种方法存在很大的局限性：这种方式只能用在父、子页面之中，即只有在用iframe进行数据访问时才有用
+
+> 但是其实一般这个方案就是要解决同一一级域名共享cookie的问题，通过设置`document.domain`就可以实现登陆状态的一些信息的共享
+
+#### jsonp解决跨域
+
+	jsonp方式就是通过script标签进行资源请求(非官方提供方案)
+	而对于浏览器来说，script标签的src属性所指向资源就跟img标签的src属性所指向的资源一样，都是一个静态资源，浏览器会在适当的时候自动去加载这些资源，而不会出现所谓的跨域问题
+
+> 这样我们就可以通过该属性将要访问的数据对象引用进当前页面而绕过js跨域问题
+
+**例如**
+
+* 在space的我的空间项目中，需要在hi域下管理中心页面中随机推荐几个热门模块给用户，由于热门模块的相关信息都在act域下的php模块中维 护，如果直接在hi域下通过ajax请求去获取act域下的推荐模块列表相关信息就出现js跨域问题。解决这个问题的最简单方法就是，在hi域下通过script标签去访问act域提供的这个http接口：
+
+``` js
+<script type="text/javascript" src="http://act.hi.baidu.com/widget/recommend"><script>
+```
+
+**示例**
+
+``` js
+var callback = 'callBkFunc';
+	
+this[callback] = function(result) {
+    console.log(result);
+}
+	
+var JSONP = document.createElement('script');
+JSONP.type = 'text/javascript';
+JSONP.src = "http://127.0.0.1:8080/cors-demo/Cors?callback=" + callback;
+document.getElementsByTagName("head")[0].appendChild(JSONP);
+```
+
+> 这里便是创建了一个script标签，然后通过script标签的src属性设置url(这个url请求就是跨域访问资源)，当浏览器加载到这一段代码时，就会去请求这个地址，而这种请求方式并不会被浏览器限制
+
+!> 但script标签的请求本身存在一定的局限性，并不能解决所有js跨域问题：script标签的src属性值不能动态改变以满足在不同条件下获取不同数据的需求，更重要的是不能通过这种方式正确访问以xml内容方式组织的数据(根本满足不了现在多种多样的场景需求)，只能支持 `GET` 请求
+
+#### WebSocket
+
+	WebSocket不遵循同源策略，因为在WebSocket协议中，WebSocket的请求头中会带上 origin 这个字段，服务端可以通过这个字段来判断是否需要响应，在浏览器端并没有做任何限制。
+
+#### iframe
+
+	在使用 iframe 的页面中，虽然我们可以通过iframe.contentWindow、window.parent、window.top等方法拿到window对象，但是根据同源策略，浏览器将对非同源的页面之间的window和location对象添加限制
+
+* 不同源的两个网页将不能：操作彼此的 dom；获取/调用彼此 window 对象中的属性/方法。
+
+> 但是不同源的两个网页可以：改变父/子级的 url
+
+* 而在现实生活中，很多场景需要两个非同源的 iframe 之间进行“跨域”操作，为了实现这种“跨域”，我们借用了一些方法实现
+
+	* 片段标识符（fragment identifier）
+	* 使用 window.name
+	* 跨文档通信
+
+###### 使用片段标识符（fragment identifier）
+
+	片段标识符指的就是 url 中 # 之后的部分，也就是我们常说的 location.hash
+
+* 使用片段标识符依要托于几个关键点：
+
+	* 改变 url 里的这个部分，是不会触发页面的刷新的
+	* 父级页面虽然不能操作 iframe 中的 window 和 dom，但是可以改变 iframe 的 url
+	* window 对象可以监听 hashChange 事件
+
+> 这样我们就可以实现基于 hashChange 来操作页面
+
+###### 使用 window.name
+
+* window对象没有改变的话，这个 window 跳转的网页，都读取之前设置的 window.name 这个值
+
+	* 意思是：A 网页设置了 window.name，然后跳转到了 B 网页，但是 B 网页中，仍然可以读取到 A 设置的 window.name
+
+* 通过这个特性，在 iframe 中，子页面可以先设置 window.name，然后跳转到一个跟父页面同级的地址，这个 window.name 依然存在，因为已经调到了跟父级页面同源的地址中，所以父页面可以获取到 iframe.contentWindow中属性，也就是可以读取到 window.name
+
+> 而这个方法最大的优点就是window.name可以传一个很长的字符串；但是我们需要在父页面监听子页面的window.name是否被改变
+
+###### 跨文档通信API（Cross-document messaging）
+
+	这是HTML5规范添加的window.postMessage的方法，通过这个方法，可以方便的实现不同源的页面之间的通信。
+
+**示例说明**
+
+``` js
+
+// Page Foo
+iframe.contentWindow.postMessage('Hello from foo', '/path/to/bar')
+
+// Page Bar
+window.parent.addEventListener('message', function (e) {
+    console.log(e.source)    // 发送消息的窗口
+    console.log(e.origin)  // 消息发向的网址
+    console.log(e.data)    // 消息内容
+})
+```
+
+> 这个方法算是比较不错的方法：解决了客户端不同窗体间的消息传递问题，特别是跨域消息发送，可以解决跨域 POST 请求问题，还可以实现客户端与服务器的双向实时通信问题
+
+> 当然，实际项目开发中，我们还是偏向于使用`跨域资源共享(CORS)`这个方案从根本上解决跨域问题，当然`postMessage`也有它的使用场景
+
+#### 跨域资源共享(CORS)
+
+###### CORS 的运作
+
+* 看完[浏览器跨域机制](知识笔记/大前端/浏览器/浏览器跨域机制/浏览器跨域机制.md)，我们大概知道了跨域资源共享(CORS)是浏览器给我们解决跨域问题的一个官方方案，但是具体CORS是怎么运作的呢？我们还需要继续深入学习
+
+* 一、首先，关于CORS的设置
+
+	CORS的设置大部分都是在服务端进行设置，也就是在服务端设置白名单，允许哪些源可以进行资源访问
+
+* 二、其次是CORS在浏览器方面的运作
+
+	* 在浏览器中，http 请求将被分为两种：
+
+		* 简单请求(simple request)
+
+		* 非简单请求(not-so-simple request)
+
+	* 简单请求的判断包括两个条件：
+
+		* 1、请求方法必须是这几种：HEAD、GET、POST
+
+		* 2、HTTP 头只能包括这些信息：
+
+			* Accept
+			* Accept-Language
+			* Content-Language
+			* Last-Event-ID
+			* 	Content-Type: 只限于[application/x-www-form-urlencoded, multipart/form-data, text/plain]
+	
+	> 除了简单请求外，都是非简单请求
+
+**简单请求(simple request)**
+
+* 浏览器在处理简单请求时，会在 Header 中加上一个 `origin(protocal + host + path + port)` 字段，来标明这个请求是来自哪里
+
+* 而在 CROS 请求中，默认是不会携带 cookie之类的用户信息的，但是不携带用户信息的话，是没办法判断用户身份的，所以，可以在请求时将withCredentials设置为 true
+
+``` js
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+```
+
+> 设置了这个值之后，在服务端会将 response 中的 `Access-Control-Allow-Credentials` 也设置为 true，这样浏览器才会响应cookie
+
+* 继而在服务端拿到这个请求之后，会对 origin 进行判断，如果是在允许范围内的请求，将会在 response 返回的 Header 中加上允许的请求头信息
+
+``` js
+Access-Control-Allow-Origin: origin
+Access-Control-Allow-Credentials: true
+Access-Control-Expose-Headers: something
+```
+
+> 其中：`Access-Control-Allow-Origin`就是告诉浏览器服务端接受该域的访问；`Access-Control-Allow-Credentials`则是标明了是否拥有用户相关的权限，另外，这个值如果被设为`true`，那么`Access-Control-Allow-Origin`就不能被设置为 *，必须要显示指定为`origin`(域)的值，并且返回的cookie因为是在被跨域访问的域名下，遵守同源策略，所以在origin网页中是不能被读取到的；最后`Access-Control-Expose-Headers`表示返回可被返回的数据
+
+**非简单请求(not-so-simple request)**
+
+	与简单请求最大的不同在于，非简单请求实际上是发送了 两个请求
+
+* 第一次请求叫`预请求`，这个请求的作用是尽可能少的携带信息，供服务端判断是否响应该请求
+
+	* 而浏览器发的请求的 `Request Method` 会设置为 `options`，然后带一些请求头字段
+
+		* Origin: 同简单请求的origin
+		* Access-Control-Request-Method: 请求将要使用的方法
+		* Access-Control-Request-Headers: 浏览器会额外发送哪些头信息
+
+* 而服务端会根据这些请求头信息判断是否响应该请求
+
+	* 如果判断响应这个请求，返回的response中将会携带一些头信息
+
+		* Access-Control-Allow-Origin: origin
+		* Access-Control-Allow-Methods: like request
+		* Access-Control-Allow-Headers: like request
+
+	> 否则不返回这些头信息就行，浏览器会把这种返回判断为失败的返回，触发`onerror`方法
+
+> 如果预请求被正确响应，接下来就会发送正式请求，正式请求的request和正常的 ajax 请求基本没有区别，只是会携带 `origin` 字段；response和简单请求一样，会携带上`Access-Control-*`这些字段
+
+#### 代理
+
+	Nginx代理
+
+* 最后也是间接实现的方式，使用代理，直接跳过浏览器跨域限制，服务器之间通信完全没有跨域问题
+
+**参考示例**
+
+* Nginx配置
+
+``` bash
+server{
+    # 监听9099端口
+    listen 9099;
+    # 域名是localhost
+    server_name localhost;
+    # 凡是localhost:9099/api这个样子的，都转发到真正的服务端地址http://localhost:9871 
+    location ^~ /api {
+        proxy_pass http://localhost:9871;
+    }    
+}
+```
+
+> 配置了之后，我们对应的请求都会被代理到对应服务器(一般是Nginx服务器)，然后Nginx服务器会帮我们实现从目标服务器获取我们所需要的资源，而这个过程就没前端啥事了(或许需要配个代理)，也没后端啥事了(或许需要搭个代理服务器，其实前端也可以搭)
+
+``` js
+// 请求的时候直接用回前端这边的域名http://localhost:9099，这就不会跨域，然后Nginx监听到凡是localhost:9099/api这个样子的，都转发到真正的服务端地址http://localhost:9871 
+fetch('http://localhost:9099/api/iframePost', {
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    msg: 'helloIframePost'
+  })
+})
+```
+
+> 当然，这个方法看起来还不错，但是也是要看场景的：如果后端接口是一个公共的API，比如一些公共服务获取天气什么的，我们总不能让运维去配置一下Nginx
+
+!> 所以总结一下，如果兼容性没问题（IE 10或者以上），CORS才是根本性的官方正统规范的通用正确的方法
+
+> 参考：[同源策略和跨域](https://segmentfault.com/a/1190000007366644)
