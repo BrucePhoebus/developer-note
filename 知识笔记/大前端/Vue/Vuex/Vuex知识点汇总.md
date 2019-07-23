@@ -8,6 +8,8 @@
 
 ## 应用理解
 
+> [Vuex常见应用](知识笔记/大前端/Vue/Vuex/Vuex常见应用.md)
+
 > [Vuex问题驱动](知识笔记/大前端/Vue/Vuex/Vuex问题驱动.md)
 
-> [Vuex常见应用](知识笔记/大前端/Vue/Vuex/Vuex常见应用.md)
+> [Vuex工作原理](知识笔记/大前端/Vue/Vuex/Vuex工作原理.md)

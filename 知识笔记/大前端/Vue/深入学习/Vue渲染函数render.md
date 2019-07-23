@@ -1,4 +1,4 @@
-# 渲染函数render
+# Vue渲染函数render
 
 ## 简述
 
@@ -131,15 +131,15 @@ props: ['value'],
 
 1. 在工作中， 创建了一个button组件， 又创建了一个button-group组件
 
-	button组件较为简单， 就是一个可以输入type / size / icon等属性的button
+	button组件较为简单， 就是一个可以输入type/size/icon等属性的button
 
-	    ![](.. / .. / .. / images / Vue / button对应html代码.png)
+	    ![](../../../images/Vue/button对应html代码.png)
 
 2. 然后， 创建button-group组件， 目标结果为
 
 	不仅要在最外层包裹一层div， 还要在每个button组件外层包裹一层p标签
 
-	    ![](.. / .. / .. / images / Vue / button - group组件对应html代码.png)
+	    ![](../../../images/Vue/button-group组件对应html代码.png)
 
 > 在此处， 就需要使用render函数优化了
 
