@@ -6,13 +6,19 @@
 
 > [js之装箱拆箱](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/js之装箱拆箱.md)
 
-> [实现Promise](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/实现Promise.md)
+> [深入理解和实现Promise](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/深入理解和实现Promise.md)
 
 > [理解和实现bind、call和apply](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/理解和实现bind-call-apply.md)
 
 ## 概念理解
 
+> [ES6特性认识](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/ES6特性认识.md)
+
+> [深入浅出this](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/ES6特性深入浅出this认识.md)
+
 > [理解JavaScript闭包](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/理解JavaScript闭包.md)
+
+> [深入浅出异步编程](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/深入浅出异步编程.md)
 
 > [理解JavaScript垃圾回收机制](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/理解JavaScript垃圾回收机制.md)
 
