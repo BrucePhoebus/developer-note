@@ -206,6 +206,67 @@ console.log(newObj.b()); // 输出3 ，说明传入的实参2传入了原函数o
 
 > 注：这是ES5的特性了，函数柯里化：将多个参数的函数变成只带一个参数的函数
 
+###### 求数组中的最大和最小值
+
+``` js
+var arr = [1,2,3,89,46]
+var max = Math.max.apply(null,arr);	// 89
+var min = Math.min.apply(null,arr);	// 1
+```
+
+###### 将类数组转化为数组
+
+``` js
+var trueArr = Array.prototype.slice.call(arrayLike)
+```
+
+###### 数组追加
+
+``` js
+var arr1 = [1,2,3];
+var arr2 = [4,5,6];
+var total = [].push.apply(arr1, arr2);//6
+// arr1 [1, 2, 3, 4, 5, 6]
+// arr2 [4,5,6]
+```
+
+###### 判断变量类型(尤其是引用类型)
+
+``` js
+function isArray(obj){
+    return Object.prototype.toString.call(obj) == '[object Array]';
+}
+isArray([]) // true
+isArray('dot') // false
+```
+
+###### 利用call和apply做继承
+
+``` js
+function Person(name,age){
+    // 这里的this都指向实例
+    this.name = name;
+    this.age = age;
+    this.sayAge = function(){
+        console.log(this.age);
+    }
+}
+function Female(){
+    Person.apply(this, arguments);	// 将父元素所有方法在这里执行一遍就继承了
+}
+var dot = new Female('Dot',2);
+```
+
+###### 使用 log 代理 console.log
+
+``` js
+function log(){
+  console.log.apply(console, arguments);
+}
+```
+
+> 当然也有更方便的 `var log = console.log()`
+
 ## 自己实现bind、call和apply
 
 #### call函数
@@ -338,6 +399,8 @@ if (!Function.prototype.bind) {
 
 * bind函数
 
-	除了实现call的功能外，还实现了函数柯里化的功能，作用更加强大
+	除了实现call的功能外，还实现了函数柯里化的功能，返回函数方便后面调用，作用更加强大
+
+> 注：在 ES6 的箭头函数下, call 和 apply 将失效
 
 > 参考：[call、apply和bind方法的用法以及区别](https://www.jianshu.com/p/bc541afad6ee) | [原生JS实现bind()函数](https://www.cnblogs.com/goloving/p/9380076.html)
