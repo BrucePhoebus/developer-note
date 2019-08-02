@@ -591,149 +591,370 @@ $("p").find("span").end().css("border", "2px red solid");
 
 	访问第一个匹配元素的样式属性。
 
-css( properties ) 把一个"名/值对"对象设置为所有匹配元素的样式属性。
-$("p").hover(function () {
-$(this).css({ backgroundColor:"yellow", fontWeight:"bolder" });
-}, function () {
-var cssObj = {
-backgroundColor: “#ddd",
-fontWeight: “",
-color: “rgb(0,40,244)"
-}
-$(this).css(cssObj);
-});
-css( name, value ) 在所有匹配的元素中，设置一个样式属性的值。
-offset( ) 取得匹配的第一个元素相对于当前可视窗口的位置。返回的对象有2个属性，
-top和left，属性值为整数。这个函数只能用于可见元素。
+###### css( properties ) 
+
+	把一个"名/值对"对象设置为所有匹配元素的样式属性。
+
+``` css
+$("p").hover(
+	function () {
+		$(this).css({ backgroundColor:"yellow", fontWeight:"bolder" });
+	}, 
+	function () {
+		var cssObj = {
+			backgroundColor: "#ddd",
+			fontWeight: "",
+			color: "rgb(0, 40, 244)"
+		}
+		$(this).css(cssObj);
+	}
+);
+```
+
+###### css( name, value ) 
+
+	在所有匹配的元素中，设置一个样式属性的值。
+
+###### offset( ) 
+
+	取得匹配的第一个元素相对于当前可视窗口的位置。返回的对象有2个属性，top和left，属性值为整数。这个函数只能用于可见元素。
+
+``` css
 var p = $("p:last");
 var offset = p.offset();
-p.html( “left: " + offset.left + “, top: " + offset.top );
-width( ) 取得当前第一匹配的元素的宽度值，
-width( val ) 为每个匹配的元素设置指定的宽度值。
-height( ) 取得当前第一匹配的元素的高度值，
-height( val ) 为每个匹配的元素设置指定的高度值
+p.html( "left: " + offset.left + ", top: " + offset.top );
+```
+
+###### width( ) 
+
+	取得当前第一匹配的元素的宽度值，
+
+###### width( val ) 
+
+	为每个匹配的元素设置指定的宽度值。
+
+###### height( ) 
+
+	取得当前第一匹配的元素的高度值，
+
+###### height( val ) 
+
+	为每个匹配的元素设置指定的高度值
 
 #### JQ 工具方法
 
-###### jQuery.browser.mise 
+###### jQuery.browser.mise
 
-	表示IE
+	true表示IE
 
 ###### jQuery.browser.version 
 
 	读取用户浏览器的版本信息
-jQuery.boxModel 检测用户浏览器针对当前页的显示是否基于w3c CSS的盒模型
-jQuery.isFunction( obj ) 检测传递的参数是否为function
-function stub() { }
+
+###### jQuery.boxModel 
+
+	检测用户浏览器针对当前页的显示是否基于w3c CSS的盒模型
+
+###### jQuery.isFunction( obj ) 
+
+	检测传递的参数是否为function
+
+``` js
+function stub() {}
 var objs = [
-function () {},
-{ x:15, y:20 },
-null,
-stub,
-“function"
+	function () {},
+	{ x:15, y:20 },
+	null,
+	stub,
+	"function"
 ];
 jQuery.each(objs, function (i) {
-var isFunc = jQuery.isFunction(objs[i]);
-$("span:eq( " + i + “)").text(isFunc);
+	var isFunc = jQuery.isFunction(objs[i]);
+	$("span:eq( " + i + ")").text(isFunc);
 });
-jQuery.trim( str ) 清除字符串两端的空格，使用正则表达式来清除给定字符两端的空格
-jQuery.each( object, callback ) 一个通用的迭代器，可以用来无缝迭代对象和数组
-jQuery.extend( target, object1, [objectN] ) 扩展一个对象，修改原来的对象并返回，这是一个强大的实现继承的
-工具，这种继承是采用传值的方法来实现的，而不是JavaScript中的
-原型链方式。
-合并settings和options对象，返回修改后的settings对象
-var settings = { validate: false, limit: 5, name: “foo" };
-var options = { validate: true, name: “bar" };
-jQuery.extend(settings, options);
+```
 
-合并defaults和options对象，defaults对象并没有被修改。options对象中的值
-代替了defaults对象的值传递给了empty。
+###### jQuery.trim( str ) 
 
+	清除字符串两端的空格，使用正则表达式来清除给定字符两端的空格
+
+###### jQuery.each( object, callback ) 
+
+	一个通用的迭代器，可以用来无缝迭代对象和数组
+
+###### jQuery.extend( target, object1, [objectN] ) 
+
+	扩展一个对象，修改原来的对象并返回，这是一个强大的实现继承的工具，这种继承是采用传值的方法来实现的，而不是JavaScript中的原型链方式。
+
+``` js
+// 合并settings和options对象，返回修改后的settings对象
+var settings = { validate: false, limit: 5, name: "foo" };
+var options = { validate: true, name: "bar" };
+jQuery.extend(settings, options);	// settings对象已经被修改，也就是合并了options对象属性
+```
+
+``` js
+// 合并defaults和options对象，defaults对象并没有被修改。options对象中的值代替了defaults对象的值传递给了empty。
 var empty = {}
-var defaults = { validate: false, limit: 5, name: “foo" };
-var options = { validate: true, name: “bar" };
+var defaults = { validate: false, limit: 5, name: "foo" };
+var options = { validate: true, name: "bar" };
 var settings = $.extend(empty, defaults, options);
-jQuery.grep( array, callback, [invert] ) 通过一个筛选函数来去除数组中的项
-$.grep( [0,1,2], function(n,i){
-return n > 0;
+```
+
+###### jQuery.grep( array, callback, [invert] ) 
+
+	通过一个筛选函数来去除数组中的项
+
+``` js
+$.grep( [0,1,2], function(n, i){
+	return n > 0;
 });
-jQuery.makeArray( obj ) 将一个类似数组的对象转化为一个真正的数组
-将选取的div元素集合转化为一个数组
+```
+
+###### jQuery.makeArray( obj ) 
+
+	将一个类似数组的对象转化为一个真正的数组
+	将选取的div元素集合转化为一个数组
+
+``` js
 var arr = jQuery.makeArray(document.getElementsByTagName("div"));
 arr.reverse(); // use an Array method on list of dom elements
 $(arr).appendTo(document.body);
-jQuery.map( array, callback ) 使用某个方法修改一个数组中的项，然后返回一个新的数组
-jQuery.inArray( value, array ) 返回value在数组中的位置，如果没有找到，则返回-1
-jQuery.unique( array ) 删除数组中的所有重复元素，返回整理后的数组
+```
+
+###### jQuery.map( array, callback ) 
+
+	使用某个方法修改一个数组中的项，然后返回一个新的数组
+
+###### jQuery.inArray( value, array ) 
+
+	返回value在数组中的位置，如果没有找到，则返回-1
+
+###### jQuery.unique( array ) 
+
+	删除数组中的所有重复元素，返回整理后的数组
 
 #### JQ选择器
 
 ###### 基本选择器
 
-* $("#myDiv") 匹配唯一的具有此id值的元素
+* id选择器：$("#myDiv") 
 
-* $("div") 匹配指定名称的所有元素
+	匹配唯一的具有此id值的元素
 
-* $(".myClass") 匹配具有此class样式值的所有元素
+* 元素选择器：$("div") 
+	
+	匹配指定名称的所有元素
 
-$("*") 匹配所有元素
-$("div,span,p.myClass") 联合所有匹配的选择器
-层叠选择器
-$("form input") 后代选择器，选择ancestor的所有子孙节点
-$("#main > *") 子选择器，选择parent的所有子节点
-$("label + input") 临选择器，选择prev的下一个临节点
-$("#prev ~ div") 同胞选择器，选择prev的所有同胞节点
-基本过滤选择器
-$("tr:first") 匹配第一个选择的元素
-$("tr:last") 匹配最后一个选择的元素
-$("input:not(:checked) + span")从原元素集合中过滤掉匹配selector的所有元素（这里有是一个临选择器）
-$("tr:even") 匹配集合中偶数位置的所有元素(从0开始)
-$("tr:odd") 匹配集合中奇数位置的所有元素(从0开始)
-$("td:eq(2)") 匹配集合中指定位置的元素(从0开始)
-$("td:gt(4)") 匹配集合中指定位置之后的所有元素(从0开始)
-$("td:gl(4)") 匹配集合中指定位置之前的所有元素(从0开始)
-$(":header") 匹配所有标题
-$("div:animated") 匹配所有正在运行动画的所有元素
-内容过滤选择器
-$("div:contains(’John’)") 匹配含有指定文本的所有元素
-$("td:empty") 匹配所有空元素(只含有文本的元素不算空元素)
-$("div:has(p)") 从原元素集合中再次匹配所有至少含有一个selector的所有元素
-$("td:parent") 匹配所有不为空的元素(含有文本的元素也算)
-$("div:hidden") 匹配所有隐藏的元素，也包括表单的隐藏域
-$("div:visible") 匹配所有可见的元素
-属性过滤选择器
-$("div[id]") 匹配所有具有指定属性的元素
-$("input[name=’newsletter’]") 匹配所有具有指定属性值的元素
-$("input[name!=’newsletter’]") 匹配所有不具有指定属性值的元素
-$("input[name^=’news’]") 匹配所有指定属性值以value开头的元素
-$("input[name$=’letter’]") 匹配所有指定属性值以value结尾的元素
-$("input[name*=’man’]") 匹配所有指定属性值含有value字符的元素
-$("input[id][name$=’man’]") 匹配同时符合多个选择器的所有元素
-子元素过滤选择器
-$("ul li:nth-child(2)"),
-$("ul li:nth-child(odd)"), 匹配父元素的第n个子元素
-$("ul li:nth-child(3n + 1)")
+* 类选择器：$(".myClass") 
 
-$("div span:first-child") 匹配父元素的第1个子元素
-$("div span:last-child") 匹配父元素的最后1个子元素
-$("div button:only-child") 匹配父元素的唯一1个子元素
-表单元素选择器
-$(":input") 匹配所有的表单输入元素，包括所有类型的input, textarea, select 和 button
-$(":text") 匹配所有类型为text的input元素
-$(":password") 匹配所有类型为password的input元素
-$(":radio") 匹配所有类型为radio的input元素
-$(":checkbox") 匹配所有类型为checkbox的input元素
-$(":submit") 匹配所有类型为submit的input元素
-$(":image") 匹配所有类型为image的input元素
-$(":reset") 匹配所有类型为reset的input元素
-$(":button") 匹配所有类型为button的input元素
-$(":file") 匹配所有类型为file的input元素
-$(":hidden") 匹配所有类型为hidden的input元素或表单的隐藏域
-表单元素过滤选择器
-$(":enabled") 匹配所有可操作的表单元素
-$(":disabled") 匹配所有不可操作的表单元素
-$(":checked") 匹配所有已点选的元素
-$("select option:selected") 匹配所有已选择的元素
+	匹配具有此class样式值的所有元素
+
+* 通配符选择器：$("*") 
+
+	匹配所有元素
+
+* 级联选择：$("div,span,p.myClass") 
+
+	联合所有匹配的选择器
+
+###### 层叠选择器
+
+* 后代选择器：$("form input") 
+
+	选择form的所有input子孙节点
+
+* 子选择器：$("#main > *") 
+
+	选择#main的所有子节点
+
+* 临选择器(直接兄弟选择器)：$("label + input") 
+
+	label的下一个节点是input的元素
+
+* 同胞(兄弟)选择器：$("#prev ~ div") 
+
+	选择prev的所有是div的兄弟节点
+
+###### 基本过滤选择器
+
+* $("tr:first") 
+
+	匹配第一个选择的元素
+
+* $("tr:last") 
+
+	匹配最后一个选择的元素
+
+* $("input:not(:checked) + span")
+
+	从原元素集合中过滤掉匹配selector的所有元素（这里有是一个临选择器）
+
+* $("tr:even") 
+
+	匹配集合中偶数位置的所有元素(从0开始)
+
+* $("tr:odd") 
+
+	匹配集合中奇数位置的所有元素(从0开始)
+
+* $("td:eq(2)") 
+
+	匹配集合中指定位置的元素(从0开始)，这里eq(2)就是匹配第三个
+
+* $("td:gt(4)") 
+
+	匹配集合中指定位置之后的所有元素(从0开始)
+
+* $("td:gl(4)") 
+
+	匹配集合中指定位置之前的所有元素(从0开始)
+
+* $(":header") 
+
+	匹配所有标题
+
+* $("div:animated") 
+
+	匹配所有正在运行动画的所有元素
+
+###### 内容过滤选择器
+
+* $("div:contains('John')") 
+
+	匹配含有指定文本的所有元素
+
+* $("td:empty") 
+
+	匹配所有空元素(只含有文本的元素不算空元素)
+
+* $("div:has(p)") 
+
+	从原元素集合中再次匹配所有至少含有一个selector的所有元素
+
+* $("td:parent") 
+
+	匹配所有不为空的元素(含有文本的元素也算)
+
+* $("div:hidden") 
+
+	匹配所有隐藏的元素，也包括表单的隐藏域
+
+* $("div:visible") 
+	
+	匹配所有可见的元素
+
+###### 属性过滤选择器
+
+* $("div[id]") 
+
+	匹配所有具有指定属性的元素
+
+* $("input[name='newsletter']") 
+
+	匹配所有具有指定属性值的元素
+
+* $("input[name!='newsletter']") 
+
+	匹配所有不具有指定属性值的元素
+
+* $("input[name^='news']") 
+
+	匹配所有指定属性值以value(news)开头的元素
+
+* $("input[name$='letter']") 
+
+	匹配所有指定属性值以value(letter)结尾的元素
+
+* $("input[name*='man']") 
+
+	匹配所有指定属性值含有value字符的元素
+
+* $("input[id][name$='man']") 
+
+	匹配同时符合多个选择器的所有元素
+
+###### 子元素过滤选择器
+
+* $("ul li:nth-child(2)")、$("ul li:nth-child(odd)")、$("ul li:nth-child(3n + 1)")
+
+	匹配父元素的第n个子元素
+
+* $("div span:first-child") 
+
+	匹配父元素的第1个子元素
+
+* $("div span:last-child") 
+
+	匹配父元素的最后1个子元素
+
+* $("div button:only-child") 
+
+	匹配父元素的唯一1个子元素
+
+###### 表单元素选择器
+
+* $(":input") 
+
+	匹配所有的表单输入元素，包括所有类型的input, textarea, select 和 button
+
+* $(":text") 
+
+	匹配所有类型为text的input元素
+
+* $(":password") 
+
+	匹配所有类型为password的input元素
+
+* $(":radio") 
+
+	匹配所有类型为radio的input元素
+
+* $(":checkbox") 
+
+	匹配所有类型为checkbox的input元素
+
+* $(":submit") 
+
+	匹配所有类型为submit的input元素
+
+* $(":image") 
+
+	匹配所有类型为image的input元素
+
+* $(":reset") 
+
+	匹配所有类型为reset的input元素
+
+* $(":button") 
+
+	匹配所有类型为button的input元素
+
+* $(":file") 
+
+	匹配所有类型为file的input元素
+
+* $(":hidden") 
+
+	匹配所有类型为hidden的input元素或表单的隐藏域
+
+###### 表单元素过滤选择器
+
+* $(":enabled") 
+
+	匹配所有可操作的表单元素
+
+* $(":disabled") 
+
+	匹配所有不可操作的表单元素
+
+* $(":checked") 
+
+	匹配所有已点选的元素
+
+* $("select option:selected") 
+
+	匹配所有已选择的元素
 
 ## 其它常见
 
