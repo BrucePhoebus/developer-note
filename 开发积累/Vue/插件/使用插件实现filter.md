@@ -4,7 +4,7 @@
 
 	希望根据不同状态码显示不同的icon图标
 
-> 这个就不同于[这里](知识笔记/大前端/Vue/Vue插件制作.md)的文本过滤了，那里简单的使用 {{ styleStatus | $_filterStyleStatus }} 是利用 v-text 进行渲染，若碰到需要渲染 html 标签就头比较麻烦了
+> 这个就不同于[这里](知识笔记/大前端/框架/Vue/Vue插件制作.md)的文本过滤了，那里简单的使用 {{ styleStatus | $_filterStyleStatus }} 是利用 v-text 进行渲染，若碰到需要渲染 html 标签就头比较麻烦了
 
 #### 按照朴素的写法
 

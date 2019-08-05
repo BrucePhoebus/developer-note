@@ -2,7 +2,7 @@
 
 ## 简单的Vuex存储
 
-> [Vuex常见应用](知识笔记/大前端/Vue/Vuex/Vuex常见应用.md)
+> [Vuex常见应用](知识笔记/大前端/框架/Vue/Vuex/Vuex常见应用.md)
 
 
 ## Vuex持久化存储
