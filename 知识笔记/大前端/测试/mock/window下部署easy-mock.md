@@ -1,7 +1,5 @@
 # window下部署easy-mock
 
-> [参考](https://blog.csdn.net/wxj_ios/article/details/84749700)
-
 ## 前置环境
 
 	这个基本环境是nodejs负责管理项目，mongodb作为数据库存在，Redis用作数据缓存
@@ -95,12 +93,16 @@ http://localhost:7300/
 
 !> 注：运行easy-mock项目要保证mongodb数据库和redis服务可用且配置与easy-mock项目配置对应(一般不用改)
 
-#### 本地运行使用需改参数
+#### 注意事项
 
-* 打开文件`easy-mock\config\default.json`
+1. 如果运行识别，报模块没有或错误，可以删了`node_modules`文件夹重新`npm install`安装依赖
+
+2. 使用起来正常不用改，但是有时可能需要针对IP使用，所以要指定IP
+
+	打开文件`easy-mock\config\default.json`
 
 ``` json
-"host": "0.0.0.0",
+"host": "0.0.0.0",	// 改这里
 "db": "mongodb://localhost/easy-mock",
 "unsplashClientId": "",
 "redis": {
@@ -111,3 +113,5 @@ http://localhost:7300/
 	"db": 0
 },
 ```
+
+> [参考](https://blog.csdn.net/wxj_ios/article/details/84749700)
