@@ -37,6 +37,7 @@ redis-server.exe redis.windows.conf
 **验证安装**
 
 ```bash
+# 根目录下 CMD 输入
 redis-cli.exe -h 127.0.0.1 -p 6379
 
 set myKey abc
@@ -73,7 +74,9 @@ npm run dev
 ```bash
 npm run build
 
-cross-env NODE_ENV=production pm2 start app.js
+cross-env NODE_ENV=production pm2 start app.js -f
+# -f 表示强行重新执行：可能产生多个进程，一般不用
+# NODE_ENV=production 表示生产环境
 ```
 
 > 注：PM2可能存在运行失败问题
@@ -91,3 +94,20 @@ http://localhost:7300/
 > 具体路径等配置要改可以修改config/default.json文件
 
 !> 注：运行easy-mock项目要保证mongodb数据库和redis服务可用且配置与easy-mock项目配置对应(一般不用改)
+
+#### 本地运行使用需改参数
+
+* 打开文件`easy-mock\config\default.json`
+
+``` json
+"host": "0.0.0.0",
+"db": "mongodb://localhost/easy-mock",
+"unsplashClientId": "",
+"redis": {
+	"keyPrefix": "[Easy Mock]",
+	"port": 6379,
+	"host": "localhost",
+	"password": "",
+	"db": 0
+},
+```
