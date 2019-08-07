@@ -51,7 +51,7 @@ const selfMap2 = function(fn, context) {
 }
 ```
 
- 循环实现数组 filter 方法
+## 循环实现数组 filter 方法
 
 ```js
 const selfFilter = function(fn, context) {
