@@ -170,6 +170,18 @@
 
 > [官网：数据持久化](https://doc.d2admin.fairyever.com/zh/sys-db/#%E6%80%BB%E8%A7%88)
 
+###### 请求封装
+
+	看项目结构就知道，D2Admin对axios有自己的封装格式
+
+* 
+
+> [vue-d2admin-axios异步请求登录，先对比一下Jquery ajax, Axios, Fetch区别](https://www.cnblogs.com/landv/p/11091450.html)
+
 ###### cli 和 webpack 配置
+
+* 关于`webpack配置`就是直接在`vue.config.js`进行插件颗粒化配置，配置简短也不难
+
+* 重点还有国际化配置之类的
 
 > 参考：[D2Admin基本使用](https://www.cnblogs.com/izbw/p/11077815.html)
