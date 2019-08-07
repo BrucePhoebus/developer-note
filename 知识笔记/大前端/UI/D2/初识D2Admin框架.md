@@ -113,12 +113,12 @@
 │  │  ├─ core
 │  │  └─ demo
 │  ├─ i18n // 多国语
-│  ├─ menu // 菜单
+│  ├─ menu // 菜单，header标签和左侧目录
 │  ├─ mock // 模拟数据
-│  ├─ pages // 页面
-│  ├─ plugin // 插件
+│  ├─ pages // pages/views 页面代码位置
+│  ├─ plugin // 插件：这里包括elementUI、功能插件(axios请求过滤封装)
 │  ├─ router // 路由
-│  ├─ store // vuex
+│  ├─ store // vuex，全局状态管理和数据持久化
 │  ├─ utils
 │  ├─ App.vue
 │  └─ main.js

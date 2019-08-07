@@ -94,34 +94,7 @@ await dispatch('d2admin/page/openedLoad', null, { root: true })
 
 	使用D2Admin的原有登录逻辑：全局路由守卫中判断是否已经拉取权限信息，获取后标识为已获取
 
-* 拉取权限信息逻辑
-
-``` js
-const token = util.cookies.get('token')
-// 通过token验证用户是否已登陆
-if (token && token !== 'undefined') {
-    // 拉取权限信息
-    if (!isFetchPermissionInfo) {
-        await fetchPermissionInfo();
-        isFetchPermissionInfo = true;
-        next(to.path, true)
-    } else {
-        next()
-    }
-} else {
-    // 将当前预计打开的页面完整地址临时存储 登录后继续跳转
-    // 这个 cookie(redirect) 会在登录后自动删除
-    util.cookies.set('redirect', to.fullPath)
-    // 没有登录的时候跳转到登录界面
-    next({
-        name: 'login'
-    })
-}
-```
-
-> 这里验证用户已登陆并未拉取权限信息后，获取登陆用户的权限信息
-
-* 拉取权限信息方法
+* 拉取权限信息方法，用于全局路由获取权限信息时调用
 
 ``` js
 // 标记是否已经拉取权限信息
@@ -168,6 +141,33 @@ let fetchPermissionInfo = async () => {
     await Promise.resolve()
 }
 ```
+
+* 全局路由守卫，拉取权限信息逻辑
+
+``` js
+const token = util.cookies.get('token')
+// 通过token验证用户是否已登陆
+if (token && token !== 'undefined') {
+    // 拉取权限信息
+    if (!isFetchPermissionInfo) {
+        await fetchPermissionInfo();
+        isFetchPermissionInfo = true;
+        next(to.path, true)
+    } else {
+        next()
+    }
+} else {
+    // 将当前预计打开的页面完整地址临时存储 登录后继续跳转
+    // 这个 cookie(redirect) 会在登录后自动删除
+    util.cookies.set('redirect', to.fullPath)
+    // 没有登录的时候跳转到登录界面
+    next({
+        name: 'login'
+    })
+}
+```
+
+> 这里验证用户已登陆并未拉取权限信息后，获取登陆用户的权限信息
 
 **后端需要返回的权限信息**
 
@@ -442,7 +442,11 @@ data() {
 
 * 开发阶段菜单与路由的添加可由开发人员自行维护，并维护一份清单，上线后将清单交给相关的人去维护即可
 
+#### 总结
 
+* 就是首先我们先定义固定的菜单和路由，这部分是固定的，固定的菜单可以没有，但是一定要有固定的路由，例如主框架外的`login`路由，还有根路由，404，重定向等
+
+* 之后便是验证登陆获取权限信息，具体权限信息格式前后端商议(这部分其实前端定就好)，然后将固定菜单和路由跟后端返回的权限菜单和路由合并，交由addRoutes()动态路由将总路由添加到实例上去，至于菜单的更新是通过Vuex全局管理设置，持久化数据管理，
 
 
 参考：[企业管理系统前后端分离架构设计 系列一 权限模型篇](https://juejin.im/post/5b59c2956fb9a04faa79af6f) | [vue基于d2-admin的RBAC权限管理解决方案](https://www.jianshu.com/p/b1453aaa4294) | [Vue 前端应用实现RBAC权限控制的一种方式](https://juejin.im/post/5c19a282f265da61137f372c) | [前端如何配合后端完成RBAC权限控制](https://juejin.im/post/5c1f8d6c6fb9a049e06353aa)
