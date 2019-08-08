@@ -138,20 +138,17 @@
 └─ package.json
 ```
 
-## 应用
-
 #### 安装与使用
 
+## 功能认识
 
-#### 各个功能
+#### vuex
 
-###### vuex
+#### 路由
 
-###### 路由
+#### CRUD图表
 
-###### CRUD图表
-
-###### 权限控制
+#### 权限控制
 
 * 第一步，在 mock 中添加用户信息，以及不同的用户对应的不同的权限，并保存至本地的sessionStorage中
 
@@ -163,25 +160,200 @@
 
 * 第五步，渲染页面后，即可看到当前用户具体有哪些操作权限
 
-###### 数据持久化
+#### 数据持久化
 
 	D2Admin 数据持久化依赖浏览器的 LocalStorage，使用 lowdb API 加自己的取值包装实现了便捷的的操作和取值方法，通过不同的接口可以访问到持久化数据不同的内容
 	例如不同用户独有的存储区域，系统存储区域，公用存储，根据路由自动划分的存储区域等
 
 > [官网：数据持久化](https://doc.d2admin.fairyever.com/zh/sys-db/#%E6%80%BB%E8%A7%88)
 
-###### 请求封装
+#### 请求封装
 
-	看项目结构就知道，D2Admin对axios有自己的封装格式
+	看项目结构就知道，D2Admin对axios有自己的封装格式，这里看看D2Admin推荐的获取数据方式
 
-* 
+* 首先先要知道Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中：[axios入门](知识笔记/大前端/HTTP/请求/axios入门.md)
 
-> [vue-d2admin-axios异步请求登录，先对比一下Jquery ajax, Axios, Fetch区别](https://www.cnblogs.com/landv/p/11091450.html)
+###### 设置接口地址
 
-###### cli 和 webpack 配置
+* 默认请求地址在`d2-admin/.env`
+
+``` bash
+VUE_APP_API=/api/
+```
+
+> 也就是会在任何请求接口前加上`/api/`
+
+	例如我们访问 /demo/a 时实际去访问 /api/demo/a
+
+###### 区分不同环境设置接口地址
+
+	这是运行在不同开发环境下使用不同的接口请求地址：d2-admin/.env.development
+
+``` bash
+VUE_APP_API=/api-dev/
+```
+
+> 这就可以实现开发环境和正式环境有不同的请求地址了(虽然麻烦，但更灵活)
+
+	开发环境访问 /demo/a 时实际去访问 /api-dev/demo/a
+
+###### 通用配置
+
+	这里意思在开发项目前应该做点配置修改，例如针对项目需求对请求封装处理做调整
+
+**修改`d2-admin/src/plugin/axios/index.js`下的设置**
+
+* 默认设置需要遵循固定的数据返回格式
+
+``` js
+{
+	// 和后台约定的状态码
+	code: 0,
+	// 后台返回请求状态信息
+	msg: '返回信息',
+	// data 内才是真正的返回数据
+	data: {
+		list: [
+		...
+		]
+	}
+}
+```
+
+* 在响应拦截器中处理完数据后将会返回
+
+``` js
+{
+	list: [
+		...
+	]
+}
+```
+
+* 业务错误处理
+
+	当发生错误时返回的数据示例
+
+``` js
+{
+	// 和后台约定的状态码
+	code: 'unlogin',
+	// 后台返回请求状态信息
+	msg: '用户没有登录'
+}
+```
+
+* 响应拦截器
+
+	如果要针对指定错误进行指定统一处理，可以在响应拦截器做拦截判断
+
+``` js
+service.interceptors.response.use(
+  response => {
+    // 成功返回数据，在这里判断和后台约定的状态标识
+  }
+)
+```
+
+> 如果需要针对某个 http 错误指定处理方法，应该在响应拦截器中第二个参数中添加对应的代码
+
+``` js
+service.interceptors.response.use(
+  response => {},
+  error => {
+    // 发生 http 错误，在这里判断状态码
+  }
+)
+```
+
+
+> 一般前后端后需要统一接口请求和返回的格式，包括状态码等等，所以我们可以针对需求做微调
+
+* 非 http 状态
+
+	在默认的设置中，如果我们的接口没有返回 code 字段，将不会进行状态判断，直接返回 axios 请求返回的数据(也就是拦截器判断没有code字段就会直接返回数据，而不继续进行拦截)
+
+``` js
+{
+  list: [
+    // 数据
+  ]
+}
+```
+
+###### 设计API
+
+	假设我们有一个返回数据的 API 接口，想访问它，我们首先应该在 d2-admin/src/api 文件夹内创建合适的文件目录
+
+**例如**
+
+* d2-admin/src/api/demo/business/table/1/index.js，这个文件中应该导出一个或者多个请求
+
+``` js
+import request from '@/plugin/axios'
+
+export function BusinessTable1List (data) {
+  return request({
+    url: '/demo/business/table/1',
+    method: 'post',
+    data
+  })
+}
+```
+
+* 按照上面方式创建API后，我们需要页面中石油API获取数据
+
+``` js
+// <script>
+import { BusinessTable1List } from '@/api/demo/business/table/1'
+export default {
+  methods: {
+    handleSubmit (form) {
+		// 这个就是从API import出来的一个接口请求，而不是直接调用axios
+		BusinessTable1List({
+			name: ''
+		}).then(res => {
+          // 返回数据
+        }).catch(err => {
+          // 异常情况
+        })
+    }
+  }
+}
+// </script>
+```
+
+> 这样实现接口请求的话，我们需要维护好这个API，也就是要设计好API文件结构
+
+###### 跨域问题
+
+	关于前后端接口跨域问题，可以直接在 d2-admin/vue.config.js 配置本地代理
+
+``` js
+devServer: {
+  proxy: {
+    '/api': {
+      target: 'http://47.100.186.132/your-path/api',
+      ws: true,
+      changeOrigin: true,
+      pathRewrite: {
+        '^/api': ''
+      }
+    }
+  }
+}
+```
+
+> 意思是请求 /api/login 时转发到 http://47.100.186.132/your-path/api/login
+
+#### cli 和 webpack 配置
 
 * 关于`webpack配置`就是直接在`vue.config.js`进行插件颗粒化配置，配置简短也不难
 
 * 重点还有国际化配置之类的
 
-> 参考：[D2Admin基本使用](https://www.cnblogs.com/izbw/p/11077815.html)
+## 应用
+
+
+
+> 参考：[D2Admin基本使用](https://www.cnblogs.com/izbw/p/11077815.html) | [vue-d2admin-axios异步请求登录，先对比一下Jquery ajax, Axios, Fetch区别](https://www.cnblogs.com/landv/p/11091450.html) | [vue-d2admin前端axios异步请求详情](https://cloud.tencent.com/developer/article/1454682)
