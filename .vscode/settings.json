@@ -18,6 +18,7 @@
 		"processdata",
 		"vant",
 		"vnode",
-		"webkit"
+		"webkit",
+		"zalgo"
 	]
 }
