@@ -144,13 +144,15 @@
 
 #### vuex
 
+	这里的Vuex是结合lowdb操作实现数据持久化
+
 #### 路由
 
-#### CRUD图表
+	路由使用动态路由实现权限控制，即用户登录后，将后端返回的数据动态挂载到路由实例上去
 
-#### 权限控制
+**测试流程**
 
-* 第一步，在 mock 中添加用户信息，以及不同的用户对应的不同的权限，并保存至本地的sessionStorage中
+* 第一步，在 mock 中添加用户信息，以及不同的用户对应的不同的权限，并保存至本地的localStorage中
 
 * 第二步，在 src/API 中定义调用 mock 中 API 的接口，取到用户信息
 
@@ -162,8 +164,139 @@
 
 #### 数据持久化
 
-	D2Admin 数据持久化依赖浏览器的 LocalStorage，使用 lowdb API 加自己的取值包装实现了便捷的的操作和取值方法，通过不同的接口可以访问到持久化数据不同的内容
+	D2Admin 数据持久化依赖浏览器的 LocalStorage，使用 lowdb API (文件数据库)权限控制加自己的取值包装实现了便捷的的操作和取值方法，通过不同的接口可以访问到持久化数据不同的内容
 	例如不同用户独有的存储区域，系统存储区域，公用存储，根据路由自动划分的存储区域等
+
+**在 `src/store/modules/d2admin/modules/db.js` 文件中提供了4组共9个方法读写持久化数据**
+
+![D2关于db的9个存储操作图](../images/D2关于db的9个存储操作图.png)
+
+* 关于存储方法的选择
+
+	大概有普通存储、用户存储、路由存储、私有路由存储、路由快照以及私有路由快照的存储这些，我们可以根据业务需求设置权限，否则就是公共存储
+
+![D2关于db的存储方法选择图](../images/D2关于db的存储方法选择图.png)
+
+**关于数据持久化，首先先看看什么是`lowdb`**
+
+	LowDB是基于node的纯JSON本地文件数据库
+	基于Lo-Dash 中间件，无需服务器，数据库被保存到本地磁盘，实现数据持久化
+
+* 这个意思就是所有使用lowdb存储的数据都会被存在一个json文件中，这就是文件数据库
+
+``` js
+var low = require('lowdb')
+var db = low('db.json')
+
+db('posts').push({ title: 'lowdb is awesome'})
+```
+
+> 这就会被存到`db.json`文件中
+
+``` js
+// 保存到文件数据库的结果
+{
+  "posts": [
+    { "title": "lowdb is awesome" }
+  ]
+}
+```
+
+> 可以看出来，这种操作很方便很简单，而且API也很简单，就是类似数据库存储，但是操作起来跟`LocalStorage`的操作一样简单
+
+**当然，D2Admin这里通过lodash对lowdb实现了封装**
+
+``` js
+import low from 'lowdb' 
+import LocalStorage from 'lowdb/adapters/LocalStorage'
+
+const adapter = new LocalStorage('db') const db = low(adapter)
+
+db
+	.defaults({ posts: [] }) .write()
+
+db
+	.get('posts') 
+	.push({ title: 'lowdb' }) 
+	.write()
+```
+
+> 这里的db就是`D2Admin的存储实例`，然后通过`lodash`直接操作存储实例，最后使用`lowdb`的`write`API 将变化同步回浏览器的 LocalStorage
+
+**数据用户私有**
+
+``` js
+// A用户存储数据
+const db = await this.$store.dispatch('d2admin/db/database', {
+  user: true
+})
+db
+  .set('myName', 'userA')
+  .write()
+
+// B用户存储数据
+const db = await this.$store.dispatch('d2admin/db/database', {
+  user: true
+})
+db 
+	.set('myName', 'userB') 
+	.write()
+
+// A用户登录取值：userA，B用户：userB
+db.get('myName').value()
+```
+
+> 在 D2Admin 中，所有的数据持久化 API 都支持数据私有配置。
+
+**上述是用户数据存储，最后还有路由存储**
+
+	这种存储方式在存取的时候回根据用户和路由进行存取(过滤)
+
+* 例如不同页面存储，取出来也不一样
+
+``` js
+// A页面存
+const db = await this.$store.dispatch('d2admin/db/databasePage', {
+  vm: this
+})
+db
+  .set('pageName', 'page1')
+  .write()
+
+const db = await this.$store.dispatch('d2admin/db/databasePage', {
+  vm: this
+})
+db
+  .set('pageName', 'page2')
+  .write()
+
+// 然后在 页面1 和 页面2 上使用完全相同的代码取值
+const db = await this.$store.dispatch('d2admin/db/databasePage', {
+  vm: this
+})
+// 在页面1 中会取到 pageName = page1，在 页面2 中会取到 pageName = page2
+const pageName = db.get('pageName').value()
+```
+
+> 当然，这种权限管理是可以设置的，但不建议，因为一个客户端可能有多个用户登录，所以还是要进行用户私有控制
+
+**而获取用户私有路由也很简单**
+
+``` js
+// 这样就能直接获得用户私有路由实例
+const db = await this.$store.dispatch('d2admin/db/databasePage', { vm: this, user: true })
+```
+
+![关于D2中的数据存储](../images/关于D2中的数据存储.png)
+
+> 这张图体现了数据的`普通存储`、`用户存储`、`路由存储`、`私有路由存储`、`路由快照`以及`私有路由快照`的存储位置
+
+* 虽然很多，但是
+
+	* sys 模块我们在业务代码中不会访问
+	* 每次我们操作的只是某个节点下的东西，这样来简化并快速定位到数据节点
+
+> 其中，所谓的`路由快照`将会存储到当前路由存储的 $data 字段下；而所谓的私有，就是加了一个字段，做权限过滤
 
 > [官网：数据持久化](https://doc.d2admin.fairyever.com/zh/sys-db/#%E6%80%BB%E8%A7%88)
 
@@ -352,8 +485,39 @@ devServer: {
 
 * 重点还有国际化配置之类的
 
-## 应用
+#### 其他一些小工具
 
+###### $log日志记录
 
+	错误日志记录、一些控制台输出美化
+
+``` js
+// 使用 $logAdd 可以快速记录日志
+this.$logAdd('your log text')
+
+// $log.capsule( 左侧文字, 右侧文字, 主题样式 )
+this.$log.capsule('title', 'success', 'success')
+// 打印彩色文字
+this.$log.colorful([
+  { text: 'H', type: 'default' },
+  { text: 'e', type: 'primary' },
+  { text: 'l', type: 'success' },
+  { text: 'l', type: 'warning' },
+  { text: 'o', type: 'danger' }
+])
+```
+
+###### 主题切换
+
+	通过Vuex全局状态管理实现主题切换
+
+``` js
+// 打开灰度模式
+this.$store.commit('d2admin/gray/set', true)
+// 关闭灰度模式
+this.$store.commit('d2admin/gray/set', false)
+```
+
+> 这个灰度模式切换是直接在组件中进行store判断，当灰度模式开启，即显示对应的样式
 
 > 参考：[D2Admin基本使用](https://www.cnblogs.com/izbw/p/11077815.html) | [vue-d2admin-axios异步请求登录，先对比一下Jquery ajax, Axios, Fetch区别](https://www.cnblogs.com/landv/p/11091450.html) | [vue-d2admin前端axios异步请求详情](https://cloud.tencent.com/developer/article/1454682)
