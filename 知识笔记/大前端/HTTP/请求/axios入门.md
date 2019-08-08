@@ -89,7 +89,7 @@ axios.post('/user', {
 **多个并发请求**
 
 ```js
-functiongetUserAccount(){
+function getUserAccount(){
   return axios.get('/user/12345');
 }
 functiongetUserPermissions(){
