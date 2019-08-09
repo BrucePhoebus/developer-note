@@ -1,3 +1,9 @@
+<!--
+ * @Description: 各种深入的JavaScript技巧原生实现
+ * @Date: 2019-08-05 11:57:03
+ * @LastEditors: phoebus
+ * @LastEditTime: 2019-08-09 11:34:32
+ -->
 # JavaScript常用技巧
 
 > [参考掘金](https://juejin.im/post/5cef46226fb9a07eaf2b7516)

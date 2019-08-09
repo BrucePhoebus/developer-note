@@ -1,3 +1,9 @@
+<!--
+ * @Description: 各种JavaScript深入学习知识汇总
+ * @Date: 2019-08-05 11:57:03
+ * @LastEditors: phoebus
+ * @LastEditTime: 2019-08-09 11:35:31
+ -->
 # JavaScript深入学习汇总
 
 ## 原生实现
@@ -15,6 +21,8 @@
 > [ES6特性认识](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/ES6特性认识.md)
 
 > [深入浅出this](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/ES6特性深入浅出this认识.md)
+
+> [new的实现原理](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/new的实现原理.md)
 
 > [理解JavaScript闭包](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/理解JavaScript闭包.md)
 
