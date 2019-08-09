@@ -1,0 +1,39 @@
+<!--
+ * @Description: 
+ * @Date: 2019-08-09 09:42:16
+ * @LastEditors: phoebus
+ * @LastEditTime: 2019-08-09 09:43:09
+ -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS实现按钮立起效果</title>
+</head>
+
+<style>
+    .btn-up {
+        font-size: 80px;
+        outline: none;
+        border: none;
+        padding: .3em 1em;
+        border-radius: .2em;
+        cursor: pointer;
+        background: linear-gradient(#2de5fb, #26acbd);
+        text-shadow: 0 2px 2px #9E9E9E;
+        box-shadow: 0 0.2em 0 #028494, 0 0.2em 0.2em grey;
+    }
+
+    .btn-up:active {
+        box-shadow: 0 0.1em 0 #028494, 0 0.1em 0.1em grey;
+        transform: translate(0, 0.1em);
+    }
+</style>
+
+<body>
+    <button class="btn-up">click</button>
+</body>
+</html>
