@@ -1,3 +1,9 @@
+<!--
+ * @Description: 各种git问题汇总
+ * @Date: 2019-08-05 11:57:03
+ * @LastEditors: phoebus
+ * @LastEditTime: 2019-08-09 11:30:24
+ -->
 # git常见问题
 
 ## 冲突
@@ -167,3 +173,28 @@ bfg --strip-blobs-大于50M #Git
 > 建议直接在github上直接上传文件
 
 ![github上传文件位置](../../../images/版本控制/git_commit_file.png)
+
+## 其它问题
+
+#### .gitignore文件部分无效
+
+	可能是开始时不小心提交了部分.idea/文件，所以导致，每次变更都会产生.idea文件要提交
+
+**解决方法**
+
+	git删除idea文件，并删除cache
+
+``` bash
+# 先暂存内容，拉去最新代码
+git stage
+git pull
+
+# 然后删除本地文件
+git rm -r .idea
+git rm -r --cache .idea
+
+# 上传到远程库，实现远程库删除，这里删除的是master分支的内容
+git push origin master
+```
+
+
