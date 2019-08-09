@@ -1,4 +1,10 @@
-# RBAC权限管理
+<!--
+ * @Description: 深入浅出RBAC权限管理
+ * @Date: 2019-08-06 14:50:40
+ * @LastEditors: phoebus
+ * @LastEditTime: 2019-08-09 15:54:53
+ -->
+# 深入浅出RBAC权限管理
 
 ## 概述
 
@@ -120,4 +126,4 @@
 
 > 这是现实社会最常见的权限关系图了
 
-> 参考：[基于RBAC模型的权限设计：如何设计系统权限体系？](http://www.woshipm.com/pd/872372.html)
+> 参考：[基于RBAC模型的权限设计：如何设计系统权限体系？](http://www.woshipm.com/pd/872372.html) | [vue中如何实现后台管理系统的权限控制](https://www.cnblogs.com/qixidi/p/10137973.html)
