@@ -1,0 +1,52 @@
+<!--
+ * @Description: vertical-align实现居中
+ * @Date: 2019-08-13 15:53:12
+ * @LastEditors: phoebus
+ * @LastEditTime: 2019-08-13 16:30:34
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>vertical-align实现居中</title>
+	<style>
+		.content {
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			text-align: center;
+		}
+
+		.content:after {
+			content: "";
+			display: inline-block;
+			height: 100%;
+			vertical-align: middle;
+		}
+
+		.showPanel {
+			display: inline-block;
+			vertical-align: middle;
+			background: radial-gradient(circle at 100px 100px, #5cabff, #000);
+			width: 200px;
+			color: #fff;
+			border-radius: 100%;
+			height: 200px;
+			line-height: 200px;
+			font-size: 16px;
+			overflow: hidden;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="content">
+		<div class="showPanel">demo</div>
+	</div>
+</body>
+
+</html>
