@@ -1,9 +1,11 @@
 {
 	"cSpell.words": [
 		"emojipedia",
+		"freemarker",
 		"keyframes"
 	],
 	"cSpell.ignoreWords": [
+		"arachni",
 		"crossaxis",
 		"dont",
 		"flexbox",
@@ -11,6 +13,7 @@
 		"iphone",
 		"keyframes",
 		"moz",
+		"mystar",
 		"noupdate",
 		"nums",
 		"onbeforeunload",
