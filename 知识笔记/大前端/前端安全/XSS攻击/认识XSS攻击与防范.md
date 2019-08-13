@@ -2,7 +2,7 @@
  * @Description: 认识XSS攻击与防范
  * @Date: 2019-08-13 10:37:24
  * @LastEditors: phoebus
- * @LastEditTime: 2019-08-13 11:32:23
+ * @LastEditTime: 2019-08-13 11:33:37
  -->
 
 # 认识XSS攻击与防范
@@ -10,6 +10,8 @@
 ## 概述
 
 #### 简介
+
+	跨站脚本攻击(Cross Site Scripting)
 
 * 跨站脚本攻击，是一种允许攻击者在另外一个用户的浏览器中执行恶意代码脚本的脚本注入式攻击
 

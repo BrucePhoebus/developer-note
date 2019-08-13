@@ -8,7 +8,10 @@
 		"arachni",
 		"crossaxis",
 		"dont",
+		"expireat",
 		"flexbox",
+		"getset",
+		"hackmeplz",
 		"hmacsha",
 		"iphone",
 		"keyframes",
@@ -25,6 +28,7 @@
 		"vant",
 		"vnode",
 		"webkit",
-		"zalgo"
+		"zalgo",
+		"zendesk"
 	]
 }
