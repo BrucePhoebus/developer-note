@@ -1,0 +1,32 @@
+<!--
+ * @Description: flex+auto实现简单居中
+ * @Date: 2019-08-13 16:50:34
+ * @LastEditors: phoebus
+ * @LastEditTime: 2019-08-13 16:50:40
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex+auto实现居中</title>
+</head>
+<style>
+    .content {
+        min-height: 100vh;
+        display: flex;
+    }
+
+    .center-content {
+        width: 200px;
+        height: 200px;
+        border-radius: 100%;
+        margin: auto;
+        background: radial-gradient(circle at 100px 100px, #5cabff, #000);
+    }
+</style>
+<body>
+<div class="content">
+    <div class="center-content"></div>
+</div>
+</body>
+</html>
