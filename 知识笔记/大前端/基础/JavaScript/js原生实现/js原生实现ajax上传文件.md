@@ -1,8 +1,8 @@
 <!--
- * @Description: 
+ * @Description: js原生实现ajax上传文件
  * @Date: 2019-08-13 18:04:04
  * @LastEditors: phoebus
- * @LastEditTime: 2019-08-13 18:18:12
+ * @LastEditTime: 2019-08-13 18:18:30
  -->
 # js原生实现ajax上传文件
 
