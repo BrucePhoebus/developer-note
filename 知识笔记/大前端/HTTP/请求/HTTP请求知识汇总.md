@@ -1,4 +1,10 @@
-# HTTP请求知识
+<!--
+ * @Description: HTTP请求知识汇总
+ * @Date: 2019-08-10 01:46:28
+ * @LastEditors: phoebus
+ * @LastEditTime: 2019-08-13 13:47:22
+ -->
+# HTTP请求知识汇总
 
 ## 基础常识
 
@@ -21,6 +27,8 @@
 > [axios入门](知识笔记/大前端/HTTP/请求/axios入门.md)
 
 > [深入理解axios](知识笔记/大前端/HTTP/请求/深入理解axios.md)
+
+> [Fetch请求封装](知识笔记/大前端/HTTP/请求/Fetch请求封装.md)
 
 > [axios封装](知识笔记/大前端/HTTP/请求/axios封装.md)
 

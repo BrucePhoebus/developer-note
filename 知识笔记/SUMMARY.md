@@ -2,7 +2,7 @@
  * @Description: 
  * @Date: 2019-08-05 11:57:02
  * @LastEditors: phoebus
- * @LastEditTime: 2019-08-13 11:11:35
+ * @LastEditTime: 2019-08-13 13:47:31
  -->
 * 思想
 
@@ -88,7 +88,7 @@
 
 		- [HTTP基础知识汇总](知识笔记/大前端/HTTP/HTTP基础/HTTP基础知识汇总.md)
 		- [HTTP1.x和HTTP2](知识笔记/大前端/HTTP/HTTP1.x和HTTP2.md)
-		- [HTTP请求知识](知识笔记/大前端/HTTP/请求/HTTP请求知识.md)
+		- [HTTP请求知识汇总](知识笔记/大前端/HTTP/请求/HTTP请求知识汇总.md)
 		- [服务器推送技术](知识笔记/大前端/HTTP/服务器推送技术/服务器推送技术.md)
 
 	* nodejs
