@@ -1,3 +1,9 @@
+<!--
+ * @Description: 各种插件js原生实现，底层学习
+ * @Date: 2019-08-10 01:46:28
+ * @LastEditors: phoebus
+ * @LastEditTime: 2019-08-13 18:06:29
+ -->
 # 各种插件js原生实现
 
 ## 源码学习
@@ -5,6 +11,8 @@
 > [JQ源码学习](知识笔记/大前端/基础/JavaScript/js原生实现/JQ源码学习.md)
 
 > [怎么封装自己的js组件库？](知识笔记/大前端/基础/JavaScript/js原生实现/怎么封装自己的js组件库.md)
+
+> [js原生实现ajax上传文件](知识笔记/大前端/基础/JavaScript/js原生实现/js原生实现ajax上传文件.md)
 
 ## 组件封装
 
