@@ -1,3 +1,9 @@
+<!--
+ * @Description: Vue深入底层源码学习汇总
+ * @Date: 2019-08-10 01:46:28
+ * @LastEditors: phoebus
+ * @LastEditTime: 2019-08-15 11:26:35
+ -->
 # Vue深入学习汇总
 
 > [Vue数据驱动](知识笔记/大前端/框架/Vue/深入学习/Vue数据驱动.md)
@@ -7,6 +13,8 @@
 > [Vue渲染函数render](知识笔记/大前端/框架/Vue/深入学习/Vue渲染函数render.md)
 
 > [Vue渲染函数render](知识笔记/大前端/框架/Vue/深入学习/Vue渲染函数render.md)
+
+> [Vue响应式原理](知识笔记/大前端/框架/Vue/深入学习/Vue响应式原理.md)
 
 > [深入理解Vue模板](知识笔记/大前端/框架/Vue/深入学习/深入理解Vue模板.md)
 
