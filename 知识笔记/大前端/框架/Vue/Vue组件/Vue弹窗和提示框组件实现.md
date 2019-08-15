@@ -2,7 +2,7 @@
  * @Description: Vue弹窗和提示框组件实现
  * @LastEditors: phoebus
  * @LastEditTime: 2019-08-15 10:35:40
- * @LastEditTime: 2019-08-15 10:55:50
+ * @LastEditTime: 2019-08-15 11:11:22
  -->
 # Vue弹窗和提示框组件实现
 
@@ -291,4 +291,6 @@ new Vue({
 })
 ```
 
-> <a href="#知识笔记/大前端/框架/Vue/Vue组件/vue弹窗和提示框组件.html" target="_blank">vue弹窗和提示框组件效果</a> | [github代码](https://github.com/BrucePhoebus/developer-note/tree/master/知识笔记/大前端/框架/Vue/Vue组件/vue弹窗和提示框组件.html)
+> <a href="知识笔记/大前端/框架/Vue/Vue组件/vue弹窗和提示框组件.html" target="_blank">vue弹窗和提示框组件效果</a> | [github代码](https://github.com/BrucePhoebus/developer-note/tree/master/知识笔记/大前端/框架/Vue/Vue组件/vue弹窗和提示框组件.html)
+
+> 参考：[vue弹窗组件使用方法](https://www.jb51.net/article/139107.htm)

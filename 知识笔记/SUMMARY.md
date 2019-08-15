@@ -1,8 +1,8 @@
 <!--
- * @Description: 
+ * @Description: 知识笔记目录
  * @Date: 2019-08-05 11:57:02
  * @LastEditors: phoebus
- * @LastEditTime: 2019-08-14 10:13:54
+ * @LastEditTime: 2019-08-15 11:07:45
  -->
 * 思想
 
@@ -17,7 +17,7 @@
 
 	* 框架
 
-		- [一些前端框架的比较](知识笔记/大前端/框架/Vue/前端框架对比/一些前端框架的比较.md)
+		- [一些前端框架的比较](知识笔记/大前端/框架/前端框架对比/一些前端框架的比较.md)
 
 		* Vue
 
@@ -41,7 +41,6 @@
 
 			- [JS模块化](知识笔记/大前端/基础/JavaScript/Javascript模块化编程/JS模块化.md)
 			- [JavaScript基础汇总](知识笔记/大前端/基础/JavaScript/JavaScript基础/JavaScript基础汇总.md)
-			- [[jQuery知识汇总](知识笔记/大前端/基础/JavaScript/jQuery/jQuery知识汇总.md)](知识笔记/大前端/基础/JavaScript/Javascript模块化编程/[jQuery知识汇总](知识笔记/大前端/基础/JavaScript/jQuery/jQuery知识汇总.md).md)
 			- [各种小功能实现](知识笔记/大前端/基础/JavaScript/小功能/各种小功能实现.md)
 			- [js实现各种技巧应用](知识笔记/大前端/基础/JavaScript/js应用/js实现各种技巧应用.md)
 			- [各种插件js原生实现](知识笔记/大前端/基础/JavaScript/js原生实现/各种插件js原生实现.md)
@@ -165,11 +164,11 @@
 		- [e2e单元测试](知识笔记/大前端/测试/e2e单元测试/e2e单元测试.md)
 		- [e2e单元测试之Nightwatch自动化测试框架](知识笔记/大前端/测试/e2e单元测试/e2e单元测试之Nightwatch自动化测试框架.md)
 
-	* 其他
+	* 其它
 
 		* 存储方式
 
-			- [本地存储](知识笔记/大前端/其他/存储方式/本地存储.md)
+			- [本地存储](知识笔记/大前端/其它/存储方式/本地存储.md)
 
 		* 前端缓存技术
 
