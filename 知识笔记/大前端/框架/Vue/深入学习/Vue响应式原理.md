@@ -1,8 +1,8 @@
 <!--
- * @Description: 
+ * @Description: Vue响应式原理
  * @Date: 2019-08-10 01:46:28
  * @LastEditors: phoebus
- * @LastEditTime: 2019-08-15 15:13:21
+ * @LastEditTime: 2019-08-15 15:17:23
  -->
 # Vue响应式原理
 
