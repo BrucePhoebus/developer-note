@@ -2,7 +2,7 @@
  * @Description: 初识AngularJS基础
  * @Date: 2019-08-16 11:11:49
  * @LastEditors: phoebus
- * @LastEditTime: 2019-08-16 18:17:09
+ * @LastEditTime: 2019-08-19 14:54:21
  -->
 # AngularJS基础
 
@@ -13,9 +13,7 @@
 #### AngularJS是什么？
 
 	AngularJS 是一个创建富客户端应用的JS多平台框架(支持跨平台)
-	是一个大而全的框架，相当于N多个库的优秀集合
-
-
+	是一个大而全的MVVM框架，相当于N多个库的优秀集合
 
 #### 重要概念
 

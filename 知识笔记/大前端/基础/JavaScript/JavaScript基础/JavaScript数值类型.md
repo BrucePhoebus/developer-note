@@ -1,3 +1,9 @@
+<!--
+ * @Description: JavaScript数值类型学习
+ * @Date: 2019-08-10 01:46:28
+ * @LastEditors: phoebus
+ * @LastEditTime: 2019-08-19 17:46:43
+ -->
 # JavaScript数值类型
 
 ## JavaScript出现小数精度丢失的原因
@@ -134,9 +140,9 @@ var floatObj = function() {
             ret.num = floatNum
             return ret
         }
-        var strfi = floatNum + ''
-        var dotPos = strfi.indexOf('.')
-        var len = strfi.substr(dotPos + 1).length
+        var strFi = floatNum + ''
+        var dotPos = strFi.indexOf('.')
+        var len = strFi.substr(dotPos + 1).length
         var times = Math.pow(10, len)
         var intNum = parseInt(Math.abs(floatNum) * times + 0.5, 10)
         ret.times = times
@@ -222,11 +228,9 @@ var floatObj = function() {
 ```
 
  
- > 注： 转换后的整数依然不能超过 9007199254740992
+> 注： 转换后的整数依然不能超过 9007199254740992
 
- **修复toFixed问题**
-
- 
+**修复toFixed问题**
 
 ```js
 // toFixed 修复
