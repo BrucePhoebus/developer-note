@@ -2,7 +2,7 @@
  * @Description: 初识AngularJS基础
  * @Date: 2019-08-16 11:11:49
  * @LastEditors: phoebus
- * @LastEditTime: 2019-08-19 14:54:21
+ * @LastEditTime: 2019-08-20 10:30:51
  -->
 # AngularJS基础
 
@@ -13,7 +13,7 @@
 #### AngularJS是什么？
 
 	AngularJS 是一个创建富客户端应用的JS多平台框架(支持跨平台)
-	是一个大而全的MVVM框架，相当于N多个库的优秀集合
+	是一个大而全的MVVM框架(MVC结构)，相当于N多个库的优秀集合
 
 #### 重要概念
 
@@ -29,6 +29,12 @@
 
 * 模块化
 
+	* 一切都起于模块
+
+* 依赖注入
+
+	* 为应用提供服务
+
 * MVC - 思想
 
 	* 将应用划分为：`Model、View、Controller`
@@ -40,7 +46,7 @@
 	
 	> 剥离开视图和逻辑之间的关系，无论怎么修改dom操作都不用修改业务逻辑代码
 
-* 指令
+* 语义化标签(指令)
 
 * 双向数据绑定
 
@@ -48,6 +54,29 @@
 
 > 跟`Vue`双向绑定效果一样，但是底层实现原理不一样，NG是通过[脏检查](只是笔记/大前端/AngularJS/深入学习/深入浅出ng脏检查.md)实现的
 
+#### AngularJS结构
+
+	angular是MVC结构，也就是View - Model - Controller
+
+* View层就是用于表现的HTML和CSS
+
+* Model层有点类似于Java里面的POJO，都是用来存放数据，只不过放在Js里面不应该用类的形式体现。
+
+* Controller层则用来做一些数据操作
+
+	* 为应用中的模型设置初始状态。
+
+	* 通过 $scope 对象把数据模型和函数暴露给视图（UI 模板）。
+
+	* 监视模型其余部分的变化，并采取相应的动作
+
+###### 大致工作流程
+
+1. 用户在浏览过程中产生一些数据，或者触发某些事件，使得Model中保存的数据发生了变化
+
+2. Controller可以操作Model，并且和服务器交互
+
+3. 和服务器交互完成之后，Controller修改Model的数据，Angular把数据更新到视图，实现双向绑定，数据同步
 
 
 #### 常用指令
@@ -111,9 +140,9 @@ ng version
 # 执行脚手架安装
 ng new ng4-first-demo
 
-# 问你安不安装router
+# 问我们安不安装router
 y
-# 问你选择使用哪种CSS语言开发
+# 问我们选择使用哪种CSS语言开发
 SCSS
 ```
 
@@ -122,6 +151,27 @@ SCSS
 > [Angular CLI 终极指南](https://segmentfault.com/a/1190000009771946)
 
 !> 最后建议使用AngularJS + TypeScript + SCSS(预编译CSS) + ...进行开发 
+
+#### 常用操作
+
+1. 使用`$scope.$watch()`方法监听一个表达式
+
+2. 使用`$scope`暴露模型数据
+
+3. 使用`Module`（模块）组织依赖关系，可以自动解析依赖关系
+
+4. 使用`Angular`提供的事件处理指令来替代原生JS的事件属性，例如`ng-click`。
+
+	* 这样的好处是可以在所有浏览器中具有相同的行为，Angular将会帮我们屏蔽差异性。
+	* 并且不会在全局命名空间中进行操作，我们所指定的表达式只能访问元素控制器作用域范围内的函数和数据
+
+5. 使用`ng-repeat`指令进行迭代
+
+6. 使用`ng-show`和`ng-hide`来显示和隐藏元素，ng-if可以减少脏检查
+
+7. 使用`ng-class`和`ng-style`来修改样式
+
+8. 在`src`和`href`属性中嵌入`Angular表达式`时，使用`ng-src`和`ng-href`指令
 
 #### NG学习18问
 
@@ -296,6 +346,37 @@ export class ProductDetailsComponent implements OnInit {
 	}
 }
 ```
+
+###### 5. 关于angular开发的注意事项
+
+* Controller使用过程注意事项
+
+	1. 不要试图去复用controller，一个控制器一般只负责一小块视图；
+
+	2. 不要在controller中操作DOM，这不是控制器的职责；
+
+	3. 不要在controller中做数据格式化，ng有很好的表单控件；
+
+	4. 不要在controller中做数据过滤，ng有$filter服务；
+
+	5. controller一般是不会互相调用的，控制器之间的交互会通过事件进行
+
+
+###### 6. 关于模板和数据绑定的流程
+
+1. 用户请求应用起始页。
+
+2. 用户的浏览器向服务器发起一次 HTTP 连接，然后加载index.html 页面，这个页面里面包含了模板。
+
+3. Angular 被加载到页面中，等待页面加载完成，然后查找 ng-app指令，用来定义模板边界。
+
+4. Angular 遍历模板，查找指令和绑定关系，这将触发一系列动作
+	
+	* 注册监听器、执行一些 DOM 操作、从服务器获取初始化数据。
+	
+	* 最后应用启动，并且模板被转换成了 DOM 视图。
+
+5. 连接到服务器去加载需要展示给用户的其他数据
 
 ## 应用
 
