@@ -2,7 +2,7 @@
  * @Description: 
  * @Date: 2019-08-10 01:46:28
  * @LastEditors: phoebus
- * @LastEditTime: 2019-08-21 18:09:25
+ * @LastEditTime: 2019-08-21 18:25:07
  -->
 # Vue生命周期理解
 
@@ -120,5 +120,65 @@ new Vue() --> init()
 > 在该阶段可以进行一些持久化数据的手动销毁操作，或更改某些持久化数据，甚至清楚自己可能留下来的痕迹，都可以处理掉
 
 ![Vue生命周期流程详解图](../images/Vue生命周期流程详解图.png)
+
+## 问题驱动
+
+#### 父子组件生命周期执行顺序是什么？
+
+	分四种过程讨论
+
+* 加载渲染过程
+
+	* 父 beforeCreate -> 父 created -> 父 beforeMount -> 子 beforeCreate -> 子 created -> 子 beforeMount -> 子 mounted -> 父 mounted
+
+* 子组件更新过程
+
+	* 父 beforeUpdate -> 子 beforeUpdate -> 子 updated -> 父 updated
+
+
+* 父组件更新过程
+
+	* 父 beforeUpdate -> 父 updated
+
+* 销毁过程
+
+	* 父 beforeDestroy -> 子 beforeDestroy -> 子 destroyed -> 父 destroyed
+
+#### 在哪个生命周期内调用异步请求？
+
+	在created、beforeMount、mounted中都能调用，因为此时data已经创建，可以进行对服务端数据进行赋值等操作
+
+* 但是页面加载数据建议在`create`阶段获取
+
+	* 能更快获取到服务端数据，减少页面 loading 时间；
+	* ssr 不支持 beforeMount 、mounted 钩子函数，所以放在 created 中有助于一致性；
+
+#### 父组件可以监听子组件的生命周期？
+
+	有两种手段可以
+
+* 一是：直接在需要监听的钩子函数中添加`$emit()`单向数据流回调通知父组件
+
+* 二是：@hook
+
+	在父组件引用子组件初使用 @hook 声明，@hook 方法可以监听所有生命周期
+
+``` js
+//  Parent.vue
+<Child @hook:mounted="doSomething" ></Child>
+
+doSomething() {
+   console.log('父组件监听到 mounted 钩子函数 ...');
+},
+    
+//  Child.vue
+mounted(){
+   console.log('子组件触发 mounted 钩子函数 ...');
+},    
+    
+// 输出顺序为：
+// 子组件触发 mounted 钩子函数 ...
+// 父组件监听到 mounted 钩子函数 ... 
+```
 
 > 参考：[vue生命周期的理解](https://blog.csdn.net/haochangdi123/article/details/78358895)
