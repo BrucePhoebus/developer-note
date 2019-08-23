@@ -2,7 +2,7 @@
  * @Description: git入门基础
  * @Date: 2019-08-05 11:57:03
  * @LastEditors: phoebus
- * @LastEditTime: 2019-08-16 12:03:38
+ * @LastEditTime: 2019-08-23 09:19:17
  -->
 # git基础和使用
 
@@ -126,9 +126,15 @@
 > [Git-TortoiseGit完整配置流程](http://www.cnblogs.com/popfisher/p/5466174.html)
 
 1. 生成github.com对应的私钥公钥（本文中文件地址C:\Users\popfisher目录）
-执行命令 ssh-keygen -t rsa -C email 创建github对应的sshkey，命名为id_rsa_github，密码 123456
+执行命令 ssh-keygen -t rsa -C email 创建github对应的sshkey，命名为id_rsa_github，不用密码直接回车(这样每次push的时候就不需要密码了)
+
+``` bash
 ssh-keygen -t rsa -C 1634372267@qq.com
+```
 
 2. 同样的方式生产git.oschina.net的私钥公钥（邮箱地址可以相同可以不同，本文相同）
-执行命令ssh-keygen -t rsa -C email创建github对应的sshkey，命名为id_rsa_oschina，密码 123456
+执行命令ssh-keygen -t rsa -C email创建github对应的sshkey，命名为id_rsa_oschina，不用密码直接回车(这样每次push的时候就不需要密码了)
+``` bash
 ssh-keygen -t rsa -C 1634372267@qq.com
+```
+
