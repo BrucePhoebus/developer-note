@@ -2,7 +2,7 @@
  * @Description: 初识AngularJS基础
  * @Date: 2019-08-16 11:11:49
  * @LastEditors: phoebus
- * @LastEditTime: 2019-08-22 14:44:43
+ * @LastEditTime: 2019-08-26 17:48:53
  -->
 # AngularJS基础
 
@@ -465,4 +465,4 @@ ng g component top-bar
 
 > [参考demo](https://github.com/BrucePhoebus/ng4-first-demo)
 
-> 参考：[Angular 4 教程](https://www.w3cschool.cn/angular/angular-12c825ux.html) | [AngularJS 菜鸟教程](https://runoob.com/angularjs/angularjs-tutorial.html) | [Angular框架介绍](https://blog.csdn.net/mutouafangzi/article/details/77199346)
+> 参考：[Angular 4 教程](https://www.w3cschool.cn/angular/angular-12c825ux.html) | [AngularJS 菜鸟教程](https://runoob.com/angularjs/angularjs-tutorial.html) | [Angular框架介绍](https://blog.csdn.net/mutouafangzi/article/details/77199346) | [Angular踩坑之路——基础篇一](https://zhuanlan.zhihu.com/p/42323409)
