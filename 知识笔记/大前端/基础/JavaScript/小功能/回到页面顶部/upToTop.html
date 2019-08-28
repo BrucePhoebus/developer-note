@@ -1,0 +1,120 @@
+<!--
+ * @Description: 回到页面顶部代码实现
+ * @Date: 2019-08-28 10:33:12
+ * @LastEditors: phoebus
+ * @LastEditTime: 2019-08-28 11:48:40
+ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>回到顶部</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.box {
+			width: 1000px;
+			height: 2000px;
+			margin: 0 auto;
+		}
+
+		#btn {
+			width: 40px;
+			height: 40px;
+			position: fixed;
+			left: 50%;
+			bottom: 30px;
+			background: url(知识笔记/大前端/基础/JavaScript/images/upToTop.png) no-repeat left top;
+			margin-left: 610px;
+		}
+
+		#btn:hover {
+			background: url(知识笔记/大前端/基础/JavaScript/images/upToTop.png) no-repeat left -40px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="box">
+	</div>
+	<a style="display:none" href="javascript:;" id="btn" title="回到顶部"></a>
+
+	<script type="text/javascript">
+		window.onload = function () {
+			var toToBtn = document.getElementById("btn");
+			var timer = null;
+
+			window.onscroll = function () {
+				// 滚动条到底部的公式为：scrollTop + clientHeight == scrollHeight
+				if (getScrollTop() + getClientHeight() >= getScrollHeight()) {
+					toToBtn.style.display = "block";
+				} else {
+					toToBtn.style.display = "none";
+				}
+			}
+
+			toToBtn.onclick = function () {
+				timer = setInterval(function () {
+					var backTop = getScrollTop();
+					//速度操作  减速
+					var speedTop = backTop / 5;
+					// 修改滚动条位置
+					setScrollTop(backTop - speedTop);
+					//高度不断减少
+					if (backTop == 0) {  //滑动到顶端
+						clearInterval(timer);  //清除计时器
+					}
+				}, 30);
+			}
+		}
+
+		// 获取滚动条在Y轴上的滚动距离
+		function getScrollTop() {
+			var scroll_top = 0;
+			if (document.documentElement && document.documentElement.scrollTop) {
+				scroll_top = document.documentElement.scrollTop;
+			}
+			else if (document.body) {
+				scroll_top = document.body.scrollTop;
+			}
+			return scroll_top;
+		}
+		// 设置滚动条
+		function setScrollTop(newVal) {
+			if (document.documentElement && document.documentElement.scrollTop) {
+				document.documentElement.scrollTop = newVal;
+			}
+			else if (document.body) {
+				document.body.scrollTop = newVal;
+			}
+		}
+		// 获取内容可视区域
+		function getClientHeight() {
+			var windowHeight = 0;
+			if (document.compatMode == "CSS1Compat") {
+				windowHeight = document.documentElement.clientHeight;
+			} else {
+				windowHeight = document.body.clientHeight;
+			}
+			return windowHeight;
+		}
+		// 获取内容可视区域的高度加上溢出（滚动）的距离
+		function getScrollHeight() {
+			var scrollHeight = 0, bodyScrollHeight = 0, documentScrollHeight = 0;
+			if (document.body) {
+				bodyScrollHeight = document.body.scrollHeight;
+			}
+			if (document.documentElement) {
+				documentScrollHeight = document.documentElement.scrollHeight;
+			}
+			scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;
+			return scrollHeight;
+		}
+	</script>
+</body>
+
+</html>
