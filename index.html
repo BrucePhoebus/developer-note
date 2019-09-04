@@ -11,7 +11,8 @@
 
 	<link rel="stylesheet" href="public/themes/vue.css">
 	<!-- <link rel="stylesheet" href="public/themes/dark.css"> -->
-	<link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
+	<!-- <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css"> -->
+	<link rel="stylesheet" href="public/themes/gitalk.css">
 
 	<style>
 		#btn {
@@ -208,17 +209,23 @@
 	<!-- 点击红心效果 -->
 	<script type="text/javascript" src="public/plugins/components/love-click.min.js"></script>
 	<!-- 点击显示文字效果 -->
-	// <script type="text/javascript" src="public/plugins/components/click_show_text.js"></script>
+	<script type="text/javascript" src="public/plugins/components/click_show_text.js"></script>
 	<!-- 雪花飘落的效果 -->
-	// <script type="text/javascript" src="public/plugins/components/snow.js"></script>
+	<!-- 
+		<script type="text/javascript" src="public/plugins/components/snow.js"></script>
+	 -->
 	<!-- 点击烟花爆炸效果 -->
 	<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
 	<script type="text/javascript" src="public/plugins/components/anime.min.js"></script>
 	<script type="text/javascript" src="public/plugins/components/fireworks.min.js"></script>
 
 	<!-- 评论插件 -->
-	<script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
-	<script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
+	<script type="text/javascript" src="public/plugins/components/docsify.gitalk.min.js"></script>
+	<script type="text/javascript" src="public/plugins/components/gitalk.min.js"></script>
+	<!-- 
+		<script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
+		<script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
+	 -->
 	<script>
 		const gitalk = new Gitalk({
 			clientID: 'fb8d2e2a61f769485c8b',
