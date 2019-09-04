@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="public/themes/gitalk.css">
 
 	<style>
-		#btn {
+		#upToTop {
 			width: 40px;
 			height: 40px;
 			position: fixed;
@@ -25,7 +25,7 @@
 			/* margin-left: 610px; */
 		}
 
-		#btn:hover {
+		#upToTop:hover {
 			background: url(知识笔记/大前端/基础/JavaScript/images/upToTop.png) no-repeat left -40px;
 		}
 	</style>
@@ -36,7 +36,7 @@
 	<div id="app">
 		Please wait...
 	</div>
-	<a style="display:none" href="javascript:;" id="btn" title="回到顶部"></a>
+	<a style="display:none" href="javascript:;" id="upToTop" title="回到顶部"></a>
 
 	<a href="https://github.com/BrucePhoebus" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80"
 			viewBox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;"
@@ -85,12 +85,12 @@
 
 	<script type="text/javascript">
 		window.onload = function () {
-			var toToBtn = document.getElementById("btn");
+			var toToBtn = document.getElementById("upToTop");
 			var timer = null;
 
 			window.onscroll = function () {
 				// 滚动条到底部的公式为：scrollTop + clientHeight == scrollHeight
-				if (getScrollTop() + getClientHeight() >= getScrollHeight()) {
+				if (getScrollTop() + getClientHeight() >= getScrollHeight() - 50) {
 					toToBtn.style.display = "block";
 				} else {
 					toToBtn.style.display = "none";
@@ -237,6 +237,7 @@
 			id: window.location.pathname	// 页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
 		})
 	</script>
+	
 
 </body>
 
