@@ -38,7 +38,7 @@
 	</div>
 	<a style="display:none" href="javascript:;" id="upToTop" title="回到顶部"></a>
 
-	<a href="https://github.com/BrucePhoebus" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80"
+	<a href="https://github.com/BrucePhoebus/developer-note" class="github-corner" aria-label="View source on GitHub" target="_blank"><svg width="80" height="80"
 			viewBox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;"
 			aria-hidden="true">
 			<path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -233,9 +233,18 @@
 			repo: 'developer-note',	// //存储你评论 issue 的 Github 仓库名
 			owner: 'BrucePhoebus',
 			admin: ['BrucePhoebus'],	// 这个仓库的管理员
+			title: location.hash.match(/#(.*?)([?]|$)/)[1],
 			distractionFreeMode: true,	// 是否添加全屏遮罩
-			id: window.location.pathname	// 页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
+			id: location.hash.match(/#(.*?)([?]|$)/)[1],	// 页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
+			enableHotKey: true,	// 提交评论快捷键(cmd/ctrl + enter) 
 		})
+		// 监听URL中hash的变化，如果发现换了一个MD文件，那么刷新页面，解决整个网站使用一个gitalk评论issues的问题。
+		window.onhashchange = function (event) {
+			if (event.newURL.split('?')[0] !== event.oldURL.split('?')[0]) {
+				location.reload()
+			}
+		}
+
 	</script>
 	
 

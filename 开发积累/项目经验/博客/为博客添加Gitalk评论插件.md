@@ -2,7 +2,7 @@
  * @Description: 为博客添加 Gitalk 评论插件
  * @Date: 2019-09-04 15:17:58
  * @LastEditors: phoebus
- * @LastEditTime: 2019-09-04 16:08:05
+ * @LastEditTime: 2019-09-04 17:13:58
  -->
 # 为博客添加 Gitalk 评论插件
 
@@ -144,7 +144,7 @@ distractionFreeMode：类型：布尔值，选填，类似Facebook评论框的�
 
 pagerDirection：类型：字符串，选填，评论排序方式，last为按评论创建时间倒叙，first为按创建时间正序。默认值：last
 
-createIssueManually：类型：布尔值，选填，如果当前页面没有相应的 isssue 且登录的用户属于 admin，则会自动创建 issue。如果设置为 true，则显示一个初始化页面，创建 issue 需要点击 init 按钮。 默认值：false
+createIssueManually：类型：布尔值，选填，如果当前页面没有相应的 issue 且登录的用户属于 admin，则会自动创建 issue。如果设置为 true，则显示一个初始化页面，创建 issue 需要点击 init 按钮。 默认值：false
 
 proxy：类型：字符串，选填，GitHub oauth 请求到反向代理，为了支持 CORS。默认值:https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token
 
