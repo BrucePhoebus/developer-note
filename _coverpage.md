@@ -1,8 +1,11 @@
-![logo](./logo.png)
+<!-- ![logo](public/icon/logo.png) -->
+<a href="#/README.md">
+	<img src="public/icon/logo.png">
+</a>
 
-# docsify
+# [docsify](README.md)
 
-> A magical documentation site generator.
+> 学习一时爽，一直学习一直爽！
 
 [GitHub](https://github.com/BrucePhoebus/developer-note)
 

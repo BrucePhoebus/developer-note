@@ -2,7 +2,7 @@
  * @Description: 各种JavaScript深入学习知识汇总
  * @Date: 2019-08-05 11:57:03
  * @LastEditors: phoebus
- * @LastEditTime: 2019-08-09 11:35:31
+ * @LastEditTime: 2019-09-04 14:50:37
  -->
 # JavaScript深入学习汇总
 
@@ -15,6 +15,8 @@
 > [深入理解和实现Promise](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/深入理解和实现Promise.md)
 
 > [理解和实现bind、call和apply](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/理解和实现bind-call-apply.md)
+
+> [Array.prototype.slice.call()方法详解](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/Array.prototype.slice.call()方法详解.md)
 
 ## 概念理解
 
