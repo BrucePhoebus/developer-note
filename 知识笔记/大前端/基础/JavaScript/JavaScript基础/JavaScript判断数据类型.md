@@ -1,6 +1,8 @@
 # JavaScript判断数据类型
 
-## typeof操作符
+## 基础
+
+#### typeof操作符
 
 	可以判断基本数据类型，但是对于引用数据类型`全部`返回Object，但是function还是返回function
 
@@ -17,7 +19,7 @@ typeof null					// object
 typeof function(){}		   // function
 ```
 
-## instanceof操作符
+#### instanceof操作符
 
 	obj instanceof Object 检测 Object.prototype 是否存在于参数obj的原型链上，主要用来判断变量是否是某个构造方法的实例
 
@@ -57,7 +59,7 @@ console.log(foo instanceof Foo)//true
 console.log(foo instanceof Aoo)//true
 ```
 
-## constructor
+#### constructor
 
 	constructor是prototype对象上的属性，指向构造函数
 
@@ -89,7 +91,7 @@ console.log(f.constructor===Fn);    // false
 console.log(f.constructor===Array); // true 
 ```
 
-## Object.prototype.toString.call()
+#### Object.prototype.toString.call()
 
 	使用 Object 对象的原型方法 toString ，使用 call 进行狸猫换太子，借用Object的 toString  方法
 
@@ -108,13 +110,13 @@ console.log(a.call(undefined));		// [object Undefined]
 console.log(a.call(null));			// [object Null]
 ```
 
-## 总结
+#### 总结
 
-#### 判断基本数据类型
+###### 判断基本数据类型
 
 	使用typeof
 
-#### 判断引用数据类型
+###### 判断引用数据类型
 
 	使用instanceof和constructor
 
@@ -122,3 +124,58 @@ console.log(a.call(null));			// [object Null]
 > 强行判断引用类型，要么只是判断常见的集中引用类型，比如数组、函数、Date、正则。。。要么只能输出构造函数
 
 > 准确判断数组类型使用`es5`提供的方法`Array.isArray(value)`
+
+## 应用
+
+#### 判断传入值是否数值类型
+
+``` js
+function isNumeric(obj) {
+	return !isNaN(parseFloat(obj)) && isFinite(obj);
+}
+
+function isNumeric(str) {
+	if (str === '' || str == null) return false;
+	const num = Number(str);
+	return num < Infinity && num > -Infinity;
+}
+
+console.log(isNumeric('1000'));
+console.log(isNumeric('-100.'));
+console.log(isNumeric('.1'));
+console.log(isNumeric('-3.2'));
+console.log(isNumeric('001'));
+console.log(isNumeric('+4.5'));
+console.log(isNumeric('1e3'));
+console.log(isNumeric('1e-3'));
+console.log(isNumeric('-100e-3'));
+
+console.log(!isNumeric('++3'));
+console.log(!isNumeric('-100..'));
+console.log(!isNumeric('3abc'));
+console.log(!isNumeric('abc'));
+console.log(!isNumeric('-3e3.2'));
+console.log(!isNumeric('Infinity'));
+console.log(!isNumeric('-Infinity'));
+console.log(!isNumeric(''));
+
+console.assert(isNumeric('1000'));
+console.assert(isNumeric('-100.'));
+console.assert(isNumeric('.1'));
+console.assert(isNumeric('-3.2'));
+console.assert(isNumeric('001'));
+console.assert(isNumeric('+4.5'));
+console.assert(isNumeric('1e3'));
+console.assert(isNumeric('1e-3'));
+console.assert(isNumeric('-100e-3'));
+
+console.assert(!isNumeric('++3'));
+console.assert(!isNumeric('-100..'));
+console.assert(!isNumeric('3abc'));
+console.assert(!isNumeric('abc'));
+console.assert(!isNumeric('-3e3.2'));
+console.assert(!isNumeric('Infinity'));
+console.assert(!isNumeric('-Infinity'));
+console.assert(!isNumeric(''));
+```
+
