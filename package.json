@@ -16,6 +16,7 @@
     "learn"
   ],
   "devDependencies": {
+    "faraday": "^1.12.0",
     "gitbook-summary": "^1.2.2"
   }
 }
