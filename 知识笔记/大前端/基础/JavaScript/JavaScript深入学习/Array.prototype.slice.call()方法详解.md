@@ -1,9 +1,9 @@
-/**
+<!--
  * @Description: Array.prototype.slice.call()方法详解
+ * @Date: 2019-09-04 11:33:22
  * @LastEditors: phoebus
- * @LastEditTime: Do not edit
- * @Date: 2019-09-04 11:34:22
- */
+ * @LastEditTime: 2019-09-04 14:43:21
+ -->
 
 # Array.prototype.slice.call()方法详解
 
