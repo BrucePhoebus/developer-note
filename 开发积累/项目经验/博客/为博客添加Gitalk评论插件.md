@@ -2,7 +2,7 @@
  * @Description: 为博客添加 Gitalk 评论插件
  * @Date: 2019-09-04 15:17:58
  * @LastEditors: phoebus
- * @LastEditTime: 2019-09-04 17:13:58
+ * @LastEditTime: 2019-09-05 14:25:48
  -->
 # 为博客添加 Gitalk 评论插件
 
@@ -68,17 +68,17 @@
 
 > 注：这些参数在注册成功后是可以修改。
 
-![参考注册](../images/注册github的OAuth.png)
+![参考注册](../../images/注册github的OAuth.png)
 
 * 参数填好后，点Register application按钮即可完成注册
 
 * 然后就调转到成功页面，直接复制页面的`Client ID`和`Client Secret`即可，有需要以后在来改
 
-![参考注册](../images/注册github的OAuth成功页面.png)
+![参考注册](../../images/注册github的OAuth成功页面.png)
 
 > 然后占到页面位置就能用了，我放到页面尾部，给个图看效果：
 
-![gitalk插件效果图](../images/gitalk插件效果图.png)
+![gitalk插件效果图](../../images/gitalk插件效果图.png)
 
 > [本项目中使用](https://github.com/BrucePhoebus/developer-note/blob/master/index.html)
 
@@ -95,6 +95,13 @@ const gitalk = new Gitalk({
 	distractionFreeMode: true,	// 是否添加全屏遮罩
 	id: window.location.pathname	// 页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
 })
+
+// 监听URL中hash的变化，如果发现换了一个MD文件，那么刷新页面，解决整个网站使用一个gitalk评论issues的问题。
+window.onhashchange = function (event) {
+	if (event.newURL.split('?')[0] !== event.oldURL.split('?')[0]) {
+		location.reload()
+	}
+}
 ```
 
 * 有注释就很明显了，看主要参数说明：
@@ -154,6 +161,8 @@ enableHotKey：类型：布尔值，选填，启用快捷键(cmd/ctrl + enter)�
 ```
 
 ## 最后
+
+> [我的博客在线地址](https://brucephoebus.github.io/developer-note/#/%E5%BC%80%E5%8F%91%E7%A7%AF%E7%B4%AF/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E9%AA%8C/%E5%8D%9A%E5%AE%A2/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0Gitalk%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6)
 
 > 给个[自动初始化 Gitalk 和 Gitment 评论](https://link.jianshu.com/?t=https%3A%2F%2Fdraveness.me%2Fgit-comments-initialize)解决点开页面才会创建对应isuue的问题
 

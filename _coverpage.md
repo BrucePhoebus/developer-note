@@ -7,7 +7,7 @@
 
 > 学习一时爽，一直学习一直爽！
 
-[GitHub](https://github.com/BrucePhoebus/developer-note)
+[GitHub](https://github.com/BrucePhoebus/developer-note) [开始阅读](/README.md)
 
 <!-- 背景图片 -->
 
