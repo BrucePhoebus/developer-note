@@ -2,7 +2,7 @@
  * @Description: 知识笔记目录
  * @Date: 2019-08-05 11:57:02
  * @LastEditors: phoebus
- * @LastEditTime: 2019-09-05 11:49:17
+ * @LastEditTime: 2019-09-06 11:20:47
  -->
 * 开源贡献
 
@@ -242,3 +242,4 @@
 	* IDE
 
 		- [vscode插件](知识笔记/工具/IDE/VSCode/vscode插件.md)
+		- [vscode问题总结](知识笔记/工具/IDE/VSCode/vscode问题总结.md)

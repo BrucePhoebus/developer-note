@@ -118,3 +118,38 @@ console.log(deepClone([1, 2, [1, 2, 3], {
     name: '33'
 }], []));
 ```
+
+## 汇总
+
+#### 方案一：JSON处理
+
+``` js
+JSON.parse(JSON.stringify())
+```
+
+**测试**
+
+``` js
+var oldObj = {
+	name: 'ff',
+    car: [1, 2, 3],
+    son: {
+        first: 'son1',
+        second: 'son2'
+    }
+},
+newObj = {};
+
+newObj = JSON.parse(JSON.stringify(oldObj));
+console.log(newObj);
+console.log(newObj === oldObj);
+/* 
+	{name: "ff", car: Array(3), son: {…}}car: (3) [1, 2, 3]name: "ff"son: {first: "son1", second: "son2"}__proto__: Object
+	false
+ */
+```
+
+
+
+
+> [如何写出一个惊艳面试官的深拷贝?](https://juejin.im/post/5d6aa4f96fb9a06b112ad5b1)
