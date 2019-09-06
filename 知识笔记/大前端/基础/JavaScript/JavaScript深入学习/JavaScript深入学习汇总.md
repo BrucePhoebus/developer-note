@@ -2,7 +2,7 @@
  * @Description: 各种JavaScript深入学习知识汇总
  * @Date: 2019-08-05 11:57:03
  * @LastEditors: phoebus
- * @LastEditTime: 2019-09-04 14:50:37
+ * @LastEditTime: 2019-09-06 15:14:15
  -->
 # JavaScript深入学习汇总
 
@@ -23,6 +23,8 @@
 > [ES6特性认识](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/ES6特性认识.md)
 
 > [深入浅出this](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/ES6特性深入浅出this认识.md)
+
+> [JSON序列化与反序列化](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/JSON序列化与反序列化.md)
 
 > [new的实现原理](知识笔记/大前端/基础/JavaScript/JavaScript深入学习/new的实现原理.md)
 
