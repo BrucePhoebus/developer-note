@@ -1,10 +1,10 @@
 <!--
- * @Description: git入门基础
+ * @Description: github入门
  * @Date: 2019-08-05 11:57:03
  * @LastEditors: phoebus
- * @LastEditTime: 2019-08-23 09:19:17
+ * @LastEditTime: 2019-09-06 11:36:39
  -->
-# git基础和使用
+# github入门
 
 > [git常见问题](问题积累/工具问题/版本控制/Git/git常见问题.md) | [git相关配置](知识笔记/工具/版本控制/Git/git相关配置.md) | [常用git命令](知识笔记/工具/版本控制/Git/常用git命令.md)
 
@@ -39,7 +39,7 @@
 
 > 结果：Hi BrucePhoebus! You've successfully authenticated, but GitHub does not provide shell access.
 
-6. =设置本地全局git用户名密码
+6. 设置本地全局git用户名密码
 
 	git config --global user.name "username"
 	git config --global user.email "your_email@yourEmail.com"
@@ -118,23 +118,3 @@
 	git push -u origin master
 
 > 如果是你的远程库，你配置过全局git账户密码，并使用ssh连接成功的话就不需要账户密码，否则每次提交都需要使用账户密码
-
-## 多个git账户的问题
-
-#### Windows下Git多账号配置，同一电脑多个ssh-key的管理
-
-> [Git-TortoiseGit完整配置流程](http://www.cnblogs.com/popfisher/p/5466174.html)
-
-1. 生成github.com对应的私钥公钥（本文中文件地址C:\Users\popfisher目录）
-执行命令 ssh-keygen -t rsa -C email 创建github对应的sshkey，命名为id_rsa_github，不用密码直接回车(这样每次push的时候就不需要密码了)
-
-``` bash
-ssh-keygen -t rsa -C 1634372267@qq.com
-```
-
-2. 同样的方式生产git.oschina.net的私钥公钥（邮箱地址可以相同可以不同，本文相同）
-执行命令ssh-keygen -t rsa -C email创建github对应的sshkey，命名为id_rsa_oschina，不用密码直接回车(这样每次push的时候就不需要密码了)
-``` bash
-ssh-keygen -t rsa -C 1634372267@qq.com
-```
-

@@ -2,9 +2,9 @@
  * @Description: 认识git管理之Forking工作流
  * @Date: 2019-08-28 09:35:20
  * @LastEditors: phoebus
- * @LastEditTime: 2019-08-28 10:29:16
+ * @LastEditTime: 2019-09-06 11:29:54
  -->
-# Forking 工作流
+# 开源Forking 工作流
 
 ## 概述
 
