@@ -186,8 +186,11 @@
 			plugins: [
 				function (hook, vm) {
 					hook.doneEach(function () {
-						window.title_id = window.location.hash.match(/#(.*?)([?]|$)/)[1];
-						console.log(decodeURI(window.title_id))
+						if (window.title_id !== window.location.hash.match(/#(.*?)([?]|$)/)[1]) {
+							window.title_id = window.location.hash.match(/#(.*?)([?]|$)/)[1];
+							console.log(decodeURI(window.title_id))
+							document.URL = window.location.href;
+						}
 					})
 				}
 			]
