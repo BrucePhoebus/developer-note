@@ -186,7 +186,7 @@
 			plugins: [
 				function (hook, vm) {
 					hook.doneEach(function () {
-						window.title_id = window.location.hash.match(/#(.*?)([?]|$)/)[1]
+						window.title_id = window.location.hash.match(/#(.*?)([?]|$)/)[1];
 					})
 				}
 			]
@@ -236,11 +236,12 @@
 			repo: 'developer-note',	// //存储你评论 issue 的 Github 仓库名
 			owner: 'BrucePhoebus',
 			admin: ['BrucePhoebus'],	// 这个仓库的管理员
-			title: decodeURI(window.title_id),
+			title: decodeURI(window.title_id || window.location.hash.match(/#(.*?)([?]|$)/)[1]),
 			distractionFreeMode: false,	// 是否添加全屏遮罩
-			id: md5(window.title_id),	// 页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
+			id: md5(window.title_id || window.location.hash.match(/#(.*?)([?]|$)/)[1]),	// 页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
 			enableHotKey: true,	// 提交评论快捷键(cmd/ctrl + enter) 
 		})
+		console.log(gitalk)
 	</script>
 	<script type="text/javascript" src="public/plugins/components/docsify.gitalk.js"></script>
 
