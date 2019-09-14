@@ -185,7 +185,7 @@
 			formatUpdated: '{MM}/{DD} {HH}:{mm}',
 			plugins: [
 				function (hook, vm) {
-					hook.doneEach(function () {
+					hook.beforeEach(function () {
 						if (window.title_id !== window.location.hash.match(/#(.*?)([?]|$)/)[1]) {
 							window.title_id = window.location.hash.match(/#(.*?)([?]|$)/)[1];
 							console.log(decodeURI(window.title_id));
