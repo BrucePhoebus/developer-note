@@ -222,17 +222,23 @@
 
 	<script type="text/javascript" src="public/plugins/components/gitalk.min.js"></script>
 	<script type="text/javascript">
-		let urlParam = window.location.hash.match(/#(.*?)([?]|$)/) || [];
+		let urlParam = window.location.hash.match(/#(.*?)([?]|$)/) || '';
+		if (urlParam.length > 0) {
+			urlParam = urlParam[1].split('/');
+			urlParam = urlParam[urlParam.length-1];
+		} else {
+			urlParam = '/';
+		}
 		const gitalk = new Gitalk({
 			clientID: 'fb8d2e2a61f769485c8b',
 			clientSecret: 'f038d906cc7d4d1f4961b2be48602fa06c9f072f',
 			repo: 'developer-note',	// //存储你评论 issue 的 Github 仓库名
 			owner: 'BrucePhoebus',
 			admin: ['BrucePhoebus'],	// 这个仓库的管理员
-			title: decodeURI(urlParam.length > 0 ? urlParam[1] : '/'),
+			title: decodeURI(urlParam),
 			distractionFreeMode: false,	// 是否添加全屏遮罩
 			// id: decodeURI(window.location.hash.match(/#(.*?)([?]|$)/)[1]),	// 页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
-			id: urlParam.length > 0 ? urlParam[1] : '/',
+			id: urlParam,
 			enableHotKey: true,	// 提交评论快捷键(cmd/ctrl + enter) 
 		})
 
