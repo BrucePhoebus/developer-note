@@ -4,7 +4,44 @@
 
 > [常用git命令](知识笔记/工具/版本控制/常用git命令.md)
 
-## 高级命令
+## 分支操作
+
+#### 删除远程分支
+
+###### 先删除本地分支
+
+``` bash
+git branch -d xxx
+```
+
+###### 提交删除远程分支
+
+``` bash
+git push origin --delete xxx
+```
+
+#### git分支重命名
+
+1. 本地分支重命名
+
+	git branch -m old new
+
+2. 远程分支重命名
+
+	* 删除远程分支
+
+		git push origin : 远程分支名(你要删除的远程分支名)
+		
+		或
+
+		 git push --delete origin 分支名（不含remotes/origin）
+
+	* 将本地分支推送到远程分支上，如果远程分支不存在，则创建此远程分支
+
+		git push origin 本地分支名: 远程分支名
+
+
+## 库操作
 
 #### 切换远程git库
 
@@ -34,25 +71,18 @@ git remote add origin [url]
 
 > 这是很无奈的办法，一般都不建议用这么低效的办法
 
-#### git分支重命名
+#### 关联开源库
 
-1. 本地分支重命名
+``` bash
+# 关联远程库
+git remote add origin xxx
+# 关联主开源库
+git remote add upstream xxx
+# 查看：正常有两个库地址
+git remote -v
+```
 
-	git branch -m old new
-
-2. 远程分支重命名
-
-	* 删除远程分支
-
-		git push origin : 远程分支名(你要删除的远程分支名)
-		
-		或
-
-		 git push --delete origin 分支名（不含remotes/origin）
-
-	* 将本地分支推送到远程分支上，如果远程分支不存在，则创建此远程分支
-
-		git push origin 本地分支名: 远程分支名
+## 日志相关
 
 #### 查看commit提交记录
 
