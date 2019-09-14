@@ -2,7 +2,7 @@
  * @Description: 为博客添加 Gitalk 评论插件
  * @Date: 2019-09-04 15:17:58
  * @LastEditors: phoebus
- * @LastEditTime: 2019-09-15 02:03:17
+ * @LastEditTime: 2019-09-15 02:35:04
  -->
 # 为博客添加 Gitalk 评论插件
 
@@ -228,13 +228,13 @@ enableHotKey：类型：布尔值，选填，启用快捷键(cmd/ctrl + enter)�
 
 	1. 可以直接`window.onhashchange`监听url变化，如果变化就刷新页面，让gitalk重新实例化
 
-	2. `docsify`有提供插件钩子函数`hook.beforeEach`(不止这个)，可以在`plugins`中监听路由变化，当页面数据加载完后判断
+	2. `docsify`有提供插件钩子函数`hook.doneEach`(不止这个)，可以在`plugins`中监听路由变化，当页面数据加载完后判断
 
 ``` js
 window.$docsify = {
 	plugins: [
 		function (hook, vm) {
-			hook.beforeEach(function () {
+			hook.doneEach(function () {
 				if (window.title_id !== window.location.hash.match(/#(.*?)([?]|$)/)[1]) {
 					window.title_id = window.location.hash.match(/#(.*?)([?]|$)/)[1];
 					console.log(decodeURI(window.title_id));
