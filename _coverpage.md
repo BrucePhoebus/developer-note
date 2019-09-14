@@ -1,6 +1,6 @@
 <!-- ![logo](public/icon/logo.png) -->
 <a href="#/README.md">
-	<img src="public/icon/logo.png">
+	<img src="public/icon/logo.png" style='max-height:250px;margin-top:100px;'>
 </a>
 
 # [docsify](README.md)
