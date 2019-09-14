@@ -237,8 +237,9 @@
 		})
 
 		window.onhashchange = function (event) {
+			console.log(event);
 			if (event.newURL.split('?')[0] !== event.oldURL.split('?')[0]) {
-				window.reload;
+				document.URL = location.href
 			}
 		}
 	</script>
