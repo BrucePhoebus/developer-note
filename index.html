@@ -229,10 +229,10 @@
 			repo: 'developer-note',	// //存储你评论 issue 的 Github 仓库名
 			owner: 'BrucePhoebus',
 			admin: ['BrucePhoebus'],	// 这个仓库的管理员
-			title: decodeURI(urlParam.length > 0 ? urlParam[1] : 'phoebus博客') + '问题',
+			title: decodeURI(urlParam.length > 0 ? urlParam[1] : '/'),
 			distractionFreeMode: false,	// 是否添加全屏遮罩
 			// id: decodeURI(window.location.hash.match(/#(.*?)([?]|$)/)[1]),	// 页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
-			id: encodeURI((urlParam.length > 0 ? urlParam[1] : 'phoebus博客') + '问题'),
+			id: urlParam.length > 0 ? urlParam[1] : '/',
 			enableHotKey: true,	// 提交评论快捷键(cmd/ctrl + enter) 
 		})
 
