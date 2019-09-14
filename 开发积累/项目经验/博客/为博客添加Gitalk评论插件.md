@@ -2,7 +2,7 @@
  * @Description: 为博客添加 Gitalk 评论插件
  * @Date: 2019-09-04 15:17:58
  * @LastEditors: phoebus
- * @LastEditTime: 2019-09-14 13:46:35
+ * @LastEditTime: 2019-09-14 15:06:15
  -->
 # 为博客添加 Gitalk 评论插件
 
@@ -166,30 +166,49 @@ enableHotKey：类型：布尔值，选填，启用快捷键(cmd/ctrl + enter)�
 
 **问题分析**
 
-* 这个意思是`gitalk`没声明，没这个对象，也就是加载顺序出了问题，还没实例化就调用了
+* 这个意思是`gitalk`没声明，没找到这个对象，也就是加载顺序出了问题，还没实例化就调用了
+
+* 看了下`gitalk`这个调用，是`docsify.gitalk`文件导致的，也就是它在gitalk对象实例化之前就调用了，或者说gitalk实例化失败导致调用失败
 
 **问题解决**
 
 * 首先我使用同步加载了`插件`js文件，但是没啥卵用
 
-* 然后使用测了下就是docsify加载问题，所以使用`延迟加载`，将实例化部分延迟加载
+* 然后使用测了下就是docsify加载问题，所以使用`延迟加载`，将实例化部分延迟加载，没啥用，`docsify`调用不到gitalk实例，导致评论没加载到页面上去(有些插件不能使用异步加载，不然docsify无法加载到页面上去)
 
-``` js
-function initGitalk() {
+* 捣鼓了一阵，其中还发现`window.location.hash.match(/#(.*?)([?]|$)/)`报错，实例化失败。。。然后发现可能是`gitalk`实例化失败导致`docsify`调用失败
+
+* 所以将可能实例化失败的地方做了下处理，之后`docsify`就调用成功了╮(╯▽╰)╭
+
+``` html
+<script type="text/javascript" src="public/plugins/components/gitalk.min.js"></script>
+<script type="text/javascript">
+	const urlParam = window.location.hash.match(/#(.*?)([?]|$)/) || [];
 	const gitalk = new Gitalk({
-		// 配置内容
+		clientID: 'fb8d2e2a61f769485c8b',
+		clientSecret: 'f038d906cc7d4d1f4961b2be48602fa06c9f072f',
+		repo: 'developer-note',	// //存储你评论 issue 的 Github 仓库名
+		owner: 'BrucePhoebus',
+		admin: ['BrucePhoebus'],	// 这个仓库的管理员
+		title: decodeURI(urlParam.length > 0 ? urlParam[1] : 'phoebus博客')
+			+ '问题',
+		distractionFreeMode: false,	// 是否添加全屏遮罩
+		// id: decodeURI(window.location.hash.match(/#(.*?)([?]|$)/)[1]),	// 页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
+		id: decodeURI(urlParam.length > 0 ? urlParam[1] : 'phoebus博客')
+			+ '问题',
+		enableHotKey: true,	// 提交评论快捷键(cmd/ctrl + enter) 
 	})
-}
-if (window.addEventListener) {
-	window.addEventListener("load", initGitalk, false);
-} else if (window.attachEvent) {
-	window.attachEvent("onload", initGitalk);
-} else {
-	window.onload = initGitalk;
-} 
+
+	window.onhashchange = function (event) {
+		if (event.newURL.split('?')[0] !== event.oldURL.split('?')[0]) {
+			window.reload;
+		}
+	}
+</script>
+<script type="text/javascript" src="public/plugins/components/docsify.gitalk.js"></script>
 ```
 
-> 把这部分放到页面body最后面就行，意思是延迟实例化gitalk
+> 把这部分放到页面body最后面就行，重点就是确保gitalk实例化成功
 
 ## 最后
 
