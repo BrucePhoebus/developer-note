@@ -220,9 +220,12 @@
 		})();
 	</script>
 
+	<!-- MD5加密 -->
+	<script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>
+
 	<script type="text/javascript" src="public/plugins/components/gitalk.min.js"></script>
 	<script type="text/javascript">
-		const gitalk = new Gitalk({
+		let gitalk = new Gitalk({
 			clientID: 'fb8d2e2a61f769485c8b',
 			clientSecret: 'f038d906cc7d4d1f4961b2be48602fa06c9f072f',
 			repo: 'developer-note',	// //存储你评论 issue 的 Github 仓库名
@@ -230,15 +233,13 @@
 			admin: ['BrucePhoebus'],	// 这个仓库的管理员
 			title: decodeURI(window.location.hash.match(/#(.*?)([?]|$)/)[1]),
 			distractionFreeMode: false,	// 是否添加全屏遮罩
-			// id: decodeURI(window.location.hash.match(/#(.*?)([?]|$)/)[1]),	// 页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
-			id: decodeURI(window.location.hash.match(/#(.*?)([?]|$)/)[1]),
+			id: md5(window.location.hash.match(/#(.*?)([?]|$)/)[1]),	// 页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
 			enableHotKey: true,	// 提交评论快捷键(cmd/ctrl + enter) 
 		})
 
 		window.onhashchange = function (event) {
-			console.log(event);
 			if (event.newURL.split('?')[0] !== event.oldURL.split('?')[0]) {
-				document.URL = location.href
+				window.reload;
 			}
 		}
 	</script>
