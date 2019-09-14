@@ -2,7 +2,7 @@
  * @Description: 为博客添加 Gitalk 评论插件
  * @Date: 2019-09-04 15:17:58
  * @LastEditors: phoebus
- * @LastEditTime: 2019-09-14 15:06:15
+ * @LastEditTime: 2019-09-14 15:52:24
  -->
 # 为博客添加 Gitalk 评论插件
 
@@ -209,6 +209,18 @@ enableHotKey：类型：布尔值，选填，启用快捷键(cmd/ctrl + enter)�
 ```
 
 > 把这部分放到页面body最后面就行，重点就是确保gitalk实例化成功
+
+#### 生成的issue混乱问题
+
+**问题分析**
+
+* 生成的issue的位置乱七八糟，预估的id绑定错误的问题，每次生成issue的时候都是根据传入的唯一ID判断的
+
+**问题解决**
+
+* 修正传入的ID值，保证与文章绑定是唯一的
+
+
 
 ## 最后
 
