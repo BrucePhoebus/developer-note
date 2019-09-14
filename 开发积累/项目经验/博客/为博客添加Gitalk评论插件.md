@@ -2,7 +2,7 @@
  * @Description: 为博客添加 Gitalk 评论插件
  * @Date: 2019-09-04 15:17:58
  * @LastEditors: phoebus
- * @LastEditTime: 2019-09-05 14:25:48
+ * @LastEditTime: 2019-09-14 13:46:35
  -->
 # 为博客添加 Gitalk 评论插件
 
@@ -159,6 +159,37 @@ flipMoveOptions：类型：对象，选填，评论列表的动画。
 
 enableHotKey：类型：布尔值，选填，启用快捷键(cmd/ctrl + enter)提交评论。默认值：true
 ```
+
+## 遇到的问题
+
+#### gitalk is no defined
+
+**问题分析**
+
+* 这个意思是`gitalk`没声明，没这个对象，也就是加载顺序出了问题，还没实例化就调用了
+
+**问题解决**
+
+* 首先我使用同步加载了`插件`js文件，但是没啥卵用
+
+* 然后使用测了下就是docsify加载问题，所以使用`延迟加载`，将实例化部分延迟加载
+
+``` js
+function initGitalk() {
+	const gitalk = new Gitalk({
+		// 配置内容
+	})
+}
+if (window.addEventListener) {
+	window.addEventListener("load", initGitalk, false);
+} else if (window.attachEvent) {
+	window.attachEvent("onload", initGitalk);
+} else {
+	window.onload = initGitalk;
+} 
+```
+
+> 把这部分放到页面body最后面就行，意思是延迟实例化gitalk
 
 ## 最后
 

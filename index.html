@@ -12,8 +12,7 @@
 	<link rel="shortcut icon" href="public/icon/favicon.ico" type="image/x-icon" />
 
 	<link rel="stylesheet" href="public/themes/vue.css">
-	<!-- <link rel="stylesheet" href="public/themes/dark.css"> -->
-	<!-- <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css"> -->
+	
 	<link rel="stylesheet" href="public/themes/gitalk.css">
 
 	<style>
@@ -188,54 +187,32 @@
 			]
 		}
 	</script>
+	<script type="text/javascript" src="public/docsify.min.js" ></script>
+
+	<!-- gitalk评论插件 -->
+	<script async defer type="text/javascript" src="public/plugins/components/gitalk.min.js"></script>
+	<script async defer type="text/javascript" src="public/plugins/components/docsify.gitalk.js"></script>
 
 	<!--
 	<script type="text/javascript" src="public/plugins/components/jquery3.2.1.js"></script>
 	-->
 	
-	<script defer type="text/javascript" src="public/docsify.min.js"></script>
-	<script defer type="text/javascript" src="public/plugins/search.min.js"></script>
-	<script defer type="text/javascript" src="public/plugins/ga.min.js"></script>
+	<script async defer type="text/javascript" src="public/plugins/search.min.js"></script>
+	<script async defer type="text/javascript" src="public/plugins/ga.min.js"></script>
 	<!-- 语言高亮 -->
-	<script defer type="text/javascript" src="public/plugins/components/prism-javascript.min.js"></script>
-	<script defer type="text/javascript" src="public/plugins/components/prism-bash.min.js"></script>
-	<script defer type="text/javascript" src="public/plugins/components/prism-markdown.min.js"></script>
+	<script async defer type="text/javascript" src="public/plugins/components/prism-javascript.min.js"></script>
+	<script async defer type="text/javascript" src="public/plugins/components/prism-bash.min.js"></script>
+	<script async defer type="text/javascript" src="public/plugins/components/prism-markdown.min.js"></script>
 
 	<!-- 引入图片缩放 -->
-	<script type="text/javascript" src="public/plugins/components/zoom-image-cdn.js" defer ></script>
-	<script type="text/javascript" src="public/plugins/components/emoji.js" defer ></script>
+	<script async defer type="text/javascript" src="public/plugins/components/zoom-image-cdn.js"></script>
+	<script async defer type="text/javascript" src="public/plugins/components/emoji.js"></script>
 	<!-- 复制到剪切板 -->
-	<script type="text/javascript" src="public/plugins/docsify-copy-code.min.js" defer ></script>
+	<script async defer type="text/javascript" src="public/plugins/docsify-copy-code.min.js"></script>
 	<!-- 点击红心效果 -->
-	<script type="text/javascript" src="public/plugins/components/love-click.min.js"></script>
+	<script async defer type="text/javascript" src="public/plugins/components/love-click.min.js"></script>
 
-	<!-- gitalk评论插件 -->
-	<script type="text/javascript" src="public/plugins/components/gitalk.min.js" async="false"></script>
-	<script type="text/javascript" src="public/plugins/components/docsify.gitalk.js" async="false"></script>
-	<script type="text/javascript">
-		const gitalk = new Gitalk({
-			clientID: 'fb8d2e2a61f769485c8b',
-			clientSecret: 'f038d906cc7d4d1f4961b2be48602fa06c9f072f',
-			repo: 'developer-note',	// //存储你评论 issue 的 Github 仓库名
-			owner: 'BrucePhoebus',
-			admin: ['BrucePhoebus'],	// 这个仓库的管理员
-			title: decodeURI(window.location.hash.match(/#(.*?)([?]|$)/)[1])
-				+ '问题',
-			distractionFreeMode: false,	// 是否添加全屏遮罩
-			// id: decodeURI(window.location.hash.match(/#(.*?)([?]|$)/)[1]),	// 页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
-			id: decodeURI(window.location.hash.match(/#(.*?)([?]|$)/)[1]) 
-			 + '问题',
-			enableHotKey: true,	// 提交评论快捷键(cmd/ctrl + enter) 
-		})
-		// 监听URL中hash的变化，如果发现换了一个MD文件，那么刷新页面，解决整个网站使用一个gitalk评论issues的问题。
-		/* window.onhashchange = function (event) {
-			if (event.newURL.split('?')[0] !== event.oldURL.split('?')[0]) {
-				window.reload;
-			}
-		} */
-	</script>
-
-	<script defer type="text/javascript">
+	<script async defer type="text/javascript">
 		// 百度统计：统计网站流量
 		var _hmt = _hmt || [];
 		(function () {
@@ -244,6 +221,38 @@
 			var s = document.getElementsByTagName("script")[0];
 			s.parentNode.insertBefore(hm, s);
 		})();
+	</script>
+
+	<script type="text/javascript">
+		function initGitalk() {
+			const gitalk = new Gitalk({
+				clientID: 'fb8d2e2a61f769485c8b',
+				clientSecret: 'f038d906cc7d4d1f4961b2be48602fa06c9f072f',
+				repo: 'developer-note',	// //存储你评论 issue 的 Github 仓库名
+				owner: 'BrucePhoebus',
+				admin: ['BrucePhoebus'],	// 这个仓库的管理员
+				title: decodeURI(window.location.hash.match(/#(.*?)([?]|$)/)[1])
+					+ '问题',
+				distractionFreeMode: false,	// 是否添加全屏遮罩
+				// id: decodeURI(window.location.hash.match(/#(.*?)([?]|$)/)[1]),	// 页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
+				id: decodeURI(window.location.hash.match(/#(.*?)([?]|$)/)[1])
+					+ '问题',
+				enableHotKey: true,	// 提交评论快捷键(cmd/ctrl + enter) 
+			})
+			// 监听URL中hash的变化，如果发现换了一个MD文件，那么刷新页面，解决整个网站使用一个gitalk评论issues的问题。
+		/* window.onhashchange = function (event) {
+			if (event.newURL.split('?')[0] !== event.oldURL.split('?')[0]) {
+				window.reload;
+			}
+		} */
+		}
+		if (window.addEventListener) {
+			window.addEventListener("load", initGitalk, false);
+		} else if (window.attachEvent) {
+			window.attachEvent("onload", initGitalk);
+		} else {
+			window.onload = initGitalk;
+		} 
 	</script>
 
 </body>
