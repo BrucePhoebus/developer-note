@@ -188,8 +188,7 @@
 					hook.doneEach(function () {
 						if (window.title_id !== window.location.hash.match(/#(.*?)([?]|$)/)[1]) {
 							window.title_id = window.location.hash.match(/#(.*?)([?]|$)/)[1];
-							console.log(decodeURI(window.title_id))
-							document.URL = window.location.href;
+							window.reload;
 						}
 					})
 				}
@@ -218,6 +217,26 @@
 	<!-- 点击红心效果 -->
 	<script async defer type="text/javascript" src="public/plugins/components/love-click.min.js"></script>
 
+	<!-- MD5加密 -->
+	<script type="text/javascript" src="public/plugins/components/md5.min.js"></script>
+
+	<script type="text/javascript" src="public/plugins/components/gitalk.min.js"></script>
+	<script type="text/javascript">
+		window.title_id = '/';
+		const gitalk = new Gitalk({
+			clientID: 'fb8d2e2a61f769485c8b',
+			clientSecret: 'f038d906cc7d4d1f4961b2be48602fa06c9f072f',
+			repo: 'developer-note',	// //存储你评论 issue 的 Github 仓库名
+			owner: 'BrucePhoebus',
+			admin: ['BrucePhoebus'],	// 这个仓库的管理员
+			title: decodeURI(window.title_id || window.location.hash.match(/#(.*?)([?]|$)/)[1] || '/'),
+			distractionFreeMode: false,	// 是否添加全屏遮罩
+			id: md5(window.location.hash),	// 页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
+			enableHotKey: true,	// 提交评论快捷键(cmd/ctrl + enter) 
+		})
+	</script>
+	<script type="text/javascript" src="public/plugins/components/docsify.gitalk.js"></script>
+
 	<script async defer type="text/javascript">
 		// 百度统计：统计网站流量
 		var _hmt = _hmt || [];
@@ -228,25 +247,6 @@
 			s.parentNode.insertBefore(hm, s);
 		})();
 	</script>
-
-	<!-- MD5加密 -->
-	<script type="text/javascript" src="public/plugins/components/md5.min.js"></script>
-
-	<script type="text/javascript" src="public/plugins/components/gitalk.min.js"></script>
-	<script type="text/javascript">
-		const gitalk = new Gitalk({
-			clientID: 'fb8d2e2a61f769485c8b',
-			clientSecret: 'f038d906cc7d4d1f4961b2be48602fa06c9f072f',
-			repo: 'developer-note',	// //存储你评论 issue 的 Github 仓库名
-			owner: 'BrucePhoebus',
-			admin: ['BrucePhoebus'],	// 这个仓库的管理员
-			title: decodeURI(window.title_id || window.location.hash.match(/#(.*?)([?]|$)/)[1]),
-			distractionFreeMode: false,	// 是否添加全屏遮罩
-			id: md5(window.title_id || window.location.hash.match(/#(.*?)([?]|$)/)[1]),	// 页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
-			enableHotKey: true,	// 提交评论快捷键(cmd/ctrl + enter) 
-		})
-	</script>
-	<script type="text/javascript" src="public/plugins/components/docsify.gitalk.js"></script>
 
 </body>
 
