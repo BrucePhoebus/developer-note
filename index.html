@@ -238,7 +238,6 @@
 
 		window.onhashchange = function (event) {
 			if (event.newURL.split('?')[0] !== event.oldURL.split('?')[0]) {
-				window.title_Id = window.location.hash.match(/#(.*?)([?]|$)/).length > 0 ? window.location.hash.match(/#(.*?)([?]|$)/)[1] : '/';
 				window.reload;
 			}
 		}
