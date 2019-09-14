@@ -2,7 +2,7 @@
  * @Description: 为博客添加 Gitalk 评论插件
  * @Date: 2019-09-04 15:17:58
  * @LastEditors: phoebus
- * @LastEditTime: 2019-09-15 02:35:04
+ * @LastEditTime: 2019-09-15 03:01:08
  -->
 # 为博客添加 Gitalk 评论插件
 
@@ -236,10 +236,9 @@ window.$docsify = {
 		function (hook, vm) {
 			hook.doneEach(function () {
 				if (window.title_id !== window.location.hash.match(/#(.*?)([?]|$)/)[1]) {
-					window.title_id = window.location.hash.match(/#(.*?)([?]|$)/)[1];
-					console.log(decodeURI(window.title_id));
 					window.reload;
 				}
+				window.title_id = window.location.hash.match(/#(.*?)([?]|$)/)[1];
 			})
 		}
 	]
@@ -250,22 +249,25 @@ window.$docsify = {
 
 	1. 基本是文章不变的标识并且ID长度不大于50字符就行
 
-	2. 所以我这里直接使用MD5加密转成低于一定程度的ID长度，如果是''ID就统一放置一个issue
+	2. 所以我这里直接使用MD5加密转成低于一定程度的ID长度，如果是空ID就统一放置一个issue
 
 ``` js
-window.title_id = '/';
+// title_id需要初始化
+window.title_id = window.location.hash.match(/#(.*?)([?]|$)/) ? window.location.hash.match(/#(.*?)([?]|$)/)[1] : '/';
 const gitalk = new Gitalk({
 	clientID: 'fb8d2e2a61f769485c8b',
 	clientSecret: 'f038d906cc7d4d1f4961b2be48602fa06c9f072f',
 	repo: 'developer-note',	// //存储你评论 issue 的 Github 仓库名
 	owner: 'BrucePhoebus',
 	admin: ['BrucePhoebus'],	// 这个仓库的管理员
-	title: decodeURI(window.title_id || window.location.hash.match(/#(.*?)([?]|$)/)[1]),
+	title: decodeURI(window.title_id),
 	distractionFreeMode: false,	// 是否添加全屏遮罩
 	id: md5(window.location.hash),	// 页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
 	enableHotKey: true,	// 提交评论快捷键(cmd/ctrl + enter) 
 })
 ```
+
+> 虽然有时不会刷新，但是总体上还是可以达到大致的效果，具体有些页面切换刷新但是ID不变的问题还需要重新理解
 
 ## 最后
 
