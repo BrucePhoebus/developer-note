@@ -2,7 +2,7 @@
  * @Description: 为博客添加 Gitalk 评论插件
  * @Date: 2019-09-04 15:17:58
  * @LastEditors: phoebus
- * @LastEditTime: 2019-09-15 03:01:08
+ * @LastEditTime: 2019-09-15 10:36:15
  -->
 # 为博客添加 Gitalk 评论插件
 
@@ -214,7 +214,7 @@ enableHotKey：类型：布尔值，选填，启用快捷键(cmd/ctrl + enter)�
 
 **问题分析**
 
-* 生成的issue的位置乱七八糟，预估的id绑定错误的问题，每次生成issue的时候都是根据传入的唯一ID判断的、
+* 生成的issue的位置乱七八糟，预估的id绑定错误的问题，每次生成issue的时候都是根据传入的唯一ID判断的
 
 * 但是经过多次测试发现，docsify因为路由管理，切换页面的时候是页面局部刷新，所以无法重新实例化gitalk，并且ID不会自动更新，也就是即使重新实例化也只会对应一个issue
 

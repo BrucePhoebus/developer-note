@@ -2,7 +2,7 @@
  * @Description: 如何生成多个ssh
  * @Date: 2019-09-06 11:36:23
  * @LastEditors: phoebus
- * @LastEditTime: 2019-09-06 11:52:59
+ * @LastEditTime: 2019-09-21 18:39:26
  -->
 # 如何生成多个ssh
 
@@ -34,7 +34,7 @@ ssh-keygen -t rsa -C 1634372267@qq.com
 
 ``` bash
 # 执行命令连接github测试
-ssh git@github.com
+ssh -T git@github.com
 ```
 
 > 如果提示成功，就说明我们连接github成功，也就是ssh可用，然后可以进行相关git操作，例如clone项目、pull/push
@@ -43,14 +43,17 @@ ssh git@github.com
 
 ``` bash
 # 进入生成ssh操作
-ssh-keygen -t rsa -C 1634372267@qq.com(这个可以换个)
+ssh-keygen -t rsa -C zheng.yekun@trs.com.cn
 # 输入新的秘钥名：看个人喜欢
-gitee
+trs
 # 不需要输入账号密码
 回车
 回车
 # 然后在 C://Users/xxx(个人window账户名)/.ssh/ 下可以看见多了两个文件
-# 将id_rsa_gitee.pub(新的公钥)打开粘到你想要的平台，可以github，也可以gitee
+# 将trs.pub(新的公钥)打开粘到你想要的平台，可以github，也可以gitee
+# 执行命令连接github测试
+ssh -T git@github.com
+# Hi... 表示验证成功
 ```
 
 > 生成更多秘钥步骤完全一样，自此问题完毕
