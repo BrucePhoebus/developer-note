@@ -2,7 +2,7 @@
  * @Description: 知识笔记目录
  * @Date: 2019-08-05 11:57:02
  * @LastEditors: phoebus
- * @LastEditTime: 2019-09-14 12:38:35
+ * @LastEditTime: 2019-10-22 15:02:45
  -->
 * 开源贡献
 
@@ -78,6 +78,7 @@
 
 			- [HTML基础汇总](知识笔记/大前端/基础/HTML/HTML基础/HTML基础汇总.md)
 			- [HTML5基础汇总](知识笔记/大前端/基础/HTML/HTML5/HTML5基础汇总.md)
+			- [页面跳转的各种方式](知识笔记/大前端/基础/HTML/基础使用技巧/页面跳转的各种方式.md)
 
 	* UI
 

@@ -35,5 +35,11 @@
 		"webkit",
 		"zalgo",
 		"zendesk"
-	]
+	],
+	/** Easy Sass 插件 **/
+	"easysass.formats": [{
+		"format": "compressed", // 压缩
+		"extension": ".css"
+	}],
+	"easysass.targetDir": "./" // 自定义css输出文件路径
 }

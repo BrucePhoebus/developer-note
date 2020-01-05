@@ -1,4 +1,10 @@
-# 常用git命令
+<!--
+ * @Description: git基本语法
+ * @Date: 2019-08-05 11:57:03
+ * @LastEditors: phoebus
+ * @LastEditTime: 2019-09-21 18:15:50
+ -->
+# git基本语法
 
 ## 基础命令
 
