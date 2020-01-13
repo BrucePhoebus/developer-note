@@ -1,8 +1,8 @@
 <!--
  * @Description: 资源积累目录配置
  * @Date: 2019-08-05 11:57:03
- * @LastEditors: phoebus
- * @LastEditTime: 2019-08-27 09:36:27
+ * @LastEditors  : phoebus
+ * @LastEditTime : 2020-01-13 09:49:28
  -->
 * 大前端
 
@@ -25,6 +25,11 @@
 	* [翻墙工具下载](资源积累/工具/翻墙/翻墙工具下载.md)
 
 	* [54Helper开发工具集成和Google访问助手](资源积累/工具/翻墙/54Helper开发工具集成和Google访问助手.md)
+
+	* 数据库
+
+		* [MySQL80安装](资源积累/工具/数据库/mysql/MySQL80安装.md)
+
 
 
 
