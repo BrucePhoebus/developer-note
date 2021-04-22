@@ -1,6 +1,10 @@
 {
 	"fileheader.customMade": {
-		"tags": "",
+		"Description": "", // 描述
+		"Date": "Do not edit", // 文件创建时间(不变)
+		"LastEditors": "郑烨锟", // 文件最后编辑者
+		"LastEditTime": "Do not edit", // 文件最后编辑时间
+		"tags": "\t\n - " // 标签
 	},
 	"cSpell.words": [
 		"emojipedia",
