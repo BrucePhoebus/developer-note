@@ -2,7 +2,7 @@
  * @Description: 实现Promise
  * @Date: 2021-05-08 00:41:55
  * @LastEditors: 郑烨锟
- * @LastEditTime: 2021-05-08 01:28:09
+ * @LastEditTime: 2021-05-08 01:38:37
 */
 // 首先定义三个状态常量
 const PENDING = 'pending';
@@ -21,12 +21,16 @@ class newPromise {
 		this.success = null;
 		// reject失败存储的异常信息
 		this.fail = null;
+		// 存储异步回调函数，解决异步执行问题
+		this.onFulfilledCallback = [];
+		this.onRejectedCallback = [];
 
 		// 定义resolve函数
 		const resolve = value => {
 			if (this.state === PENDING) {
 				this.success = value;
 				this.state = FULFILLED;
+				this.onFulfilledCallback.map(fn => fn());
 			}
 		}
 
@@ -35,6 +39,7 @@ class newPromise {
 			if (this.state === PENDING) {
 				this.fail = value;
 				this.state = REJECTED;
+				this.onRejectedCallback.map(fn => fn());
 			}
 		}
 
@@ -47,6 +52,14 @@ class newPromise {
 	}
 
 	then(onFulfilled, onRejected) {
+		if (this.state === PENDING) {
+			this.onFulfilledCallback.push(() => {
+				onFulfilled(this.success);
+			})
+			this.onRejectedCallback.push(() => {
+				onRejected(this.fail);
+			})
+		}
 		if (this.state === FULFILLED) {
 			onFulfilled(this.success)
     }
@@ -57,7 +70,9 @@ class newPromise {
 }
 
 const mp = new newPromise((resolve, reject)=> {
-	resolve('******* i love you *******');
+	setTimeout(()=> {
+		resolve('******* i love you *******');
+	}, 0)
 })
 mp.then((suc)=> {
 	console.log(11111, suc);
