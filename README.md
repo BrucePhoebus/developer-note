@@ -1,18 +1,14 @@
 <!--
  * @Description: 简单的项目描述，引导读者
  * @Date: 2019-08-05 11:57:02
- * @LastEditors: phoebus
- * @LastEditTime: 2019-08-28 14:20:42
+ * @LastEditors: 郑烨锟
+ * @LastEditTime: 2021-06-11 11:55:17
  -->
 # 项目说明
 
 ## 项目概述
 
 > [在线地址](https://brucephoebus.github.io/developer-note/)
-
-#### 关于作者
-
-> [GitHub](https://github.com/BrucePhoebus) | [作者简历](项目笔记/关于作者/我的简历.md)
 
 #### 写当前项目的原因
 
