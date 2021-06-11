@@ -8,7 +8,7 @@
     "summary": "book sm"
   },
   "dependencies": {
-    "docsify": "^4.9.4",
+    "docsify": "^4.12.0",
     "docsify-cli": "^4.3.0"
   },
   "keywords": [
